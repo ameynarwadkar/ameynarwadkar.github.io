@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body { margin: 0; font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #333; }
+    #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
     header { background: #1b1f23; color: white; padding: 4rem 1rem; text-align: center; }
     header h1 { margin: 0 0 0.5rem; font-size: 3rem; }
     header p { margin: 0; font-size: 1.25rem; }
@@ -20,6 +21,7 @@
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
   <header>
     <h1>Amey Narwadkar</h1>
     <p>AI Enthusiast & Mathematics Graduate</p>
@@ -48,5 +50,19 @@
   <footer>
     &copy; 2025 Amey Narwadkar
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60 },
+        size: { value: 3 },
+        color: { value: '#ffffff' },
+        line_linked: { enable: true, color: '#ffffff' }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: 'repulse' } }
+      }
+    });
+  </script>
 </body>
 </html>
