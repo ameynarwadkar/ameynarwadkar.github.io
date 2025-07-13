@@ -1,10 +1,13 @@
 // Portfolio Website Interactive Features
 
-document.addEventListener('DOMContentLoaded', function() {
+// Wait for both DOM and particles.js to be ready
+function initializePortfolio() {
     // Check if particles.js is loaded, if not, continue without it
     if (typeof particlesJS !== 'undefined') {
+        console.log('Particles.js loaded successfully, initializing particles');
         // Enhanced Particles.js configuration with better interactivity
-        particlesJS('particles-js', {
+        try {
+            particlesJS('particles-js', {
             particles: {
                 number: {
                     value: 100,
@@ -104,8 +107,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             },
-            retina_detect: true
-        });
+            retina_detect: true            });
+        } catch (error) {
+            console.error('Error initializing particles.js:', error);
+        }
     } else {
         console.log('Particles.js not loaded, adding fallback background');
         // Add a fallback animated background using CSS
@@ -293,7 +298,14 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Thank you for your message! I will get back to you soon.');
         });
     }
-});
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePortfolio);
+} else {
+    initializePortfolio();
+}
 
 // Add additional CSS for ripple effect
 const style = document.createElement('style');

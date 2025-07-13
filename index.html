@@ -304,20 +304,49 @@
     </div>
   </footer>
 
-  <!-- Particles.js with fallback -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" 
-          onerror="console.log('CDN particles.js failed, using fallback')"></script>
+  <!-- Particles.js with multiple CDN fallbacks -->
   <script>
-    // Fallback particles.js loader
-    if (typeof particlesJS === 'undefined') {
+    // Function to load portfolio script
+    function loadPortfolioScript() {
       const script = document.createElement('script');
-      script.src = 'particles.js-master/particles.min.js';
-      script.onerror = function() {
-        console.log('Local particles.js also failed, continuing without particles');
-      };
+      script.src = 'assets/js/portfolio.js';
       document.head.appendChild(script);
     }
+
+    // Try loading particles.js from primary CDN
+    const primaryScript = document.createElement('script');
+    primaryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
+    primaryScript.onload = function() {
+      console.log('Particles.js loaded from primary CDN');
+      loadPortfolioScript();
+    };
+    primaryScript.onerror = function() {
+      console.log('Primary CDN failed, trying secondary CDN');
+      // Try secondary CDN
+      const secondaryScript = document.createElement('script');
+      secondaryScript.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
+      secondaryScript.onload = function() {
+        console.log('Particles.js loaded from secondary CDN');
+        loadPortfolioScript();
+      };
+      secondaryScript.onerror = function() {
+        console.log('Secondary CDN failed, trying local file');
+        // Try local file
+        const localScript = document.createElement('script');
+        localScript.src = 'particles.js-master/particles.min.js';
+        localScript.onload = function() {
+          console.log('Particles.js loaded from local file');
+          loadPortfolioScript();
+        };
+        localScript.onerror = function() {
+          console.log('All particles.js sources failed, continuing without particles');
+          loadPortfolioScript();
+        };
+        document.head.appendChild(localScript);
+      };
+      document.head.appendChild(secondaryScript);
+    };
+    document.head.appendChild(primaryScript);
   </script>
-  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>
