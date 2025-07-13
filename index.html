@@ -304,8 +304,20 @@
     </div>
   </footer>
 
-  <!-- Particles.js -->
-  <script src="particles.js-master/particles.min.js"></script>
+  <!-- Particles.js with fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" 
+          onerror="console.log('CDN particles.js failed, using fallback')"></script>
+  <script>
+    // Fallback particles.js loader
+    if (typeof particlesJS === 'undefined') {
+      const script = document.createElement('script');
+      script.src = 'particles.js-master/particles.min.js';
+      script.onerror = function() {
+        console.log('Local particles.js also failed, continuing without particles');
+      };
+      document.head.appendChild(script);
+    }
+  </script>
   <script src="assets/js/portfolio.js"></script>
 </body>
 </html>

@@ -1,110 +1,121 @@
 // Portfolio Website Interactive Features
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Enhanced Particles.js configuration with better interactivity
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: 100,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: ['#ffffff', '#667eea', '#764ba2']
-            },
-            shape: {
-                type: ['circle', 'triangle'],
-                stroke: {
-                    width: 0,
-                    color: '#000000'
-                }
-            },
-            opacity: {
-                value: 0.6,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 1,
-                    opacity_min: 0.1,
-                    sync: false
-                }
-            },
-            size: {
-                value: 4,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 20,
-                    size_min: 0.1,
-                    sync: false
-                }
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: '#ffffff',
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 3,
-                direction: 'none',
-                random: true,
-                straight: false,
-                out_mode: 'out',
-                bounce: false,
-                attract: {
-                    enable: true,
-                    rotateX: 600,
-                    rotateY: 1200
-                }
-            }
-        },
-        interactivity: {
-            detect_on: 'canvas',
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: ['grab', 'bubble']
-                },
-                onclick: {
-                    enable: true,
-                    mode: 'push'
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 200,
-                    line_linked: {
-                        opacity: 1
+    // Check if particles.js is loaded, if not, continue without it
+    if (typeof particlesJS !== 'undefined') {
+        // Enhanced Particles.js configuration with better interactivity
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
                     }
                 },
-                bubble: {
-                    distance: 250,
-                    size: 8,
-                    duration: 2,
-                    opacity: 0.8,
-                    speed: 3
+                color: {
+                    value: ['#ffffff', '#667eea', '#764ba2']
                 },
-                repulse: {
-                    distance: 300,
-                    duration: 0.4
+                shape: {
+                    type: ['circle', 'triangle'],
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
                 },
-                push: {
-                    particles_nb: 6
+                opacity: {
+                    value: 0.6,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
                 },
-                remove: {
-                    particles_nb: 2
+                size: {
+                    value: 4,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 20,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
                 }
-            }
-        },
-        retina_detect: true
-    });
-
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: ['grab', 'bubble']
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 250,
+                        size: 8,
+                        duration: 2,
+                        opacity: 0.8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 300,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 6
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    } else {
+        console.log('Particles.js not loaded, adding fallback background');
+        // Add a fallback animated background using CSS
+        const particlesContainer = document.getElementById('particles-js');
+        if (particlesContainer) {
+            particlesContainer.style.background = 'linear-gradient(-45deg, #667eea, #764ba2, #667eea, #764ba2)';
+            particlesContainer.style.backgroundSize = '400% 400%';
+            particlesContainer.style.animation = 'gradientShift 15s ease infinite';
+        }
+    }
     // Enhanced scroll animations
     const observerOptions = {
         threshold: 0.1,
