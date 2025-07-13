@@ -3,50 +3,309 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amey Narwadkar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body { margin: 0; font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #333; }
-    header { background: #1b1f23; color: white; padding: 4rem 1rem; text-align: center; }
-    header h1 { margin: 0 0 0.5rem; font-size: 3rem; }
-    header p { margin: 0; font-size: 1.25rem; }
-    nav { background: #fff; border-bottom: 1px solid #ddd; }
-    nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
-    nav li { margin: 0 1rem; }
-    nav a { color: #0366d6; text-decoration: none; font-weight: 600; }
-    .content { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-    footer { text-align: center; padding: 2rem 0; color: #666; font-size: 0.875rem; }
-    .social a { margin: 0 0.5rem; color: #0366d6; text-decoration: none; font-size: 1.5rem; }
-  </style>
+  <title>Amey Narwadkar - AI Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body>
-  <header>
-    <h1>Amey Narwadkar</h1>
-    <p>AI Enthusiast & Mathematics Graduate</p>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/amey-narwadkar-474332231/">LinkedIn</a>
-      <a href="https://github.com/ameynarwadkar">GitHub</a>
-      <a href="https://www.kaggle.com/ameynarwadkar">Kaggle</a>
-    </div>
-  </header>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation -->
   <nav>
-    <ul>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="container">
+      <div class="logo">Amey Narwadkar</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
   </nav>
-  <div class="content">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://github.com/ameynarwadkar/Tennis-Analysis-System">Tennis Analysis System</a></li>
-      <li><a href="https://github.com/ameynarwadkar/Stable-Diff-Model">Text to Image Generation</a></li>
-      <li><a href="https://ameynarwadkar.github.io/FoodChatbot/">Food Ordering Chatbot</a></li>
-      <li><a href="https://github.com/ameynarwadkar/sentiment-trading-bot">AI Trading Bot</a></li>
-      <li><a href="https://github.com/ameynarwadkar/ML-algorithms-from-scratch">ML Algorithms from Scratch</a></li>
-    </ul>
-  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Amey Narwadkar</h1>
+      <p class="subtitle">AI Enthusiast & Mathematics Graduate</p>
+      <p class="description">Passionate about artificial intelligence, machine learning, and creating innovative solutions that bridge mathematics and technology.</p>
+      
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/amey-narwadkar-474332231/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/ameynarwadkar" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.kaggle.com/ameynarwadkar" target="_blank" title="Kaggle">
+          <i class="fab fa-kaggle"></i>
+        </a>
+      </div>
+      
+      <a href="#projects" class="cta-button">View My Work</a>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title slide-up">Featured Projects</h2>
+      
+      <div class="projects-grid">
+        <div class="project-card slide-up">
+          <img src="images/tennis.jpg" alt="Tennis Analysis System" class="project-image">
+          <div class="project-content">
+            <h3>Tennis Analysis System</h3>
+            <p>Advanced computer vision system for analyzing tennis matches, tracking player movements, and providing performance insights using machine learning algorithms.</p>
+            <a href="https://github.com/ameynarwadkar/Tennis-Analysis-System" class="project-link" target="_blank">
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card slide-up">
+          <img src="images/stablediff.png" alt="Text to Image Generation" class="project-image">
+          <div class="project-content">
+            <h3>Text to Image Generation</h3>
+            <p>Implementation of stable diffusion model for generating high-quality images from text descriptions using deep learning and neural networks.</p>
+            <a href="https://github.com/ameynarwadkar/Stable-Diff-Model" class="project-link" target="_blank">
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card slide-up">
+          <img src="images/foodchatbot.jpg" alt="Food Ordering Chatbot" class="project-image">
+          <div class="project-content">
+            <h3>Food Ordering Chatbot</h3>
+            <p>Intelligent conversational AI for food ordering with natural language processing, order management, and seamless user experience.</p>
+            <a href="https://ameynarwadkar.github.io/FoodChatbot/" class="project-link" target="_blank">
+              View Live Demo <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card slide-up">
+          <img src="images/ai-trading.jpg" alt="AI Trading Bot" class="project-image">
+          <div class="project-content">
+            <h3>AI Trading Bot</h3>
+            <p>Sentiment-based trading algorithm that analyzes market sentiment and news data to make automated trading decisions using machine learning.</p>
+            <a href="https://github.com/ameynarwadkar/sentiment-trading-bot" class="project-link" target="_blank">
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card slide-up">
+          <img src="images/decision_tree.jpg" alt="ML Algorithms from Scratch" class="project-image">
+          <div class="project-content">
+            <h3>ML Algorithms from Scratch</h3>
+            <p>Implementation of fundamental machine learning algorithms from scratch using Python, demonstrating deep understanding of mathematical concepts.</p>
+            <a href="https://github.com/ameynarwadkar/ML-algorithms-from-scratch" class="project-link" target="_blank">
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="education">
+    <div class="container">
+      <h2 class="section-title slide-up">Education</h2>
+      
+      <div class="education-timeline">
+        <div class="education-item slide-up">
+          <div class="education-content">
+            <div class="education-header">
+              <h3>Master's in Scientific Computing</h3>
+              <div class="education-institution">Universität Heidelberg, Germany</div>
+              <div class="education-period">2024 - Present</div>
+            </div>
+            <p class="education-description">Currently pursuing advanced studies in Scientific Computing, focusing on Advanced methods in AI, efficient methods in NLP, Advanced applied mathematics, and Computer vision.</p>
+            <div class="education-highlights">
+              <span class="highlight-tag">Advanced AI Methods</span>
+              <span class="highlight-tag">Efficient NLP</span>
+              <span class="highlight-tag">Mathematical Optimization</span>
+              <span class="highlight-tag">Computer Vision</span>
+            </div>
+          </div>
+          <div class="education-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+        </div>
+
+        <div class="education-item slide-up">
+          <div class="education-content">
+            <div class="education-header">
+              <h3>Bachelor's in Mathematics</h3>
+              <div class="education-institution">Fergusson College, Pune</div>
+              <div class="education-period">2020 - 2023</div>
+            </div>
+            <p class="education-description">Completed undergraduate studies in Mathematics, building a strong foundation in mathematical concepts, statistical analysis, and problem-solving techniques that support AI and ML applications.</p>
+            <div class="education-highlights">
+              <span class="highlight-tag">Pure Mathematics</span>
+              <span class="highlight-tag">Applied Mathematics</span>
+              <span class="highlight-tag">Statistics</span>
+            </div>
+          </div>
+          <div class="education-icon">
+            <i class="fas fa-university"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title slide-up">Skills & Expertise</h2>
+      
+      <div class="skills-grid">
+        <div class="skill-item slide-up">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="skill-title">
+              <h4>AI Projects & Learning</h4>
+              <div class="skill-category">Practical Experience</div>
+            </div>
+          </div>
+          <p class="skill-description">Hands-on experience building AI projects including chatbots, computer vision applications, and exploring emerging technologies.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Natural Language Processing</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Generative AI</span>
+            <span class="skill-tag">Conversational AI</span>
+            <span class="skill-tag">Image Generation</span>
+            <span class="skill-tag">Sentiment Analysis</span>
+          </div>
+        </div>
+
+        <div class="skill-item slide-up">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <div class="skill-title">
+              <h4>Python Programming</h4>
+              <div class="skill-category">Programming</div>
+            </div>
+          </div>
+          <p class="skill-description">Solid Python programming skills with experience in data manipulation, analysis, and basic machine learning implementations.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Seaborn</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Flask</span>
+          </div>
+        </div>
+
+        <div class="skill-item slide-up">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="skill-title">
+              <h4>Machine Learning Fundamentals</h4>
+              <div class="skill-category">AI/ML</div>
+            </div>
+          </div>
+          <p class="skill-description">Understanding of machine learning concepts, algorithms, and frameworks with experience in building basic models and computer vision projects.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Hugging Face</span>
+          </div>
+        </div>
+
+        <div class="skill-item slide-up">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="skill-title">
+              <h4>Mathematical Foundation</h4>
+              <div class="skill-category">Core Knowledge</div>
+            </div>
+          </div>
+          <p class="skill-description">Strong mathematical background from my degree in Mathematics, providing a solid foundation for understanding AI and ML concepts.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Linear Algebra</span>
+            <span class="skill-tag">Statistics</span>
+            <span class="skill-tag">Probability</span>
+            <span class="skill-tag">Calculus</span>
+            <span class="skill-tag">Optimization</span>
+            <span class="skill-tag">Discrete Math</span>
+          </div>
+        </div>
+
+        <div class="skill-item slide-up">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="skill-title">
+              <h4>Development Tools</h4>
+              <div class="skill-category">Technical Skills</div>
+            </div>
+          </div>
+          <p class="skill-description">Familiar with essential development tools and environments commonly used in data science and machine learning projects.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Google Colab</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-item slide-up">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="skill-title">
+              <h4>Data Analysis & Visualization</h4>
+              <div class="skill-category">Analytics</div>
+            </div>
+          </div>
+          <p class="skill-description">Experience in exploring datasets, creating visualizations, and extracting insights from data using various analytical tools.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Seaborn</span>
+            <span class="skill-tag">Plotly</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Excel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Amey Narwadkar
+    <div class="container">
+      <p>&copy; 2025 Amey Narwadkar. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- Particles.js -->
+  <script src="particles.js-master/particles.min.js"></script>
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>
