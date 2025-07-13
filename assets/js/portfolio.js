@@ -205,13 +205,15 @@ function initializePortfolio() {
         const scrolled = window.scrollY;
         
         if (scrolled > 100) {
-            nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            nav.style.background = 'rgba(15, 23, 42, 0.98)';
             nav.style.backdropFilter = 'blur(10px)';
-            nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+            nav.style.borderBottom = '1px solid rgba(34, 197, 94, 0.3)';
         } else {
-            nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            nav.style.background = 'rgba(15, 23, 42, 0.95)';
             nav.style.backdropFilter = 'blur(5px)';
             nav.style.boxShadow = 'none';
+            nav.style.borderBottom = '1px solid rgba(34, 197, 94, 0.2)';
         }
 
         // Parallax effect for skills section

@@ -6,279 +6,12 @@
   <title>About - Amey Narwadkar</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f8f9fa;
-    }
-
-    /* Navigation */
-    nav {
-      background: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 1rem 0;
-    }
-
-    nav .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #667eea;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #667eea;
-    }
-
-    /* Header */
-    .header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 100px 0 80px;
-      text-align: center;
-    }
-
-    .header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    /* Content */
-    .content {
-      max-width: 1000px;
-      margin: -50px auto 0;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-card {
-      background: white;
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      margin-bottom: 3rem;
-    }
-
-    .about-intro {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      align-items: center;
-      margin-bottom: 3rem;
-    }
-
-    .profile-image {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: white;
-      font-weight: 700;
-    }
-
-    .intro-text h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #333;
-    }
-
-    .intro-text p {
-      font-size: 1.1rem;
-      color: #666;
-      line-height: 1.8;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: 2rem;
-      background: #f8f9fa;
-      border-radius: 15px;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #667eea;
-      display: block;
-    }
-
-    .stat-label {
-      color: #666;
-      margin-top: 0.5rem;
-      font-weight: 500;
-    }
-
-    .education-section {
-      margin: 3rem 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #333;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .section-title i {
-      color: #667eea;
-    }
-
-    .education-item {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 15px;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid #667eea;
-    }
-
-    .education-item h4 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-
-    .education-item .institution {
-      color: #667eea;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .education-item .year {
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    .interests-section {
-      margin: 3rem 0;
-    }
-
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .interest-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem;
-      background: #f8f9fa;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .interest-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .interest-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-    }
-
-    /* Footer */
-    footer {
-      background: #1a1a1a;
-      color: white;
-      text-align: center;
-      padding: 3rem 0;
-      margin-top: 5rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .about-intro {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .profile-image {
-        justify-self: center;
-      }
-
-      .header h1 {
-        font-size: 2rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      nav .container {
-        padding: 0 1rem;
-      }
-
-      nav ul {
-        gap: 1rem;
-      }
-
-      .about-card {
-        padding: 2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/portfolio.css?v=2">
 </head>
 <body>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
   <!-- Navigation -->
   <nav>
     <div class="container">
@@ -286,6 +19,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#education">Education</a></li>
         <li><a href="index.html#skills">Skills</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -304,7 +38,7 @@
     <div class="about-card">
       <div class="about-intro">
         <div class="profile-image">
-          AN
+          <img src="images/me.jpg" alt="Amey Narwadkar" class="profile-img">
         </div>
         <div class="intro-text">
           <h2>Hello, I'm Amey!</h2>
@@ -414,5 +148,50 @@
       <p>&copy; 2025 Amey Narwadkar. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Particles.js with multiple CDN fallbacks -->
+  <script>
+    // Function to load portfolio script
+    function loadPortfolioScript() {
+      const script = document.createElement('script');
+      script.src = 'assets/js/portfolio.js';
+      document.head.appendChild(script);
+    }
+
+    // Try loading particles.js from primary CDN
+    const primaryScript = document.createElement('script');
+    primaryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
+    primaryScript.onload = function() {
+      console.log('Particles.js loaded from primary CDN');
+      loadPortfolioScript();
+    };
+    primaryScript.onerror = function() {
+      console.log('Primary CDN failed, trying secondary CDN');
+      // Try secondary CDN
+      const secondaryScript = document.createElement('script');
+      secondaryScript.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
+      secondaryScript.onload = function() {
+        console.log('Particles.js loaded from secondary CDN');
+        loadPortfolioScript();
+      };
+      secondaryScript.onerror = function() {
+        console.log('Secondary CDN failed, trying local file');
+        // Try local file
+        const localScript = document.createElement('script');
+        localScript.src = 'particles.js-master/particles.min.js';
+        localScript.onload = function() {
+          console.log('Particles.js loaded from local file');
+          loadPortfolioScript();
+        };
+        localScript.onerror = function() {
+          console.log('All particles.js sources failed, continuing without particles');
+          loadPortfolioScript();
+        };
+        document.head.appendChild(localScript);
+      };
+      document.head.appendChild(secondaryScript);
+    };
+    document.head.appendChild(primaryScript);
+  </script>
 </body>
 </html>
