@@ -295,9 +295,84 @@ function initializePortfolio() {
             });
         });
         
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            
+            try {
+                // Submit to FormSubmit
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    submitBtn.style.backgroundColor = '#10b981';
+                    
+                    // Create and show success notification
+                    const notification = document.createElement('div');
+                    notification.className = 'form-notification success';
+                    notification.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Success!</strong>
+                            <p>Thank you for your message! I'll get back to you soon.</p>
+                        </div>
+                    `;
+                    contactForm.parentElement.insertBefore(notification, contactForm);
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button after delay
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.style.backgroundColor = '';
+                        notification.remove();
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Show error message
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed';
+                submitBtn.style.backgroundColor = '#ef4444';
+                
+                // Create and show error notification
+                const notification = document.createElement('div');
+                notification.className = 'form-notification error';
+                notification.innerHTML = `
+                    <i class="fas fa-exclamation-circle"></i>
+                    <div>
+                        <strong>Error!</strong>
+                        <p>Something went wrong. Please try again or email me directly.</p>
+                    </div>
+                `;
+                contactForm.parentElement.insertBefore(notification, contactForm);
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.style.backgroundColor = '';
+                    notification.remove();
+                }, 5000);
+            }
         });
     }
 }
