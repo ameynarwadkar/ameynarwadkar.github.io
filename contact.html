@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/portfolio.css?v=6">
 </head>
+
 <body>
   <!-- Particles Background -->
   <div id="particles-js"></div>
@@ -95,13 +97,14 @@
           Send Message
         </h2>
 
-        <form id="contact-form" class="contact-form" action="https://formsubmit.co/amey.narwadkar1729@gmail.com" method="POST">
+        <form id="contact-form" class="contact-form" action="https://formsubmit.co/6ba4d14e76786e8b41c9347aa19b780f"
+          method="POST">
           <!-- FormSubmit Configuration -->
           <input type="hidden" name="_subject" value="New message from your portfolio website!">
           <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" style="display:none">
           <input type="hidden" name="_template" value="table">
-          
+
           <div class="form-group">
             <label for="name">
               <i class="fas fa-user"></i>
@@ -173,29 +176,29 @@
     // Try loading particles.js from primary CDN
     const primaryScript = document.createElement('script');
     primaryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
-    primaryScript.onload = function() {
+    primaryScript.onload = function () {
       console.log('Particles.js loaded from primary CDN');
       loadPortfolioScript();
     };
-    primaryScript.onerror = function() {
+    primaryScript.onerror = function () {
       console.log('Primary CDN failed, trying secondary CDN');
       // Try secondary CDN
       const secondaryScript = document.createElement('script');
       secondaryScript.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
-      secondaryScript.onload = function() {
+      secondaryScript.onload = function () {
         console.log('Particles.js loaded from secondary CDN');
         loadPortfolioScript();
       };
-      secondaryScript.onerror = function() {
+      secondaryScript.onerror = function () {
         console.log('Secondary CDN failed, trying local file');
         // Try local file
         const localScript = document.createElement('script');
         localScript.src = 'particles.js-master/particles.min.js';
-        localScript.onload = function() {
+        localScript.onload = function () {
           console.log('Particles.js loaded from local file');
           loadPortfolioScript();
         };
-        localScript.onerror = function() {
+        localScript.onerror = function () {
           console.log('All particles.js sources failed, continuing without particles');
           loadPortfolioScript();
         };
@@ -206,4 +209,5 @@
     document.head.appendChild(primaryScript);
   </script>
 </body>
+
 </html>
