@@ -4,412 +4,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amey Narwadkar - AI Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <title>Amey Narwadkar</title>
+  <link rel="stylesheet" href="assets/css/portfolio.css?v=2">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="dark-theme">
+
   <!-- Particles Background -->
-  <div id="particles-js"></div>
+  <div id="particles-js" class="particles-bg"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="container">
-      <div class="logo">Amey Narwadkar</div>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+  <div class="portfolio-wrapper">
+
+    <!-- Hero Section -->
+    <header class="hero-container">
+      <img src="images/me.jpg" class="profile-img" alt="Avatar" />
+      <div class="hero-info">
+        <h1>Hi, I'm Amey Narwadkar</h1>
+        <p class="hero-tagline">Research intern & M.Sc. student building practical AI systems.</p>
+
+        <div class="hero-meta-row">
+          <span class="pill-badge">Open to AI / ML roles</span>
+          <span class="hero-location">📍 Heidelberg, Germany · Remote friendly</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="mailto:amey.narwadkar1729@gmail.com" class="btn-primary">
+            <i data-lucide="mail"></i>
+            Contact me
+          </a>
+          <a href="https://drive.google.com/file/d/13w-FbQRW1J_o3ImvFZ5NiKWoRnTO00FH/view?usp=sharing" target="_blank" rel="noreferrer" class="btn-ghost">
+            <i data-lucide="file-text"></i>
+            View résumé
+          </a>
+          <button class="copy-name-btn" type="button" onclick="navigator.clipboard.writeText('Amey Narwadkar')">
+            <i data-lucide="copy"></i>
+            Copy name
+          </button>
+        </div>
+
+        <div class="command-bar">
+          <span class="neural-nodes"></span>
+          <code class="outlier-text">I love turning math + models into shipped products.</code>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <p class="section-title">About</p>
+      <p class="about-text">
+        I work at the intersection of <strong>machine learning, NLP, and computer vision</strong>, with a strong mathematical
+        background and hands‑on experience taking ideas from paper to working code.
+      </p>
+      <ul class="about-list">
+        <li>Research Intern at NEC Labs Europe, focusing on efficient and reliable ML systems.</li>
+        <li>M.Sc. Scientific Computing student at Universität Heidelberg (AI, NLP, vision, numerical methods).</li>
+        <li>Enjoy building end‑to‑end projects – from data and models to clean UX and deployment.</li>
       </ul>
-    </div>
-  </nav>
+    </section>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Amey Narwadkar</h1>
-      <p class="subtitle">AI Enthusiast & Mathematics Graduate</p>
-      <p class="description">Passionate about artificial intelligence, machine learning, and creating innovative
-        solutions that bridge mathematics and technology.</p>
-
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/amey-narwadkar-474332231/" target="_blank" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/ameynarwadkar" target="_blank" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.kaggle.com/ameynarwadkar" target="_blank" title="Kaggle">
-          <i class="fab fa-kaggle"></i>
-        </a>
-      </div>
-
-      <a href="#projects" class="cta-button">View My Work</a>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="section-title slide-up">Featured Projects</h2>
-
-      <h3 class="subsection-title slide-up">Academic & Research Projects</h3>
-      <div class="projects-grid">
-        <div class="project-card slide-up">
-          <img src="images/charlm_thumbnail.png" alt="CharLM Project" class="project-image">
-          <div class="project-content">
-            <h3>Character-Aware Encoder Under Typos</h3>
-            <p>Character-level language model project exploring text generation and analysis, demonstrating deep
-              understanding of NLP fundamentals.</p>
-            <a href="https://github.com/ameynarwadkar/CharLM" class="project-link" target="_blank">
-              View Project <i class="fas fa-external-link-alt"></i>
-            </a>
+    <!-- Experience Section -->
+    <section class="experience-section">
+      <p class="section-title">Experience</p>
+      <div class="simple-item">
+        <div class="item-main-row">
+          <div class="org-logo">
+            <img src="images/pic02.jpg" alt="NEC Labs Europe" />
           </div>
-        </div>
-
-        <div class="project-card slide-up">
-          <img src="images/effnlp_thumbnail.png" alt="EffNLP Project" class="project-image">
-          <div class="project-content">
-            <h3>Early-Exit Inference for BERT with Exit-Aware Verification</h3>
-            <p>Project focused on efficient NLP techniques, optimizing performance and resource usage in natural
-              language processing tasks.</p>
-            <a href="https://github.com/ameynarwadkar/EffNLP" class="project-link" target="_blank">
-              View Project <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="subsection-title slide-up">Programming Projects</h3>
-      <div class="projects-grid">
-        <div class="project-card slide-up">
-          <img src="images/tennis_thumbnail.png" alt="Tennis Analysis System" class="project-image">
-          <div class="project-content">
-            <h3>Tennis Analysis System</h3>
-            <p>Advanced computer vision system for analyzing tennis matches, tracking player movements, and providing
-              performance insights using machine learning algorithms.</p>
-            <a href="https://github.com/ameynarwadkar/Tennis-Analysis-System" class="project-link" target="_blank">
-              View Project <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card slide-up">
-          <img src="images/stablediff_thumbnail.png" alt="Text to Image Generation" class="project-image">
-          <div class="project-content">
-            <h3>Text to Image Generation</h3>
-            <p>Implementation of stable diffusion model for generating high-quality images from text descriptions using
-              deep learning and neural networks.</p>
-            <a href="https://github.com/ameynarwadkar/Stable-Diff-Model" class="project-link" target="_blank">
-              View Project <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card slide-up">
-          <img src="images/foodchatbot_thumbnail.png" alt="Food Ordering Chatbot" class="project-image">
-          <div class="project-content">
-            <h3>Food Ordering Chatbot</h3>
-            <p>Intelligent conversational AI for food ordering with natural language processing, order management, and
-              seamless user experience.</p>
-            <a href="https://ameynarwadkar.github.io/FoodChatbot/" class="project-link" target="_blank">
-              View Live Demo <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card slide-up">
-          <img src="images/trading_thumbnail.png" alt="AI Trading Bot" class="project-image">
-          <div class="project-content">
-            <h3>AI Trading Bot</h3>
-            <p>Sentiment-based trading algorithm that analyzes market sentiment and news data to make automated trading
-              decisions using machine learning.</p>
-            <a href="https://github.com/ameynarwadkar/sentiment-trading-bot" class="project-link" target="_blank">
-              View Project <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card slide-up">
-          <img src="images/ml_algo_thumbnail.png" alt="ML Algorithms from Scratch" class="project-image">
-          <div class="project-content">
-            <h3>ML Algorithms from Scratch</h3>
-            <p>Implementation of fundamental machine learning algorithms from scratch using Python, demonstrating deep
-              understanding of mathematical concepts.</p>
-            <a href="https://github.com/ameynarwadkar/ML-algorithms-from-scratch" class="project-link" target="_blank">
-              View Project <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="education">
-    <div class="container">
-      <h2 class="section-title slide-up">Education</h2>
-
-      <div class="education-timeline">
-        <div class="education-item slide-up">
-          <div class="education-image">
-            <img src="images/Heidelberg.jpg" alt="Universität Heidelberg" class="university-image">
-          </div>
-          <div class="education-content">
-            <div class="education-header">
-              <h3>
-                <a href="https://www.uni-heidelberg.de/en/study/all-subjects/scientific-computing/scientific-computing-master"
-                  target="_blank" rel="noopener noreferrer">
-                  Master's in Scientific Computing
-                </a>
-              </h3>
-              <div class="education-institution">
-                <a href="https://www.uni-heidelberg.de/en" target="_blank" rel="noopener noreferrer">
-                  Universität Heidelberg, Germany
-                </a>
+          <div class="item-info">
+            <div class="item-header-top">
+              <div class="title-group">
+                <h3>NEC Labs Europe</h3>
+                <span class="org-name">Research Intern | Machine Learning</span>
               </div>
-              <div class="education-period">2024 - Present</div>
+              <span class="item-date">Oct 2025 — Present</span>
             </div>
-            <p class="education-description">Currently pursuing advanced studies in Scientific Computing, focusing on
-              Advanced methods in AI, efficient methods in NLP, Advanced applied mathematics, and Computer vision.</p>
-            <div class="education-highlights">
-              <span class="highlight-tag">Advanced AI Methods</span>
-              <span class="highlight-tag">Efficient NLP</span>
-              <span class="highlight-tag">Mathematical Optimization</span>
-              <span class="highlight-tag">Computer Vision</span>
-            </div>
+            <ul class="exp-bullets">
+              <li>Prototyping and evaluating ML / NLP models for applied research projects.</li>
+              <li>Designing experiments, analysing results, and iterating on model and data choices.</li>
+              <li>Collaborating with researchers and engineers to turn research ideas into reproducible code.</li>
+            </ul>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="education-item slide-up">
-          <div class="education-image">
-            <img src="images/Fergusson.jpg" alt="Fergusson College" class="university-image">
+    <!-- Education Section -->
+    <section class="education-section" style="margin-top: 20px;">
+      <p class="section-title">Education</p>
+      <div class="simple-item">
+        <div class="item-main-row">
+          <div class="org-logo">
+            <img src="images/Heidelberg.jpg" alt="Universität Heidelberg" />
           </div>
-          <div class="education-content">
-            <div class="education-header">
-              <h3>
-                <a href="https://fergusson.edu/b-sc-mathematics/" target="_blank" rel="noopener noreferrer">
-                  Bachelor's in Mathematics
-                </a>
-              </h3>
-              <div class="education-institution">
-                <a href="https://fergusson.edu/" target="_blank" rel="noopener noreferrer">
-                  Fergusson College, Pune
-                </a>
+          <div class="item-info">
+            <div class="item-header-top">
+              <div class="title-group">
+                <h3>Universität Heidelberg, Germany</h3>
+                <span class="org-name">Master's in Scientific Computing</span>
               </div>
-              <div class="education-period">2020 - 2023</div>
+              <span class="item-date">2024 — Present</span>
             </div>
-            <p class="education-description">Completed undergraduate studies in Mathematics, building a strong
-              foundation in mathematical concepts, statistical analysis, and problem-solving techniques that support AI
-              and ML applications.</p>
-            <div class="education-highlights">
-              <span class="highlight-tag">Pure Mathematics</span>
-              <span class="highlight-tag">Applied Mathematics</span>
-              <span class="highlight-tag">Statistics</span>
-            </div>
+            <p class="about-text" style="font-size: 0.85rem; margin-top: 4px;">
+              Focusing on Advanced methods in AI, efficient methods in NLP, Advanced applied mathematics, and Computer
+              vision.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2 class="section-title slide-up">Skills & Expertise</h2>
-
-      <div class="skills-grid">
-        <div class="skill-item slide-up">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-robot"></i>
-            </div>
-            <div class="skill-title">
-              <h4>AI Projects & Learning</h4>
-              <div class="skill-category">Practical Experience</div>
-            </div>
+      <div class="simple-item" style="margin-top: 20px;">
+        <div class="item-main-row">
+          <div class="org-logo">
+            <img src="images/Fergusson.jpg" alt="Fergusson College" />
           </div>
-          <p class="skill-description">Hands-on experience building AI projects including chatbots, computer vision
-            applications, and exploring emerging technologies.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Natural Language Processing</span>
-            <span class="skill-tag">Computer Vision</span>
-            <span class="skill-tag">Generative AI</span>
-            <span class="skill-tag">Conversational AI</span>
-            <span class="skill-tag">Image Generation</span>
-            <span class="skill-tag">Sentiment Analysis</span>
-          </div>
-        </div>
-
-        <div class="skill-item slide-up">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fab fa-python"></i>
+          <div class="item-info">
+            <div class="item-header-top">
+              <div class="title-group">
+                <h3>Fergusson College, Pune</h3>
+                <span class="org-name">Bachelor's in Mathematics</span>
+              </div>
+              <span class="item-date">2020 — 2023</span>
             </div>
-            <div class="skill-title">
-              <h4>Python Programming</h4>
-              <div class="skill-category">Programming</div>
-            </div>
-          </div>
-          <p class="skill-description">Solid Python programming skills with experience in data manipulation, analysis,
-            and basic machine learning implementations.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">Matplotlib</span>
-            <span class="skill-tag">Seaborn</span>
-            <span class="skill-tag">Jupyter</span>
-            <span class="skill-tag">Flask</span>
-          </div>
-        </div>
-
-        <div class="skill-item slide-up">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-brain"></i>
-            </div>
-            <div class="skill-title">
-              <h4>Machine Learning Fundamentals</h4>
-              <div class="skill-category">AI/ML</div>
-            </div>
-          </div>
-          <p class="skill-description">Understanding of machine learning concepts, algorithms, and frameworks with
-            experience in building basic models and computer vision projects.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">Scikit-learn</span>
-            <span class="skill-tag">Keras</span>
-            <span class="skill-tag">OpenCV</span>
-            <span class="skill-tag">Hugging Face</span>
-          </div>
-        </div>
-
-        <div class="skill-item slide-up">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-calculator"></i>
-            </div>
-            <div class="skill-title">
-              <h4>Mathematical Foundation</h4>
-              <div class="skill-category">Core Knowledge</div>
-            </div>
-          </div>
-          <p class="skill-description">Strong mathematical background from my degree in Mathematics, providing a solid
-            foundation for understanding AI and ML concepts.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Linear Algebra</span>
-            <span class="skill-tag">Statistics</span>
-            <span class="skill-tag">Probability</span>
-            <span class="skill-tag">Calculus</span>
-            <span class="skill-tag">Optimization</span>
-            <span class="skill-tag">Discrete Math</span>
-          </div>
-        </div>
-
-        <div class="skill-item slide-up">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <div class="skill-title">
-              <h4>Development Tools</h4>
-              <div class="skill-category">Technical Skills</div>
-            </div>
-          </div>
-          <p class="skill-description">Familiar with essential development tools and environments commonly used in data
-            science and machine learning projects.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Jupyter</span>
-            <span class="skill-tag">Google Colab</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Linux</span>
-          </div>
-        </div>
-
-        <div class="skill-item slide-up">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-chart-bar"></i>
-            </div>
-            <div class="skill-title">
-              <h4>Data Analysis & Visualization</h4>
-              <div class="skill-category">Analytics</div>
-            </div>
-          </div>
-          <p class="skill-description">Experience in exploring datasets, creating visualizations, and extracting
-            insights from data using various analytical tools.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">Matplotlib</span>
-            <span class="skill-tag">Seaborn</span>
-            <span class="skill-tag">Plotly</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Excel</span>
+            <p class="about-text" style="font-size: 0.85rem; margin-top: 4px;">
+              Built a strong foundation in mathematical concepts, statistical analysis, and problem-solving techniques
+              for AI/ML.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Amey Narwadkar. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- Skills Section -->
+    <section class="skill-part">
+      <p class="section-title">Tech Stack</p>
+      <div class="skills-bento-box">
+        <div class="marquee-container">
+          <div class="marquee-content" id="marquee-row-1">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+        <div class="marquee-container">
+          <div class="marquee-content reverse" id="marquee-row-2">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Particles.js with multiple CDN fallbacks -->
-  <script>
-    // Function to load portfolio script
-    function loadPortfolioScript() {
-      const script = document.createElement('script');
-      script.src = 'assets/js/portfolio.js';
-      document.head.appendChild(script);
-    }
+    <!-- Highlights Section -->
+    <section class="highlights-section">
+      <p class="section-title">Why I’m a good fit</p>
+      <div class="highlight-grid">
+        <article class="highlight-card">
+          <h3>Strong research + engineering mix</h3>
+          <p>Comfortable reading papers, implementing ideas, and running clean experiments in Python (PyTorch, TensorFlow, scikit‑learn).</p>
+        </article>
+        <article class="highlight-card">
+          <h3>End‑to‑end ownership</h3>
+          <p>Have built projects from scratch – data pipelines, models, evaluation, and frontends that people can actually use.</p>
+        </article>
+        <article class="highlight-card">
+          <h3>Clear communication</h3>
+          <p>Used to explaining technical work to non‑ML stakeholders through concise docs, visuals, and demos.</p>
+        </article>
+      </div>
+    </section>
 
-    // Try loading particles.js from primary CDN
-    const primaryScript = document.createElement('script');
-    primaryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
-    primaryScript.onload = function () {
-      console.log('Particles.js loaded from primary CDN');
-      loadPortfolioScript();
-    };
-    primaryScript.onerror = function () {
-      console.log('Primary CDN failed, trying secondary CDN');
-      // Try secondary CDN
-      const secondaryScript = document.createElement('script');
-      secondaryScript.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
-      secondaryScript.onload = function () {
-        console.log('Particles.js loaded from secondary CDN');
-        loadPortfolioScript();
-      };
-      secondaryScript.onerror = function () {
-        console.log('Secondary CDN failed, trying local file');
-        // Try local file
-        const localScript = document.createElement('script');
-        localScript.src = 'particles.js-master/particles.min.js';
-        localScript.onload = function () {
-          console.log('Particles.js loaded from local file');
-          loadPortfolioScript();
-        };
-        localScript.onerror = function () {
-          console.log('All particles.js sources failed, continuing without particles');
-          loadPortfolioScript();
-        };
-        document.head.appendChild(localScript);
-      };
-      document.head.appendChild(secondaryScript);
-    };
-    document.head.appendChild(primaryScript);
-  </script>
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <div class="projects-header">
+        <div class="contactt-badge">Proof of Work</div>
+        <h2 class="header-title">Check out my latest work</h2>
+        <p class="header-subtitle">
+          I've worked on a variety of projects, here are some that I like.
+        </p>
+      </div>
+
+      <div class="command-center-box">
+        <div class="search-wrapper">
+          <span class="terminal-prefix">$</span>
+          <input type="text" id="project-search" placeholder="Search projects" />
+        </div>
+        <div class="controls-right">
+          <div class="toggle-pill">
+            <div class="pill-slider major" id="pill-slider"></div>
+            <button class="active" id="btn-major" onclick="setProjectView('major')">Major</button>
+            <button id="btn-fun" onclick="setProjectView('fun')">Fun</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="viewport-grid" id="projects-grid">
+        <!-- Populated via JS -->
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="contact-badge">Contact</div>
+      <h2 class="contact-title">Let's get in touch!</h2>
+      <p class="contact-subtitle">
+        I’m happy to chat about internships, research collaborations, or full‑time ML roles. Best way to reach me is
+        via <a href="mailto:amey.narwadkar1729@gmail.com">email</a> or <a
+          href="https://www.linkedin.com/in/amey-narwadkar-474332231/" target="_blank" rel="noreferrer">LinkedIn</a>.
+      </p>
+    </section>
+
+    <!-- Nav Dock -->
+    <nav class="nav-dock" id="nav-dock">
+    <a href="https://www.linkedin.com/in/amey-narwadkar-474332231/" target="_blank" title="LinkedIn"><i
+          data-lucide="linkedin"></i></a>
+    <a href="https://github.com/ameynarwadkar" target="_blank" title="GitHub"><i data-lucide="github"></i></a>
+    <a href="https://twitter.com/yourusername" title="X">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M18.901 1.153h3.68l-8.04 9.19 9.46 12.504H16.6l-6.03-7.882-6.89 7.882H0l8.59-9.83L-.48 1.153H7.1l5.47 7.21 6.33-7.21zm-1.29 19.385h2.04L6.02 3.475H3.83l13.78 17.063z"/>
+      </svg>
+    </a>      
+    
+    
+    </nav>
+  </div>
+
+  <!-- Scripts -->
+  <!-- tsParticles bundle (provides global tsParticles) -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

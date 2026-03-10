@@ -17,7 +17,7 @@ function initializePortfolio() {
                     }
                 },
                 color: {
-                    value: ['#ffffff', '#667eea', '#764ba2']
+                    value: '#8b5cf6'
                 },
                 shape: {
                     type: ['circle', 'triangle'],
@@ -49,7 +49,7 @@ function initializePortfolio() {
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: '#ffffff',
+                    color: '#8b5cf6',
                     opacity: 0.4,
                     width: 1
                 },

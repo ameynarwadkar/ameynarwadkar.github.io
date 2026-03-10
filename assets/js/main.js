@@ -1,123 +1,177 @@
-/*
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+document.addEventListener("DOMContentLoaded", () => {
+	// 1. Initialize Lucide Icons
+	if (typeof lucide !== 'undefined') {
+		lucide.createIcons();
+	}
 
-(function($) {
-
-	var	$window = $(window),
-		$body = $('body'),
-		$nav = $('#nav');
-
-	// Breakpoints.
-		breakpoints({
-			wide:      [ '961px',  '1880px' ],
-			normal:    [ '961px',  '1620px' ],
-			narrow:    [ '961px',  '1320px' ],
-			narrower:  [ '737px',  '960px'  ],
-			mobile:    [ null,     '736px'  ]
+	// 2. Initialize Particles.js (tsParticles)
+	if (typeof tsParticles !== 'undefined') {
+		tsParticles.load("particles-js", {
+			background: {
+				color: { value: "transparent" },
+			},
+			fpsLimit: 120,
+			interactivity: {
+				events: {
+					onClick: { enable: true, mode: "push" },
+					onHover: { enable: true, mode: "repulse" },
+				},
+				modes: {
+					push: { quantity: 4 },
+					repulse: { distance: 200, duration: 0.4 },
+				},
+			},
+			particles: {
+				color: { value: "#ffffff" },
+				links: {
+					color: "#ffffff",
+					distance: 150,
+					enable: true,
+					opacity: 0.5,
+					width: 1,
+				},
+				move: {
+					direction: "none",
+					enable: true,
+					outModes: { default: "bounce" },
+					random: false,
+					speed: 2,
+					straight: false,
+				},
+				number: { density: { enable: true }, value: 80 },
+				opacity: { value: 0.5 },
+				shape: { type: "circle" },
+				size: { value: { min: 1, max: 5 } },
+			},
+			detectRetina: true,
 		});
+	}
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+	// 3. Populate Skills Marquee
+	const techIcons = [
+		{ name: "Python", color: "#3776ab", icon: "cpu" },
+		{ name: "SQL", color: "#4479A1", icon: "database" },
+		{ name: "PyTorch", color: "#EE4C2C", icon: "brain" },
+		{ name: "TensorFlow", color: "#FF6F00", icon: "brain" },
+		{ name: "Keras", color: "#D00000", icon: "layers" },
+		{ name: "OpenCV", color: "#5C3EE8", icon: "search" },
+		{ name: "Hugging Face", color: "#FFD21E", icon: "sparkles" },
+		{ name: "Git", color: "#F05032", icon: "file-code" },
+		{ name: "Docker", color: "#2496ED", icon: "terminal" },
+		{ name: "Linux", color: "#FCC624", icon: "globe" },
+		{ name: "Pandas", color: "#150458", icon: "bar-chart-3" },
+		{ name: "Scikit-Learn", color: "#F7931E", icon: "code-2" },
+		{ name: "Computer Vision", color: "#FF6F00", icon: "atom" },
+		{ name: "NLP", color: "#4CAF50", icon: "layout" },
+		{ name: "Machine Learning", color: "#47A248", icon: "cpu" },
+	];
 
-	// Nav.
-		var $nav_a = $nav.find('a');
+	const row1 = techIcons.slice(0, 8);
+	const row2 = techIcons.slice(8);
 
-		$nav_a
-			.addClass('scrolly')
-			.on('click', function(e) {
-
-				var $this = $(this);
-
-				// External link? Bail.
-					if ($this.attr('href').charAt(0) != '#')
-						return;
-
-				// Prevent default.
-					e.preventDefault();
-
-				// Deactivate all links.
-					$nav_a.removeClass('active');
-
-				// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-					$this
-						.addClass('active')
-						.addClass('active-locked');
-
-			})
-			.each(function() {
-
-				var	$this = $(this),
-					id = $this.attr('href'),
-					$section = $(id);
-
-				// No section for this link? Bail.
-					if ($section.length < 1)
-						return;
-
-				// Scrollex.
-					$section.scrollex({
-						mode: 'middle',
-						top: '-10vh',
-						bottom: '-10vh',
-						initialize: function() {
-
-							// Deactivate section.
-								$section.addClass('inactive');
-
-						},
-						enter: function() {
-
-							// Activate section.
-								$section.removeClass('inactive');
-
-							// No locked links? Deactivate all links and activate this section's one.
-								if ($nav_a.filter('.active-locked').length == 0) {
-
-									$nav_a.removeClass('active');
-									$this.addClass('active');
-
-								}
-
-							// Otherwise, if this section's link is the one that's locked, unlock it.
-								else if ($this.hasClass('active-locked'))
-									$this.removeClass('active-locked');
-
-						}
-					});
-
+	const generateMarqueeHTML = (items) => {
+		// Repeat 4 times for seamless infinite scroll
+		let html = '';
+		for (let j = 0; j < 4; j++) {
+			items.forEach(item => {
+				html += `
+                <div class="marquee-pair">
+                    <i data-lucide="${item.icon}" style="color: ${item.color}; width: 22px; height: 22px;"></i>
+                    <span class="marquee-text">${item.name}</span>
+                </div>`;
 			});
+		}
+		return html;
+	};
 
-	// Scrolly.
-		$('.scrolly').scrolly();
+	document.getElementById('marquee-row-1').innerHTML = generateMarqueeHTML(row1);
+	document.getElementById('marquee-row-2').innerHTML = generateMarqueeHTML(row2);
+	lucide.createIcons(); // Re-init icons for newly added ones
 
-	// Header (narrower + mobile).
+	// 4. Populate and Filter Projects
+	const projectList = [
+		{ name: "CharLM", category: "major", tags: ["NLP", "Language Models", "Python"], desc: "Character-level language model exploring text generation and analysis, demonstrating deep understanding of NLP fundamentals.", image: "images/charlm_thumbnail.png", github: "https://github.com/ameynarwadkar/CharLM" },
+		{ name: "EffNLP", category: "major", tags: ["BERT", "Optimization", "Machine Learning"], desc: "Early-Exit Inference for BERT with Exit-Aware Verification. Focuses on efficient NLP techniques and optimizing performance.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar/EffNLP" },
+		{ name: "Tennis Analysis System", category: "major", tags: ["Computer Vision", "Machine Learning", "Tracking"], desc: "Advanced computer vision system for analyzing tennis matches, tracking player movements, and providing performance insights.", image: "images/tennis.jpg", github: "https://github.com/ameynarwadkar/Tennis-Analysis-System" },
+		{ name: "Stable Diffusion Model", category: "fun", tags: ["Deep Learning", "Generative AI", "Neural Networks"], desc: "Implementation of stable diffusion model for generating high-quality images from text descriptions.", image: "images/stablediff_thumbnail.png", github: "https://github.com/ameynarwadkar/Stable-Diff-Model" },
+		{ name: "Food Ordering Chatbot", category: "fun", tags: ["Conversational AI", "NLP", "Dialogflow"], desc: "Intelligent conversational AI for food ordering with natural language processing and order management.", image: "images/foodchatbot_thumbnail.png", website: "https://ameynarwadkar.github.io/FoodChatbot/" },
+		{ name: "AI Trading Bot", category: "fun", tags: ["Algorithmic Trading", "Sentiment Analysis"], desc: "Sentiment-based trading algorithm that analyzes market sentiment and news data to make automated trading decisions.", image: "images/trading_thumbnail.png", github: "https://github.com/ameynarwadkar/sentiment-trading-bot" },
+		{ name: "ML Algorithms from Scratch", category: "major", tags: ["Python", "Mathematics", "Algorithms"], desc: "Implementation of fundamental machine learning algorithms from scratch using Python, demonstrating deep mathematical understanding.", image: "images/ml_algo_thumbnail.png", github: "https://github.com/ameynarwadkar/ML-algorithms-from-scratch" },
+	];
 
-		// Toggle.
-			$(
-				'<div id="headerToggle">' +
-					'<a href="#header" class="toggle"></a>' +
-				'</div>'
-			)
-				.appendTo($body);
+	let currentView = 'major';
+	let searchQuery = '';
 
-		// Header.
-			$('#header')
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'left',
-					target: $body,
-					visibleClass: 'header-visible'
-				});
+	const renderProjects = () => {
+		const filtered = projectList.filter(p =>
+			p.category === currentView &&
+			(p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				p.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())))
+		);
 
-})(jQuery);
+		const grid = document.getElementById('projects-grid');
+		grid.innerHTML = filtered.map(proj => `
+            <div class="grid-item smooth-reveal">
+                <div class="item-img">
+                    <img src="${proj.image}" alt="${proj.name}" />
+                </div>
+                <div class="item-details">
+                    <div class="item-header">
+                        <div class="title-row">
+                            <h3>${proj.name}</h3>
+                        </div>
+                        <div class="tags-row">
+                            ${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                    <p class="item-desc">${proj.desc}</p>
+                    <div class="project-links">
+                        ${proj.github ? `
+                        <a href="${proj.github}" target="_blank" rel="noreferrer" class="btn-github">
+                            <i data-lucide="github" style="width: 14px; height: 14px;"></i> GitHub
+                        </a>` : ''}
+                        ${proj.website ? `
+                        <a href="${proj.website}" target="_blank" rel="noreferrer" class="btn-website">
+                            <i data-lucide="globe" style="width: 14px; height: 14px;"></i> Website
+                        </a>` : ''}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+		lucide.createIcons();
+	};
+
+	window.setProjectView = (view) => {
+		currentView = view;
+		const slider = document.getElementById('pill-slider');
+		const btnMajor = document.getElementById('btn-major');
+		const btnFun = document.getElementById('btn-fun');
+
+		if (view === 'major') {
+			slider.classList.add('major');
+			slider.classList.remove('fun');
+			btnMajor.classList.add('active');
+			btnFun.classList.remove('active');
+		} else {
+			slider.classList.add('fun');
+			slider.classList.remove('major');
+			btnFun.classList.add('active');
+			btnMajor.classList.remove('active');
+		}
+		renderProjects();
+	};
+
+	document.getElementById('project-search').addEventListener('input', (e) => {
+		searchQuery = e.target.value;
+		renderProjects();
+	});
+
+	renderProjects(); // Initial render
+
+	// 5. Dock interaction
+	const dock = document.getElementById('nav-dock');
+	dock.addEventListener('click', () => {
+		dock.classList.add('dock-expand');
+		setTimeout(() => dock.classList.remove('dock-expand'), 300);
+	});
+});
