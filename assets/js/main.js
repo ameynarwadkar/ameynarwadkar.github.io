@@ -88,77 +88,84 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById('marquee-row-2').innerHTML = generateMarqueeHTML(row2);
 	lucide.createIcons(); // Re-init icons for newly added ones
 
-	// 4. Populate and Filter Projects
+	// 4. Populate and Filter Projects (organized by year)
 	const projectList = [
-		{ name: "CharLM", category: "major", tags: ["NLP", "Language Models", "Python"], desc: "Character-level language model exploring text generation and analysis, demonstrating deep understanding of NLP fundamentals.", image: "images/charlm_thumbnail.png", github: "https://github.com/ameynarwadkar/CharLM" },
-		{ name: "EffNLP", category: "major", tags: ["BERT", "Optimization", "Machine Learning"], desc: "Early-Exit Inference for BERT with Exit-Aware Verification. Focuses on efficient NLP techniques and optimizing performance.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar/EffNLP" },
-		{ name: "Tennis Analysis System", category: "major", tags: ["Computer Vision", "Machine Learning", "Tracking"], desc: "Advanced computer vision system for analyzing tennis matches, tracking player movements, and providing performance insights.", image: "images/tennis.jpg", github: "https://github.com/ameynarwadkar/Tennis-Analysis-System" },
-		{ name: "Stable Diffusion Model", category: "fun", tags: ["Deep Learning", "Generative AI", "Neural Networks"], desc: "Implementation of stable diffusion model for generating high-quality images from text descriptions.", image: "images/stablediff_thumbnail.png", github: "https://github.com/ameynarwadkar/Stable-Diff-Model" },
-		{ name: "Food Ordering Chatbot", category: "fun", tags: ["Conversational AI", "NLP", "Dialogflow"], desc: "Intelligent conversational AI for food ordering with natural language processing and order management.", image: "images/foodchatbot_thumbnail.png", website: "https://ameynarwadkar.github.io/FoodChatbot/" },
-		{ name: "AI Trading Bot", category: "fun", tags: ["Algorithmic Trading", "Sentiment Analysis"], desc: "Sentiment-based trading algorithm that analyzes market sentiment and news data to make automated trading decisions.", image: "images/trading_thumbnail.png", github: "https://github.com/ameynarwadkar/sentiment-trading-bot" },
-		{ name: "ML Algorithms from Scratch", category: "major", tags: ["Python", "Mathematics", "Algorithms"], desc: "Implementation of fundamental machine learning algorithms from scratch using Python, demonstrating deep mathematical understanding.", image: "images/ml_algo_thumbnail.png", github: "https://github.com/ameynarwadkar/ML-algorithms-from-scratch" },
+		// 2025 - Current Research
+		{ name: "char-aware-typos", year: 2025, category: "research", tags: ["NLP", "Language Models", "Python"], desc: "Character-aware sentence encoders evaluated for robustness to misspellings, analyzing how character-level models maintain stable embeddings and retrieval accuracy under controlled typo noise.", image: "images/charlm_thumbnail.png", github: "https://github.com/ameynarwadkar/char-aware-typos" },
+		{ name: "bert-early-exit-halting", year: 2025, category: "research", tags: ["BERT", "Optimization", "Machine Learning"], desc: "Early-exit BERT inference exploring adaptive halting strategies with micro self-verification, analyzing trade-offs between computational efficiency and model accuracy.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar/bert-early-exit-halting" },
+		
+		// 2024 - Applied AI Projects
+		{ name: "Tennis Analysis System", year: 2024, category: "engineering", tags: ["Computer Vision", "Machine Learning", "Tracking"], desc: "Advanced computer vision system for analyzing tennis matches, tracking player movements, and providing performance insights.", image: "images/tennis.jpg", github: "https://github.com/ameynarwadkar/Tennis-Analysis-System" },
+		{ name: "AI Trading Bot", year: 2024, category: "engineering", tags: ["Algorithmic Trading", "Sentiment Analysis"], desc: "Sentiment-based trading algorithm that analyzes market sentiment and news data to make automated trading decisions.", image: "images/trading_thumbnail.png", github: "https://github.com/ameynarwadkar/sentiment-trading-bot" },
+		
+		// 2023 - Early Explorations
+		{ name: "Stable Diffusion Model", year: 2023, category: "engineering", tags: ["Deep Learning", "Generative AI", "Neural Networks"], desc: "Implementation of stable diffusion model for generating high-quality images from text descriptions.", image: "images/stablediff_thumbnail.png", github: "https://github.com/ameynarwadkar/Stable-Diff-Model" },
+		{ name: "Food Ordering Chatbot", year: 2023, category: "engineering", tags: ["Conversational AI", "NLP", "Dialogflow"], desc: "Intelligent conversational AI for food ordering with natural language processing and order management.", image: "images/foodchatbot_thumbnail.png", website: "https://ameynarwadkar.github.io/FoodChatbot/" },
+		{ name: "ML Algorithms from Scratch", year: 2023, category: "research", tags: ["Python", "Mathematics", "Algorithms"], desc: "Implementation of fundamental machine learning algorithms from scratch using Python, demonstrating deep mathematical understanding.", image: "images/ml_algo_thumbnail.png", github: "https://github.com/ameynarwadkar/ML-algorithms-from-scratch" },
 	];
 
-	let currentView = 'major';
 	let searchQuery = '';
 
 	const renderProjects = () => {
+		// Filter projects based on search
 		const filtered = projectList.filter(p =>
-			p.category === currentView &&
-			(p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				p.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())))
+			p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			p.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+			p.year.toString().includes(searchQuery)
 		);
 
+		// Group by year (descending)
+		const projectsByYear = {};
+		filtered.forEach(proj => {
+			if (!projectsByYear[proj.year]) {
+				projectsByYear[proj.year] = [];
+			}
+			projectsByYear[proj.year].push(proj);
+		});
+
+		const years = Object.keys(projectsByYear).sort((a, b) => b - a);
+
 		const grid = document.getElementById('projects-grid');
-		grid.innerHTML = filtered.map(proj => `
-            <div class="grid-item smooth-reveal">
-                <div class="item-img">
-                    <img src="${proj.image}" alt="${proj.name}" />
-                </div>
-                <div class="item-details">
-                    <div class="item-header">
-                        <div class="title-row">
-                            <h3>${proj.name}</h3>
-                        </div>
-                        <div class="tags-row">
-                            ${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-                        </div>
-                    </div>
-                    <p class="item-desc">${proj.desc}</p>
-                    <div class="project-links">
-                        ${proj.github ? `
-                        <a href="${proj.github}" target="_blank" rel="noreferrer" class="btn-github">
-                            <i data-lucide="github" style="width: 14px; height: 14px;"></i> GitHub
-                        </a>` : ''}
-                        ${proj.website ? `
-                        <a href="${proj.website}" target="_blank" rel="noreferrer" class="btn-website">
-                            <i data-lucide="globe" style="width: 14px; height: 14px;"></i> Website
-                        </a>` : ''}
-                    </div>
-                </div>
-            </div>
-        `).join('');
+		grid.innerHTML = years.map(year => `
+			<div class="year-section">
+				<div class="year-header">
+					<div class="year-badge">${year}</div>
+					<div class="year-divider"></div>
+				</div>
+				<div class="year-projects">
+					${projectsByYear[year].map(proj => `
+						<div class="grid-item smooth-reveal">
+							<div class="item-img">
+								<img src="${proj.image}" alt="${proj.name}" />
+							</div>
+							<div class="item-details">
+								<div class="item-header">
+									<div class="title-row">
+										<h3>${proj.name}</h3>
+										<span class="category-badge ${proj.category}">${proj.category}</span>
+									</div>
+									<div class="tags-row">
+										${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+									</div>
+								</div>
+								<p class="item-desc">${proj.desc}</p>
+								<div class="project-links">
+									${proj.github ? `
+									<a href="${proj.github}" target="_blank" rel="noreferrer" class="btn-github">
+										<i data-lucide="github" style="width: 14px; height: 14px;"></i> GitHub
+									</a>` : ''}
+									${proj.website ? `
+									<a href="${proj.website}" target="_blank" rel="noreferrer" class="btn-website">
+										<i data-lucide="globe" style="width: 14px; height: 14px;"></i> Website
+									</a>` : ''}
+								</div>
+							</div>
+						</div>
+					`).join('')}
+				</div>
+			</div>
+		`).join('');
 		lucide.createIcons();
-	};
-
-	window.setProjectView = (view) => {
-		currentView = view;
-		const slider = document.getElementById('pill-slider');
-		const btnMajor = document.getElementById('btn-major');
-		const btnFun = document.getElementById('btn-fun');
-
-		if (view === 'major') {
-			slider.classList.add('major');
-			slider.classList.remove('fun');
-			btnMajor.classList.add('active');
-			btnFun.classList.remove('active');
-		} else {
-			slider.classList.add('fun');
-			slider.classList.remove('major');
-			btnFun.classList.add('active');
-			btnMajor.classList.remove('active');
-		}
-		renderProjects();
 	};
 
 	document.getElementById('project-search').addEventListener('input', (e) => {
