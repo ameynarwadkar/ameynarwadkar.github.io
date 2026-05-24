@@ -51,18 +51,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	const techIcons = [
 		{ name: "Python", color: "#3776ab", icon: "cpu" },
 		{ name: "SQL", color: "#4479A1", icon: "database" },
+		{ name: "Bash", color: "#4EAA25", icon: "terminal" },
 		{ name: "PyTorch", color: "#EE4C2C", icon: "brain" },
-		{ name: "TensorFlow", color: "#FF6F00", icon: "brain" },
-		{ name: "Keras", color: "#D00000", icon: "layers" },
-		{ name: "OpenCV", color: "#5C3EE8", icon: "search" },
+		{ name: "LangGraph", color: "#1c7ed6", icon: "git-branch" },
+		{ name: "FastAPI", color: "#009688", icon: "zap" },
+		{ name: "RAG", color: "#7c3aed", icon: "search" },
 		{ name: "Hugging Face", color: "#FFD21E", icon: "sparkles" },
+		{ name: "ChromaDB", color: "#e85d4a", icon: "layers" },
+		{ name: "Streamlit", color: "#FF4B4B", icon: "layout" },
+		{ name: "Pydantic", color: "#e92063", icon: "shield" },
+		{ name: "Docker", color: "#2496ED", icon: "box" },
 		{ name: "Git", color: "#F05032", icon: "file-code" },
-		{ name: "Docker", color: "#2496ED", icon: "terminal" },
 		{ name: "Linux", color: "#FCC624", icon: "globe" },
 		{ name: "Pandas", color: "#150458", icon: "bar-chart-3" },
 		{ name: "Scikit-Learn", color: "#F7931E", icon: "code-2" },
-		{ name: "Computer Vision", color: "#FF6F00", icon: "atom" },
-		{ name: "NLP", color: "#4CAF50", icon: "layout" },
+		{ name: "D3.js", color: "#f9a03c", icon: "activity" },
+		{ name: "NLP", color: "#4CAF50", icon: "message-square" },
+		{ name: "pytest", color: "#0a9396", icon: "check-circle" },
 		{ name: "Machine Learning", color: "#47A248", icon: "cpu" },
 	];
 
@@ -90,7 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// 4. Populate and Filter Projects (organized by year)
 	const projectList = [
-		// 2025 - Current Research
+		// 2025 - Current Research & Engineering
+		{ name: "Agent Failure Debugger", year: 2025, category: "engineering", tags: ["LLM Agents", "LangGraph", "FastAPI", "D3.js", "RAG"], desc: "LLM agent benchmarking platform comparing 11 architectures (ReAct, Plan-Execute, Reflection, Debate, Orchestrator-Worker, Map-Reduce, MoA, LangGraph). Real-time trace streaming with SSE capturing tool calls, latency, token usage, and cost estimates. Includes a failure diagnosis layer for looping, planning drift, hallucinations, and context loss.", image: "images/agent_debugger_thumbnail.png", github: "https://github.com/ameynarwadkar" },
 		{ name: "char-aware-typos", year: 2025, category: "research", tags: ["NLP", "Language Models", "Python"], desc: "Character-aware sentence encoders evaluated for robustness to misspellings, analyzing how character-level models maintain stable embeddings and retrieval accuracy under controlled typo noise.", image: "images/charlm_thumbnail.png", github: "https://github.com/ameynarwadkar/char-aware-typos" },
 		{ name: "bert-early-exit-halting", year: 2025, category: "research", tags: ["BERT", "Optimization", "Machine Learning"], desc: "Early-exit BERT inference exploring adaptive halting strategies with micro self-verification, analyzing trade-offs between computational efficiency and model accuracy.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar/bert-early-exit-halting" },
 		
