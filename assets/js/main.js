@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	const row2 = techIcons.slice(8);
 
 	const generateMarqueeHTML = (items) => {
-		// Repeat 4 times for seamless infinite scroll
+		// Repeat 2 times for seamless infinite scroll
 		let html = '';
-		for (let j = 0; j < 4; j++) {
+		for (let j = 0; j < 2; j++) {
 			items.forEach(item => {
 				html += `
                 <div class="marquee-pair">
@@ -96,18 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	// 4. Populate and Filter Projects (organized by year)
 	const projectList = [
 		// 2025 - Current Research & Engineering
-		{ name: "Agent Failure Debugger", year: 2025, category: "engineering", tags: ["LLM Agents", "LangGraph", "FastAPI", "D3.js", "RAG"], desc: "LLM agent benchmarking platform comparing 11 architectures (ReAct, Plan-Execute, Reflection, Debate, Orchestrator-Worker, Map-Reduce, MoA, LangGraph). Real-time trace streaming with SSE capturing tool calls, latency, token usage, and cost estimates. Includes a failure diagnosis layer for looping, planning drift, hallucinations, and context loss.", image: "images/agent_debugger_thumbnail.png", github: "https://github.com/ameynarwadkar" },
-		{ name: "char-aware-typos", year: 2025, category: "research", tags: ["NLP", "Language Models", "Python"], desc: "Character-aware sentence encoders evaluated for robustness to misspellings, analyzing how character-level models maintain stable embeddings and retrieval accuracy under controlled typo noise.", image: "images/charlm_thumbnail.png", github: "https://github.com/ameynarwadkar/char-aware-typos" },
-		{ name: "bert-early-exit-halting", year: 2025, category: "research", tags: ["BERT", "Optimization", "Machine Learning"], desc: "Early-exit BERT inference exploring adaptive halting strategies with micro self-verification, analyzing trade-offs between computational efficiency and model accuracy.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar/bert-early-exit-halting" },
+		{ name: "Agent Failure Debugger", year: 2025, category: "engineering", tags: ["LLM Agents", "LangGraph", "FastAPI", "D3.js", "RAG"], desc: "Benchmarking platform comparing 11 LLM agent architectures (ReAct, Plan-Execute, Reflection, Debate, Orchestrator-Worker, Map-Reduce, MoA). Real-time trace streaming via SSE captures tool calls, latency, token usage, and cost. Failure diagnosis layer detects looping, planning drift, hallucinations, and context loss.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar" },
+		{ name: "char-aware-typos", year: 2025, category: "research", tags: ["NLP", "Language Models", "Python"], desc: "Evaluated character-aware sentence encoders for robustness to misspellings. Analyzed how character-level models maintain stable embeddings and retrieval accuracy under controlled typo noise across multiple corpora.", image: "images/charlm_thumbnail.png", github: "https://github.com/ameynarwadkar/char-aware-typos" },
+		{ name: "bert-early-exit-halting", year: 2025, category: "research", tags: ["BERT", "Optimization", "Machine Learning"], desc: "Explored adaptive halting strategies for early-exit BERT inference with micro self-verification. Quantified trade-offs between computational cost reduction and accuracy retention across classification tasks.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar/bert-early-exit-halting" },
 		
-		// 2024 - Applied AI Projects
-		{ name: "Tennis Analysis System", year: 2024, category: "engineering", tags: ["Computer Vision", "Machine Learning", "Tracking"], desc: "Advanced computer vision system for analyzing tennis matches, tracking player movements, and providing performance insights.", image: "images/tennis.jpg", github: "https://github.com/ameynarwadkar/Tennis-Analysis-System" },
-		{ name: "AI Trading Bot", year: 2024, category: "engineering", tags: ["Algorithmic Trading", "Sentiment Analysis"], desc: "Sentiment-based trading algorithm that analyzes market sentiment and news data to make automated trading decisions.", image: "images/trading_thumbnail.png", github: "https://github.com/ameynarwadkar/sentiment-trading-bot" },
-		
-		// 2023 - Early Explorations
-		{ name: "Stable Diffusion Model", year: 2023, category: "engineering", tags: ["Deep Learning", "Generative AI", "Neural Networks"], desc: "Implementation of stable diffusion model for generating high-quality images from text descriptions.", image: "images/stablediff_thumbnail.png", github: "https://github.com/ameynarwadkar/Stable-Diff-Model" },
-		{ name: "Food Ordering Chatbot", year: 2023, category: "engineering", tags: ["Conversational AI", "NLP", "Dialogflow"], desc: "Intelligent conversational AI for food ordering with natural language processing and order management.", image: "images/foodchatbot_thumbnail.png", website: "https://ameynarwadkar.github.io/FoodChatbot/" },
-		{ name: "ML Algorithms from Scratch", year: 2023, category: "research", tags: ["Python", "Mathematics", "Algorithms"], desc: "Implementation of fundamental machine learning algorithms from scratch using Python, demonstrating deep mathematical understanding.", image: "images/ml_algo_thumbnail.png", github: "https://github.com/ameynarwadkar/ML-algorithms-from-scratch" },
+		// 2023 - Foundation
+		{ name: "ML Algorithms from Scratch", year: 2023, category: "research", tags: ["Python", "Mathematics", "NumPy"], desc: "Implemented core ML algorithms from scratch in Python — linear/logistic regression, decision trees, SVMs, k-means, PCA — with mathematical derivations and gradient computations, no sklearn.", image: "images/ml_algo_thumbnail.png", github: "https://github.com/ameynarwadkar/ML-algorithms-from-scratch" },
 	];
 
 	let searchQuery = '';
