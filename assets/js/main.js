@@ -97,11 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	const projectList = [
 		// 2026 - Current Research & Engineering
 		{ name: "Research Agent", year: 2026, category: "engineering", tags: ["Google ADK", "LLM Agents", "FastAPI", "Python", "Academic Search"], desc: "A multi-agent research assistant built with Google ADK that automatically searches academic databases (ArXiv, PubMed, OpenAlex), clusters papers, assesses evidence quality, and synthesizes a structured literature review.", image: "images/research_agent_thumbnail.png", github: "https://github.com/ameynarwadkar/adk-research-agent" },
+		{ name: "EU Financial Regulation Hybrid RAG System", year: 2026, category: "engineering", tags: ["Azure OpenAI", "Qdrant", "FastAPI", "BM25", "FlashRank", "Ragas"], desc: "A hybrid RAG system querying 382 parsed articles of EU Regulations. Features dual-index search, RRF fusion, ONNX-powered FlashRank reranking, and schema-constrained LLM generation.", image: "images/finrag_thumbnail.png", github: "https://github.com/ameynarwadkar/finRAG" },
 
 		// 2025 - Research & Optimization
 		{ name: "char-aware-typos", year: 2025, category: "research", tags: ["NLP", "Language Models", "Python"], desc: "Evaluated character-aware sentence encoders for robustness to misspellings. Analyzed how character-level models maintain stable embeddings and retrieval accuracy under controlled typo noise across multiple corpora.", image: "images/charlm_thumbnail.png", github: "https://github.com/ameynarwadkar/char-aware-typos" },
 		{ name: "bert-early-exit-halting", year: 2025, category: "research", tags: ["BERT", "Optimization", "Machine Learning"], desc: "Explored adaptive halting strategies for early-exit BERT inference with micro self-verification. Quantified trade-offs between computational cost reduction and accuracy retention across classification tasks.", image: "images/effnlp_thumbnail.png", github: "https://github.com/ameynarwadkar/bert-early-exit-halting" },
-		
+
 		// 2024 - Core Development
 		{ name: "Tennis Analysis System", year: 2024, category: "engineering", tags: ["Computer Vision", "Machine Learning", "Tracking"], desc: "Advanced computer vision system for analyzing tennis matches, tracking player movements, ball trajectories, and key stats.", image: "images/tennis.jpg", github: "https://github.com/ameynarwadkar/Tennis-Analysis-System" },
 
