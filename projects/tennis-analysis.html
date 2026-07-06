@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tennis Analysis System — Amey Narwadkar</title>
+  <link rel="stylesheet" href="../assets/css/portfolio.css?v=3">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="dark-theme">
+
+  <!-- Particles Background -->
+  <div id="particles-js" class="particles-bg"></div>
+
+  <div class="portfolio-wrapper">
+    <!-- Back Button -->
+    <a href="../index.html" class="btn-ghost" style="margin-bottom: 20px; display: inline-flex; width: fit-content;">
+      <i data-lucide="arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Project Header -->
+    <header class="hero-container" style="flex-direction: column; align-items: flex-start;">
+      <div class="hero-info" style="margin-top: 20px;">
+        <h1>Tennis Match Analysis</h1>
+        <p class="hero-tagline">Comprehensive computer vision system for analyzing gameplay dynamics, player movements, and ball trajectories.</p>
+        <div class="hero-actions">
+           <a href="https://github.com/ameynarwadkar/Tennis-Analysis-System" target="_blank" rel="noreferrer" class="btn-primary">
+             <i data-lucide="github"></i> View on GitHub
+           </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Project Content Section -->
+    <section class="about-section" style="margin-top: 40px; width: 100%;">
+      
+      <div style="width: 100%; margin-bottom: 40px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+        <img src="../images/tennis.jpg" alt="Tennis Match Analysis" style="width: 100%; display: block;" />
+      </div>
+
+      <style>
+        .timeline-container { position: relative; padding-left: 28px; margin-top: 30px; margin-bottom: 40px; }
+        .timeline-container::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 2px; background: linear-gradient(to bottom, #8b5cf6, #3b82f6, transparent); border-radius: 2px; }
+        .timeline-item { position: relative; margin-bottom: 24px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: -33px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: #0a0a0a; border: 2px solid #8b5cf6; box-shadow: 0 0 12px rgba(139, 92, 246, 0.6); z-index: 2; transition: all 0.3s ease; }
+        .timeline-item:hover .timeline-dot { transform: scale(1.4); background: #8b5cf6; border-color: #a78bfa; }
+        .timeline-content { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 20px 24px; transition: all 0.3s ease; }
+        .timeline-content:hover { transform: translateX(4px); border-color: rgba(139, 92, 246, 0.3); background: rgba(255, 255, 255, 0.03); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .timeline-content h4 { color: #f4f4f5; font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .timeline-content h4 i { color: #a78bfa; width: 18px; height: 18px; }
+        .timeline-content p { color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+      </style>
+
+      <p class="about-text" style="font-size: 1.05rem; color: #d4d4d8;">
+        This repository contains the codebase for a comprehensive computer vision project designed for analyzing tennis matches. Leveraging advanced techniques and models, the system offers multi-faceted insights into gameplay dynamics, player movements, and ball trajectories.
+      </p>
+
+      <p class="section-title" style="margin-top: 30px;">Key Features</p>
+      
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="scan"></i> YOLOv8 Player Detection</h4>
+            <p>Utilizes YOLOv8 for robust player detection within tennis match footage, enabling precise tracking of player movements throughout the match.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="target"></i> Fine-Tuning for Ball Detection</h4>
+            <p>Fine-tunes the YOLO model to accurately detect the tennis ball in varying conditions, ensuring consistent tracking and analysis of ball trajectories.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="activity"></i> Speed Detection</h4>
+            <p>Implements algorithms to calculate the speed of both players and the ball, providing valuable metrics for performance evaluation and tactical analysis.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="layout-template"></i> Mini Court Generation</h4>
+            <p>Dynamically generates a miniature representation of the tennis court, reflecting the actual positions and movements of players during the match for intuitive visualization.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color: #3b82f6;"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="crosshair" style="color: #60a5fa;"></i> Key Point Extraction</h4>
+            <p>Fine-tunes the last layer of ResNet50 on a custom dataset to extract key points on the court, facilitating advanced spatial analysis and strategic insights.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

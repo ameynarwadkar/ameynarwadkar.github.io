@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnyRAG: Hybrid RAG System — Amey Narwadkar</title>
+  <link rel="stylesheet" href="../assets/css/portfolio.css?v=3">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="dark-theme">
+
+  <!-- Particles Background -->
+  <div id="particles-js" class="particles-bg"></div>
+
+  <div class="portfolio-wrapper">
+    <!-- Back Button -->
+    <a href="../index.html" class="btn-ghost" style="margin-bottom: 20px; display: inline-flex; width: fit-content;">
+      <i data-lucide="arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Project Header -->
+    <header class="hero-container" style="flex-direction: column; align-items: flex-start;">
+      <div class="hero-info" style="margin-top: 20px;">
+        <h1>AnyRAG: Hybrid RAG System</h1>
+        <p class="hero-tagline">Production-grade Retrieval-Augmented Generation pipeline with two-stage retrieval, observability, and evaluation.</p>
+        <div class="hero-actions">
+           <a href="https://any-rag.vercel.app/" target="_blank" rel="noreferrer" class="btn-ghost" style="color: #fff; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+             <i data-lucide="external-link"></i> Live Demo
+           </a>
+           <a href="https://github.com/ameynarwadkar/finRAG" target="_blank" rel="noreferrer" class="btn-primary">
+             <i data-lucide="github"></i> View on GitHub
+           </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Project Content Section -->
+    <section class="about-section" style="margin-top: 40px; width: 100%;">
+      
+      <div style="width: 100%; margin-bottom: 40px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+        <img src="../images/finrag_thumbnail.png" alt="AnyRAG Architecture" style="width: 100%; display: block;" />
+      </div>
+
+      <style>
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 30px 0; }
+        .stat-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px 16px; text-align: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(10px); position: relative; overflow: hidden; }
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); opacity: 0; transition: opacity 0.3s; }
+        .stat-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.15); box-shadow: 0 12px 24px rgba(0,0,0,0.4); background: rgba(255,255,255,0.04); }
+        .stat-card:hover::before { opacity: 1; }
+        .stat-val { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+        
+        .timeline-container { position: relative; padding-left: 28px; margin-top: 30px; margin-bottom: 40px; }
+        .timeline-container::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 2px; background: linear-gradient(to bottom, #8b5cf6, #3b82f6, transparent); border-radius: 2px; }
+        .timeline-item { position: relative; margin-bottom: 24px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: -33px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: #0a0a0a; border: 2px solid #8b5cf6; box-shadow: 0 0 12px rgba(139, 92, 246, 0.6); z-index: 2; transition: all 0.3s ease; }
+        .timeline-item:hover .timeline-dot { transform: scale(1.4); background: #8b5cf6; border-color: #a78bfa; }
+        .timeline-content { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 20px 24px; transition: all 0.3s ease; }
+        .timeline-content:hover { transform: translateX(4px); border-color: rgba(139, 92, 246, 0.3); background: rgba(255, 255, 255, 0.03); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .timeline-content h4 { color: #f4f4f5; font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .timeline-content h4 i { color: #a78bfa; width: 18px; height: 18px; }
+        .timeline-content p { color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+      </style>
+
+      <p class="about-text" style="font-size: 1.05rem; color: #d4d4d8;">
+        AnyRAG is a production-grade, end-to-end Retrieval-Augmented Generation system designed to index and query diverse document corpora. Originally built to parse complex EU Financial Regulations, it solves the "Needle in a Haystack" problem using a <strong>two-stage hybrid retrieval funnel</strong>.
+      </p>
+
+      <!-- Key Performance Stats -->
+      <div class="stats-row">
+         <div class="stat-card">
+            <div class="stat-val" style="color: #a78bfa;">0.89</div>
+            <div class="stat-label">Context Precision</div>
+         </div>
+         <div class="stat-card">
+            <div class="stat-val" style="color: #60a5fa;">0.72</div>
+            <div class="stat-label">Faithfulness Score</div>
+         </div>
+         <div class="stat-card">
+            <div class="stat-val" style="color: #34d399;">34 MB</div>
+            <div class="stat-label">Model Footprint</div>
+         </div>
+         <div class="stat-card">
+            <div class="stat-val" style="color: #fbbf24;">< 100ms</div>
+            <div class="stat-label">Rerank Latency</div>
+         </div>
+      </div>
+
+      <p class="section-title">Architecture Pipeline</p>
+      
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="git-branch-plus"></i> Query Decomposition & Caching</h4>
+            <p>Multi-turn conversations are rewritten into standalone questions, decomposed, and checked against a semantic cache (cosine similarity ≥ 0.92) to bypass latency.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="search"></i> Stage 1: Hybrid Recall</h4>
+            <p>Decomposed sub-queries are executed against a Lexical Index (BM25) and a Dense Vector Index (Qdrant). Results are seamlessly fused using Reciprocal Rank Fusion (RRF).</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="zap"></i> Stage 2: Precision Reranking</h4>
+            <p>Broad candidates are reranked using an ONNX-powered FlashRank model (<code>ms-marco-MiniLM-L-12-v2</code>) for blazing-fast CPU inference and context reduction.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="shield-check"></i> Context Reordering & Verification</h4>
+            <p>Chunks are ordered using the "Lost in the Middle" technique. A secondary LLM pass ensures all generated citations map strictly to the retrieved context, penalizing hallucinations.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color: #3b82f6;"></div>
+          <div class="timeline-content">
+            <h4><i data-lucide="activity" style="color: #60a5fa;"></i> Observability & Tracing</h4>
+            <p>The entire pipeline is instrumented with Langfuse, providing trace-level tracking of latency breakdowns, token usage, and retrieval scoring.</p>
+          </div>
+        </div>
+      </div>
+      
+      <p class="section-title" style="margin-top: 10px;">Engineering Decisions</p>
+      <div class="highlight-grid">
+        <article class="highlight-card">
+          <h3>Ragas Evaluation Framework</h3>
+          <p>Mathematically evaluated on 32 golden queries. Iterative prompt tuning severely penalized hallucinations, achieving significant gains in baseline Context Precision and Faithfulness.</p>
+        </article>
+        <article class="highlight-card">
+          <h3>FlashRank vs PyTorch</h3>
+          <p>Migrated from a PyTorch Cross-Encoder to FlashRank, dropping memory footprint from gigabytes to ~34 MB and achieving sub-100ms latency without sacrificing accuracy.</p>
+        </article>
+        <article class="highlight-card">
+          <h3>MCP Server Integration</h3>
+          <p>Exposes the system as a Model Context Protocol (MCP) server, empowering AI agents like Claude Desktop and Cursor to interactively query the local knowledge base.</p>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bert-early-exit-halting — Amey Narwadkar</title>
+  <link rel="stylesheet" href="../assets/css/portfolio.css?v=3">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="dark-theme">
+
+  <!-- Particles Background -->
+  <div id="particles-js" class="particles-bg"></div>
+
+  <div class="portfolio-wrapper">
+    <!-- Back Button -->
+    <a href="../index.html" class="btn-ghost" style="margin-bottom: 20px; display: inline-flex; width: fit-content;">
+      <i data-lucide="arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Project Header -->
+    <header class="hero-container" style="flex-direction: column; align-items: flex-start;">
+      <div class="hero-info" style="margin-top: 20px;">
+        <h1>Early Exit BERT</h1>
+        <p class="hero-tagline">Efficient NLP inference architecture allowing intermediate early exits to save computational time.</p>
+        <div class="hero-actions">
+           <a href="https://github.com/ameynarwadkar/bert-early-exit-halting" target="_blank" rel="noreferrer" class="btn-primary">
+             <i data-lucide="github"></i> View on GitHub
+           </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Project Content Section -->
+    <section class="about-section" style="margin-top: 40px; width: 100%;">
+      
+      <div style="width: 100%; margin-bottom: 40px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+        <img src="../images/effnlp_thumbnail.png" alt="Early Exit BERT" style="width: 100%; display: block;" />
+      </div>
+
+      <style>
+        .plot-container { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px; margin-bottom: 30px; transition: all 0.3s ease; }
+        .plot-container:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.03); border-color: rgba(255,255,255,0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .plot-container img { width: 100%; border-radius: 8px; margin-top: 15px; border: 1px solid rgba(255,255,255,0.1); }
+        .plot-container h4 { color: #f4f4f5; font-size: 1.15rem; margin-bottom: 8px; }
+        .plot-container p { color: #a1a1aa; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+      </style>
+
+      <p class="about-text" style="font-size: 1.05rem; color: #d4d4d8;">
+        This repository contains an implementation of Early Exit BERT, designed for efficient NLP inference. It allows the model to exit early at intermediate layers if it is confident enough, saving computation time without sacrificing accuracy. The core model extends <code>bert-base-uncased</code> with intermediate exit classifiers.
+      </p>
+
+      <p class="section-title" style="margin-top: 30px;">Evaluation & Results</p>
+      
+      <div class="plot-container">
+        <h4>1. Accuracy vs. Compute Trade-off</h4>
+        <p>This plot illustrates the trade-off between model accuracy and computational cost (measured in average layers or latency). By adjusting the exit threshold (entropy or margin), we can achieve a significant speedup with minimal loss in accuracy.</p>
+        <img src="../images/fig_tradeoff.png" alt="Trade-off Curve" />
+      </div>
+
+      <div class="plot-container">
+        <h4>2. Exit Distribution (Margin-based Policy)</h4>
+        <p>The histograms show the distribution of samples exiting at different layers. A good policy will allow "easy" samples to exit early (at lower layers) while forcing "hard" samples to go deeper through the transformer blocks.</p>
+        <img src="../images/fig_exit_hist_margin.png" alt="Exit Histogram (Margin)" />
+      </div>
+
+      <div class="plot-container">
+        <h4>3. Reliability Analysis</h4>
+        <p>Reliability diagrams check if the model's confidence corresponds to its actual accuracy. A well-calibrated model should closely follow the diagonal line.</p>
+        <img src="../images/fig_reliability.png" alt="Reliability Curve" />
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
