@@ -276,6 +276,77 @@ body {
   padding-top: 140px;
   padding-bottom: 95px;
   position: relative;
+  transition: background-color var(--transition-smooth);
+}
+
+/* Claude Theme Styles for Hero (Anthropic) */
+.hero-section.claude-theme {
+  background: radial-gradient(circle at 68% 28%, rgba(204, 120, 92, 0.08) 0%, rgba(22, 21, 20, 0) 55%), var(--claude-bg);
+  border-bottom: 1px solid var(--claude-border);
+}
+
+.claude-badge {
+  background: var(--claude-tint) !important;
+  border-color: var(--claude-border) !important;
+  color: var(--claude-accent-light) !important;
+  gap: 0.55rem;
+  letter-spacing: 0.04em;
+  font-weight: 550;
+}
+
+.claude-sparkle {
+  color: var(--claude-accent);
+  font-size: 0.85rem;
+}
+
+.claude-serif-highlight {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  background: linear-gradient(180deg, #fce7df 10%, #cc785c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-right: 0.12em;
+}
+
+.claude-primary-btn {
+  background: #fbf7f4 !important;
+  color: #161514 !important;
+}
+
+.claude-primary-btn:hover {
+  background: #f0e6df !important;
+  box-shadow: 0 4px 20px rgba(204, 120, 92, 0.25);
+}
+
+.claude-theme .portrait-card {
+  background: var(--claude-bg-card);
+  border-color: rgba(204, 120, 92, 0.22);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(204, 120, 92, 0.08);
+}
+
+.claude-theme .portrait-floating-pill {
+  background: var(--claude-bg-card);
+  border-color: rgba(204, 120, 92, 0.25);
+}
+
+.claude-theme .portrait-floating-pill:hover {
+  border-color: var(--claude-border-active);
+}
+
+.claude-theme .pill-status-header {
+  color: var(--claude-accent);
+}
+
+.claude-theme .pill-status-header .badge-dot {
+  background: var(--claude-accent);
+  box-shadow: 0 0 8px rgba(204, 120, 92, 0.6);
+}
+
+.claude-theme .script-signature {
+  color: var(--claude-accent-light);
 }
 
 .hero-grid {
