@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amey Narwadkar — AI/ML Engineer (Portfolio V2)</title>
+  <meta name="description"
+    content="AI/ML Engineer specializing in production LLM systems, agentic workflows, hybrid RAG pipelines, and neuro-symbolic representation learning.">
+  <meta name="keywords"
+    content="Amey Narwadkar, AI Engineer, ML Engineer, LLM Systems, Agentic AI, RAG, Neuro-Symbolic, Heidelberg, NEC Labs">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Amey Narwadkar — Building reliable AI systems">
+  <meta property="og:description"
+    content="From research to real-world impact — I build AI systems that are useful, robust, and grounded in real problems.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Inter & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Portfolio V2 Stylesheet -->
+  <link rel="stylesheet" href="assets/css/v2.css?v=2">
+</head>
+
+<body>
+  <!-- Ambient Interactive Canvas Background -->
+  <canvas id="v2-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header class="v2-navbar">
+    <div class="container v2-navbar-inner">
+      <a href="#hero" class="nav-brand">Amey Narwadkar</a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#focus-areas">Where I work</a></li>
+          <li><a href="#selected-work">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://drive.google.com/file/d/1qhHSnoyZgxV8Y1D2Q2SsUpRXJ1gY6BAy/view?usp=sharing" target="_blank"
+          rel="noopener noreferrer" class="btn-resume">
+          Resume
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <header class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <!-- Hero Left Column -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            AI/ML Engineer
+          </div>
+
+          <h1 class="hero-title">
+            Building<br />
+            <span class="gradient-text">reliable</span> AI systems
+          </h1>
+
+          <p class="hero-description">
+            From research to real-world impact — I build AI systems that are useful, robust, and grounded in real
+            problems.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#selected-work" class="btn-primary">
+              View my work <span class="btn-arrow">→</span>
+            </a>
+            <a href="mailto:amey.narwadkar1729@gmail.com" class="btn-secondary">
+              Let's talk
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right Column (Portrait Composition) -->
+        <div class="hero-portrait-wrapper">
+          <!-- Layered Background Offset Cards -->
+          <div class="portrait-backdrop-layer-1"></div>
+          <div class="portrait-backdrop-layer-2"></div>
+
+          <!-- Main Portrait Card -->
+          <div class="portrait-card">
+            <img src="../images/me.jpg" alt="Amey Narwadkar" class="portrait-img" loading="eager" />
+            <div class="portrait-gradient-overlay"></div>
+          </div>
+
+          <!-- Floating Info Pill -->
+          <div class="portrait-floating-pill">
+            <div class="pill-status-header">
+              <span class="badge-dot"></span>
+              <span>Currently</span>
+            </div>
+            <div class="pill-degree">M.Sc. Scientific Computing</div>
+            <div class="pill-uni">Heidelberg University</div>
+          </div>
+
+          <!-- Subtle Script Annotations -->
+          <div class="portrait-annotations">
+            <span class="script-signature">Amey Narwadkar</span>
+            <span class="script-tags">AI Systems<br />Agents<br />RAG<br />Real-world Impact</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Where I work (Focus Areas) -->
+    <section class="focus-section" id="focus-areas">
+      <div class="container">
+        <div class="section-header-split">
+          <div class="section-header-left">
+            <span class="section-label">FOCUS AREAS</span>
+            <h2 class="section-title">Where I work</h2>
+            <p class="section-subtitle">
+              I focus on building practical AI systems at the intersection of research and real-world applications.
+            </p>
+          </div>
+          <div class="section-header-right">
+            From scalable LLM pipelines to multi-agent systems, my work combines strong engineering with a focus on
+            real-world utility.
+          </div>
+        </div>
+
+        <div class="focus-grid">
+          <!-- Focus Card 1 -->
+          <article class="focus-card" data-focus-card="1">
+            <div class="focus-visual-container">
+              <canvas class="focus-anim-canvas" id="canvas-production-ai" aria-hidden="true"></canvas>
+              <img src="assets/images/production-ai-systems.png" alt="Production AI Systems" class="focus-visual-img"
+                loading="lazy" />
+            </div>
+            <div class="focus-card-body">
+              <h3 class="focus-card-title">Production AI Systems</h3>
+              <p class="focus-card-desc">
+                Scalable LLM and RAG pipelines, from prototype to real-world deployment.
+              </p>
+              <div class="focus-card-footer">
+                <span class="circle-arrow-btn">→</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Focus Card 2 -->
+          <article class="focus-card" data-focus-card="2">
+            <div class="focus-visual-container">
+              <canvas class="focus-anim-canvas" id="canvas-multi-agent" aria-hidden="true"></canvas>
+              <img src="assets/images/multi-agent-ai.png" alt="Multi-Agent AI" class="focus-visual-img"
+                loading="lazy" />
+            </div>
+            <div class="focus-card-body">
+              <h3 class="focus-card-title">Multi-Agent AI</h3>
+              <p class="focus-card-desc">
+                Agentic systems for complex tasks and real-world workflows.
+              </p>
+              <div class="focus-card-footer">
+                <span class="circle-arrow-btn">→</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Focus Card 3 -->
+          <article class="focus-card" data-focus-card="3">
+            <div class="focus-visual-container">
+              <canvas class="focus-anim-canvas" id="canvas-neuro-symbolic" aria-hidden="true"></canvas>
+              <img src="assets/images/neuro-symbolic-ml.png" alt="Neuro-Symbolic ML" class="focus-visual-img"
+                loading="lazy" />
+            </div>
+            <div class="focus-card-body">
+              <h3 class="focus-card-title">Neuro-Symbolic ML</h3>
+              <p class="focus-card-desc">
+                Combining structured knowledge with modern machine learning.
+              </p>
+              <div class="focus-card-footer">
+                <span class="circle-arrow-btn">→</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Selected Work (Featured Projects) -->
+    <section class="projects-v2-section" id="selected-work">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">FEATURED PROJECTS</span>
+            <h2 class="section-title">Selected Work</h2>
+            <p class="section-subtitle">
+              A few projects that highlight my interests in reliable, real-world AI systems.
+            </p>
+          </div>
+          <div>
+            <a href="../#projects-grid" class="view-all-projects-link">
+              View all projects <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="projects-v2-container">
+          <!-- Featured Flagship Project: Tracxo -->
+          <a href="../projects/tracxo.html" id="project-tracxo" class="project-v2-card project-card-featured">
+            <div class="project-image-box">
+              <img src="../images/tracxo.png" alt="Tracxo AI Platform" loading="lazy" />
+            </div>
+            <div class="project-v2-body">
+              <div class="flagship-badge-row">
+                <span class="flagship-badge">FLAGSHIP PRODUCT · CO-FOUNDER</span>
+              </div>
+              <h3 class="project-v2-title">Tracxo</h3>
+              <p class="project-v2-desc">
+                AI platform helping restaurants eliminate food-cost leakage and automate purchasing with conversational
+                operational intelligence. Used by 50+ restaurant owners with 16 AI-powered cost tools.
+              </p>
+              <div class="project-v2-footer">
+                <div class="project-v2-tags">
+                  <span class="tag-pill">Multi-Agent</span>
+                  <span class="tag-pill">Production AI</span>
+                  <span class="tag-pill">FastAPI</span>
+                  <span class="tag-pill">PostgreSQL</span>
+                </div>
+                <span class="project-v2-arrow">View product case study →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Secondary Projects Grid -->
+          <div class="projects-secondary-grid">
+            <!-- Project 2: AgenticRAG -->
+            <a href="../projects/agentic-rag.html" id="project-agenticrag" class="project-v2-card">
+              <div class="project-image-box">
+                <img src="../images/agenticrag_thumbnail.png" alt="AgenticRAG" loading="lazy" />
+              </div>
+              <div class="project-v2-body">
+                <h3 class="project-v2-title">AgenticRAG</h3>
+                <p class="project-v2-desc">
+                  Full-stack agentic RAG system with a 9-node LangGraph workflow, hybrid BM25 + dense retrieval, and
+                  citation verification.
+                </p>
+                <div class="project-v2-footer">
+                  <div class="project-v2-tags">
+                    <span class="tag-pill">Agentic AI</span>
+                    <span class="tag-pill">RAG</span>
+                    <span class="tag-pill">LangGraph</span>
+                  </div>
+                  <span class="project-v2-arrow">→</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 3: Master's Thesis -->
+            <a href="../projects/thesis-kg.html" id="project-thesis" class="project-v2-card">
+              <div class="project-image-box">
+                <img src="../images/image.png" alt="Neuro-Symbolic Representation Learning" loading="lazy" />
+              </div>
+              <div class="project-v2-body">
+                <h3 class="project-v2-title">Neuro-Symbolic Representation</h3>
+                <p class="project-v2-desc">
+                  Leakage-free link-prediction pipeline integrating RotatE graph embeddings with AnyBURL Horn rules across
+                  14.8M+ KG triples.
+                </p>
+                <div class="project-v2-footer">
+                  <div class="project-v2-tags">
+                    <span class="tag-pill">Neuro-Symbolic</span>
+                    <span class="tag-pill">Knowledge Graphs</span>
+                    <span class="tag-pill">PyTorch</span>
+                  </div>
+                  <span class="project-v2-arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- 4. Experience Section -->
+    <section class="experience-v2-section" id="experience">
+      <div class="container">
+        <div class="section-header-compact">
+          <span class="section-label">EXPERIENCE</span>
+          <h2 class="section-title">Selected Experience</h2>
+          <p class="section-subtitle">
+            Engineering reliable AI systems, from production LLM infrastructure to research and product development.
+          </p>
+        </div>
+
+        <div class="timeline-v2">
+          <!-- Item 1: NEC Laboratories Europe -->
+          <article class="timeline-entry" id="experience-nec">
+            <div class="timeline-stem">
+              <span class="timeline-dot"></span>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <div class="org-meta">
+                  <img src="../images/pic02.jpg" alt="NEC Laboratories Europe" class="org-logo" loading="lazy" />
+                  <div>
+                    <h3 class="org-title">NEC Laboratories Europe</h3>
+                    <div class="org-role">Software Developer — AI/ML <span class="role-badge">Working Student</span></div>
+                  </div>
+                </div>
+                <div class="timeline-date">May 2025 — Present</div>
+              </div>
+              <p class="timeline-summary">
+                Building literature-grounded synthetic data generation pipelines, schema-constrained LLM tools, and production evaluation infrastructure.
+              </p>
+              <details class="exp-details">
+                <summary class="exp-toggle">
+                  <span>View impact & details</span>
+                  <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <ul class="exp-bullets-v2">
+                  <li>Built literature-grounded synthetic data-generation pipelines using multi-agent planning, generation, critique, and verification across 375+ published correlations and 11+ evidence packages.</li>
+                  <li>Reduced synthetic-data quality loss by 81% (0.106 to 0.020) on a 230+ subject benchmark by expanding validation to six quality gates and eliminating constraint violations.</li>
+                  <li>Outperformed statistical baselines with 2.4× lower ICC error and 26% lower holdout RMSE across 5,000+ longitudinal gap-filling predictions.</li>
+                  <li>Designed schema-constrained LLM pipelines with automated validation/repair, achieving 100% structured-output parse success while tracking token usage and cost.</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <!-- Item 2: Tracxo -->
+          <article class="timeline-entry" id="experience-tracxo">
+            <div class="timeline-stem">
+              <span class="timeline-dot"></span>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <div class="org-meta">
+                  <img src="../images/logo.png" alt="Tracxo" class="org-logo" loading="lazy" />
+                  <div>
+                    <h3 class="org-title">Tracxo</h3>
+                    <div class="org-role">Co-Founder</div>
+                  </div>
+                </div>
+                <div class="timeline-date">2026 — Present</div>
+              </div>
+              <p class="timeline-summary">
+                End-to-end AI platform helping restaurants understand purchase costs, vendor pricing, and food-cost leakage through conversational operational intelligence.
+              </p>
+              <details class="exp-details">
+                <summary class="exp-toggle">
+                  <span>View impact & details</span>
+                  <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <ul class="exp-bullets-v2">
+                  <li>Co-founded and built a working AI platform that helps restaurants understand purchase costs, vendor pricing, and food-cost leakage.</li>
+                  <li>Developed the product end-to-end, from bill and POS data ingestion to backend services, AI workflows, and production deployment.</li>
+                  <li>Launched a working product used by 50+ restaurant owners, with conversational access to 16 AI-powered cost and purchasing tools.</li>
+                  <li>Built evaluation, monitoring, and fallback systems to keep AI responses reliable in production.</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <!-- Item 3: Soul AI -->
+          <article class="timeline-entry" id="experience-soulai">
+            <div class="timeline-stem">
+              <span class="timeline-dot"></span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <div class="org-meta">
+                  <img src="../images/soul.jpg" alt="Soul AI" class="org-logo" loading="lazy" />
+                  <div>
+                    <h3 class="org-title">Soul AI</h3>
+                    <div class="org-role">AI Data Specialist — LLM Evaluation</div>
+                  </div>
+                </div>
+                <div class="timeline-date">Oct 2023 — Apr 2024</div>
+              </div>
+              <p class="timeline-summary">
+                Contributed to RLHF-style LLM evaluation for college-level mathematics, focusing on multi-turn reasoning and hallucination reduction.
+              </p>
+              <details class="exp-details">
+                <summary class="exp-toggle">
+                  <span>View impact & details</span>
+                  <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <ul class="exp-bullets-v2">
+                  <li>Contributed to RLHF-style LLM evaluation for college-level mathematics, focusing on multi-turn reasoning, hallucination reduction, and context-retention failures.</li>
+                  <li>Reviewed and annotated 500+ evaluation tasks, identified recurring failure modes, and collaborated with human evaluators to improve model quality.</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Skills / Technical Toolkit -->
+    <section class="skills-v2-section" id="skills">
+      <div class="container">
+        <div class="section-header-compact">
+          <span class="section-label">TOOLKIT</span>
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">
+            Core technologies and tools applied across production systems and research pipelines.
+          </p>
+        </div>
+
+        <div class="skills-columns-grid">
+          <!-- Column 1 -->
+          <div class="skills-column" id="skills-ai">
+            <div class="skills-col-header">
+              <span class="skill-cat-dot"></span>
+              <h3 class="skills-col-title">AI & LLM Systems</h3>
+            </div>
+            <ul class="skills-list">
+              <li>Agentic Workflows</li>
+              <li>Hybrid RAG (BM25 + Dense)</li>
+              <li>LangGraph</li>
+              <li>Google ADK</li>
+              <li>LLM Evaluation</li>
+              <li>Pydantic Schema Validation</li>
+            </ul>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="skills-column" id="skills-ml">
+            <div class="skills-col-header">
+              <span class="skill-cat-dot"></span>
+              <h3 class="skills-col-title">Machine Learning</h3>
+            </div>
+            <ul class="skills-list">
+              <li>PyTorch</li>
+              <li>Graph Embeddings (RotatE)</li>
+              <li>Knowledge Graphs</li>
+              <li>FlashRank & Reranking</li>
+              <li>ONNX Runtime</li>
+              <li>Transformers</li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="skills-column" id="skills-backend">
+            <div class="skills-col-header">
+              <span class="skill-cat-dot"></span>
+              <h3 class="skills-col-title">Backend & Data</h3>
+            </div>
+            <ul class="skills-list">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>PostgreSQL</li>
+              <li>Supabase</li>
+              <li>Redis</li>
+              <li>Pinecone & Qdrant</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div class="skills-column" id="skills-infra">
+            <div class="skills-col-header">
+              <span class="skill-cat-dot"></span>
+              <h3 class="skills-col-title">Infrastructure</h3>
+            </div>
+            <ul class="skills-list">
+              <li>Docker</li>
+              <li>Linux / Bash</li>
+              <li>Git & GitHub</li>
+              <li>CI/CD</li>
+              <li>Azure OpenAI & AWS S3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Education Section -->
+    <section class="education-v2-section" id="education">
+      <div class="container">
+        <div class="section-header-compact">
+          <span class="section-label">EDUCATION</span>
+          <h2 class="section-title">Academic Background</h2>
+        </div>
+
+        <div class="education-entries">
+          <!-- Degree 1 -->
+          <div class="edu-entry" id="education-heidelberg">
+            <div class="edu-entry-meta">
+              <img src="../images/Heidelberg.jpg" alt="Universität Heidelberg" class="edu-logo" loading="lazy" />
+              <div>
+                <h3 class="edu-degree">Master's in Scientific Computing</h3>
+                <div class="edu-school">Universität Heidelberg, Germany</div>
+              </div>
+            </div>
+            <div class="edu-entry-right">
+              <div class="edu-date">2024 — Present</div>
+              <p class="edu-desc">Focusing on advanced AI methods, efficient NLP, applied mathematics, and computer vision.</p>
+            </div>
+          </div>
+
+          <!-- Degree 2 -->
+          <div class="edu-entry" id="education-fergusson">
+            <div class="edu-entry-meta">
+              <img src="../images/Fergusson.jpg" alt="Fergusson College" class="edu-logo" loading="lazy" />
+              <div>
+                <h3 class="edu-degree">Bachelor's in Mathematics</h3>
+                <div class="edu-school">Fergusson College, Pune</div>
+              </div>
+            </div>
+            <div class="edu-entry-right">
+              <div class="edu-date">2020 — 2023</div>
+              <p class="edu-desc">Rigorous foundation in pure and applied mathematics, statistical analysis, and theoretical problem solving.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Let's Connect (Cinematic Finale) -->
+    <section class="connect-v2-section" id="contact">
+      <div class="connect-bg-layer" style="background-image: url('assets/images/lets-connect-bg.png');"></div>
+      <div class="connect-overlay"></div>
+
+      <div class="container connect-inner">
+        <div class="connect-content">
+          <span class="section-label">LET'S CONNECT</span>
+          <h2 class="connect-title">
+            Interested in AI, research<br />
+            or collaboration?
+          </h2>
+          <p class="connect-description">
+            I'm always open to discussing interesting projects, research ideas, or opportunities to build useful AI systems.
+          </p>
+
+          <div class="connect-actions">
+            <a href="mailto:amey.narwadkar1729@gmail.com" class="btn-primary">
+              Get in touch <span class="btn-arrow">→</span>
+            </a>
+            <a href="https://www.linkedin.com/in/amey-narwadkar-474332231/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              LinkedIn
+            </a>
+            <a href="mailto:amey.narwadkar1729@gmail.com" class="btn-secondary">
+              Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Footer -->
+  <footer class="v2-footer">
+    <div class="container v2-footer-inner">
+      <div class="v2-footer-brand">
+        <div class="footer-name">Amey Narwadkar</div>
+        <div class="footer-role">AI/ML Engineer</div>
+      </div>
+
+      <div class="v2-footer-links">
+        <a href="#hero">Home</a>
+        <a href="#selected-work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="https://www.linkedin.com/in/amey-narwadkar-474332231/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/ameynarwadkar" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <div class="container v2-footer-bottom">
+      <div class="copyright">
+        © 2026 Amey Narwadkar · All rights reserved.
+      </div>
+      <div class="switch-back">
+        <a href="../" title="View original website">← Return to original portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom-Right AI Action Trigger (Always visible) -->
+  <button type="button" class="ai-floating-trigger" id="floating-ask-ai-btn" aria-label="Open Ask Amey AI portfolio navigator" title="Ask Amey AI (⌘K / Ctrl+K)">
+    <span class="ai-sparkle-icon">✦</span>
+    <span class="ai-floating-label">Ask AI</span>
+    <span class="ai-floating-kbd">⌘K</span>
+  </button>
+
+  <!-- =========================================================================
+       Ask Amey AI — Portfolio Navigator Command Palette / Dock Panel
+       ========================================================================= -->
+  <div id="v2-ai-modal" class="ai-modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="ai-modal-title">
+    <div class="ai-modal-panel">
+      <!-- Modal Header -->
+      <div class="ai-modal-header">
+        <div class="ai-modal-brand">
+          <span class="ai-sparkle-icon">✦</span>
+          <div>
+            <h2 id="ai-modal-title" class="ai-modal-title">Ask Amey AI</h2>
+            <div class="ai-modal-tagline">PORTFOLIO NAVIGATOR</div>
+          </div>
+        </div>
+        <div class="ai-modal-controls">
+          <button type="button" class="ai-mode-pill" id="ai-toggle-mode" title="Switch between Ask and Recruiter mode">
+            <span id="ai-mode-label">I'm hiring →</span>
+          </button>
+          <button type="button" class="ai-modal-close" id="ai-modal-close-btn" aria-label="Close Ask AI modal">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mode 1: Ask Mode View -->
+      <div class="ai-mode-container" id="ai-ask-view">
+        <div class="ai-prompt-box">
+          <label for="ai-user-query" class="ai-prompt-label">What would you like to know?</label>
+          <div class="ai-input-wrap">
+            <input type="text" id="ai-user-query" class="ai-input" placeholder="Ask about my work, production systems, RAG..." maxlength="1000" autocomplete="off" />
+            <button type="button" class="ai-submit-btn" id="ai-ask-submit-btn" aria-label="Send question">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Suggested Questions -->
+        <div class="ai-suggestions-section" id="ai-suggestions">
+          <div class="ai-suggestions-header">Try asking:</div>
+          <div class="ai-suggestions-grid">
+            <button type="button" class="ai-suggestion-chip" data-query="Why should we hire Amey?">
+              <span>→ Why should we hire Amey?</span>
+            </button>
+            <button type="button" class="ai-suggestion-chip" data-query="Show me his strongest AI project">
+              <span>→ Show me his strongest AI project</span>
+            </button>
+            <button type="button" class="ai-suggestion-chip" data-query="What production AI has he built?">
+              <span>→ What production AI has he built?</span>
+            </button>
+            <button type="button" class="ai-suggestion-chip" data-query="Is he a fit for an Agentic AI role?">
+              <span>→ Is he a fit for an Agentic AI role?</span>
+            </button>
+            <button type="button" class="ai-suggestion-chip" data-query="Explain his master's thesis simply">
+              <span>→ Explain his master's thesis simply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode 2: Recruiter Mode View -->
+      <div class="ai-mode-container hidden" id="ai-recruiter-view">
+        <div class="recruiter-intro">
+          <h3 class="recruiter-title">Hiring for something?</h3>
+          <p class="recruiter-subtitle">
+            Paste a job description and I'll show which parts of Amey's experience are most relevant.
+          </p>
+        </div>
+
+        <div class="recruiter-input-box">
+          <textarea id="ai-jd-textarea" class="ai-textarea" placeholder="Paste job description requirements here (up to 10,000 characters)..." maxlength="10000" rows="5"></textarea>
+          <div class="recruiter-input-footer">
+            <span class="ai-char-counter" id="ai-char-counter">0 / 10,000</span>
+            <button type="button" class="btn-recruiter-analyze" id="ai-analyze-jd-btn">
+              <span>Analyse fit</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Loading State -->
+      <div class="ai-loading-container hidden" id="ai-loading-indicator">
+        <div class="ai-spinner"></div>
+        <span class="ai-loading-text">Analyzing portfolio context...</span>
+      </div>
+
+      <!-- Output / Results Section -->
+      <div class="ai-results-container hidden" id="ai-results-area"></div>
+
+      <!-- Error State -->
+      <div class="ai-error-container hidden" id="ai-error-box"></div>
+
+      <!-- Footer Info / Shortcut -->
+      <div class="ai-modal-footer">
+        <span class="ai-grounded-note">✦ Grounded strictly in verified portfolio data</span>
+        <span class="ai-shortcut-hint">Press <kbd>Esc</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio V2 Scripts -->
+  <script src="assets/js/v2.js?v=4"></script>
+  <script src="assets/js/ai-navigator.js?v=1"></script>
+</body>
+
+</html>
