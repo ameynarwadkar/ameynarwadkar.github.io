@@ -8,23 +8,23 @@
   --bg-card: rgba(18, 18, 22, 0.7);
   --bg-card-hover: rgba(26, 26, 32, 0.9);
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(128, 0, 32, 0.55);
+  --border-active: rgba(209, 0, 0, 0.55);
   
-  --brand-orange: #800020;
-  --brand-orange-glow: rgba(128, 0, 32, 0.45);
-  --brand-burgundy: #800020;
-  --brand-burgundy-glow: rgba(128, 0, 32, 0.45);
+  --brand-orange: #D10000;
+  --brand-orange-glow: rgba(209, 0, 0, 0.4);
+  --brand-crimson: #D10000;
+  --brand-crimson-glow: rgba(209, 0, 0, 0.4);
   --brand-cyan: #51f2f1;
   --brand-purple: #c4b5fd;
   --brand-green: #6bcf8a;
 
-  /* Behind-The-Scenes Signature Red Spectrum — Velvet & Burgundy Tones */
-  --glow-red-1: #800020; /* Authentic Burgundy */
-  --glow-red-2: #560a1b; /* Deep Wine / Bordeaux */
-  --glow-red-3: #9b1931; /* Rich Velvet Garnet */
-  --glow-red-4: #3f0410; /* Dark Maroon */
-  --glow-red-5: #6d0f23; /* Warm Oxblood */
-  --glow-red-6: #a8243c; /* Subtle Ruby Rose Highlight */
+  /* Behind-The-Scenes Signature Red Spectrum — Vivid & Deep Red Tones */
+  --glow-red-1: #D10000; /* Vivid Crimson */
+  --glow-red-2: #6e0202; /* Deep Blood Red */
+  --glow-red-3: #a30707; /* Rich Velvet Red */
+  --glow-red-4: #4a0000; /* Midnight Wine */
+  --glow-red-5: #8c0505; /* Dark Garnet */
+  --glow-red-6: #b80c0c; /* Warm Scarlet */
 
   --card-red-glow: linear-gradient(
     135deg,
@@ -227,7 +227,7 @@ html.lenis, html.lenis body {
 
 .btn-nav-contact:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 22px rgba(128, 0, 32, 0.55);
+  box-shadow: 0 0 22px rgba(209, 0, 0, 0.55);
 }
 
 @media (max-width: 1024px) {
@@ -408,8 +408,8 @@ html.lenis, html.lenis body {
 
 .section-tag .tag-num {
   padding: 0.2rem 0.45rem;
-  background: rgba(128, 0, 32, 0.15);
-  border: 1px solid rgba(128, 0, 32, 0.35);
+  background: rgba(209, 0, 0, 0.15);
+  border: 1px solid rgba(209, 0, 0, 0.35);
   border-radius: 4px;
   font-weight: 700;
 }
@@ -469,8 +469,8 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.35rem 0.8rem;
-  background: rgba(128, 0, 32, 0.12);
-  border: 1px solid rgba(128, 0, 32, 0.35);
+  background: rgba(209, 0, 0, 0.12);
+  border: 1px solid rgba(209, 0, 0, 0.35);
   border-radius: 9999px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -605,7 +605,7 @@ html.lenis, html.lenis body {
 .hero-pill:hover {
   color: #fff;
   border-color: var(--brand-orange);
-  background: rgba(128, 0, 32, 0.15);
+  background: rgba(209, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
@@ -617,15 +617,15 @@ html.lenis, html.lenis body {
   margin: 0 auto;
 }
 
-/* Card Glow radiating in all 360° directions — Multi-shade Burgundy halo */
+/* Card Glow radiating in all 360° directions — Multi-shade Crimson halo */
 .card-glow {
   position: absolute;
   inset: -30px;
   border-radius: 36px;
   background-image: var(--card-red-glow);
   background-size: 240% 240%;
-  filter: blur(34px);
-  opacity: 0.35;
+  filter: blur(36px);
+  opacity: 0.32;
   pointer-events: none;
   z-index: 1;
   animation: card-red-glow 7s infinite ease-in-out;
@@ -641,8 +641,8 @@ html.lenis, html.lenis body {
   border-radius: inherit;
   background: radial-gradient(
     circle 260px at var(--glow-x, 50%) var(--glow-y, 50%),
-    rgba(180, 25, 55, 0.28) 0%,
-    rgba(128, 0, 32, 0.12) 40%,
+    rgba(209, 0, 0, 0.25) 0%,
+    rgba(140, 5, 5, 0.1) 40%,
     transparent 70%
   );
   mix-blend-mode: screen;
@@ -651,13 +651,13 @@ html.lenis, html.lenis body {
 }
 
 .card-3d-wrap:hover .card-glow {
-  opacity: 0.58;
-  filter: blur(40px);
+  opacity: 0.52;
+  filter: blur(42px);
   animation-duration: 4.5s;
 }
 
 .card-3d-wrap:hover .card-glow::after {
-  opacity: 0.65;
+  opacity: 0.6;
 }
 
 .card-3d {
@@ -669,13 +669,13 @@ html.lenis, html.lenis body {
   background-color: #111116;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8),
-              0 0 25px -10px rgba(128, 0, 32, 0.3);
+              0 0 25px -10px rgba(209, 0, 0, 0.25);
   transform-style: preserve-3d;
   transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.35s ease;
   cursor: pointer;
 }
 
-/* On hover: subtle burgundy border matching behind-the-scenes aesthetic */
+/* On hover: subtle crimson border matching behind-the-scenes aesthetic */
 .card-3d-wrap:hover .card-3d {
   border-color: transparent;
   background-image: linear-gradient(#111116, #111116), var(--card-red-glow);
@@ -683,7 +683,7 @@ html.lenis, html.lenis body {
   background-origin: border-box;
   background-clip: padding-box, border-box;
   box-shadow: 0 30px 75px -15px rgba(0, 0, 0, 0.9),
-              0 0 32px -8px rgba(128, 0, 32, 0.45);
+              0 0 30px -8px rgba(209, 0, 0, 0.4);
   animation: card-red-glow 4.5s infinite ease-in-out;
 }
 
@@ -895,7 +895,7 @@ html.lenis, html.lenis body {
 }
 
 .sys-headline .accent-orange {
-  color: #800020;
+  color: #D10000;
 }
 
 .sys-headline .accent-purple {
@@ -964,7 +964,7 @@ html.lenis, html.lenis body {
   letter-spacing: 0.06em;
 }
 
-.step-orange { color: #800020; }
+.step-orange { color: #D10000; }
 .step-blue { color: #3b82f6; }
 .step-purple { color: #a855f7; }
 .step-cyan { color: #00f0ff; }
@@ -1009,12 +1009,12 @@ html.lenis, html.lenis body {
 
 /* Card Themes & Hover/Active Glows */
 .card-discover {
-  border-color: rgba(128, 0, 32, 0.35);
-  background: rgba(128, 0, 32, 0.04);
+  border-color: rgba(209, 0, 0, 0.35);
+  background: rgba(209, 0, 0, 0.04);
 }
 .card-discover:hover, .card-discover.active-stage {
-  border-color: #800020;
-  box-shadow: 0 0 24px -4px rgba(128, 0, 32, 0.45);
+  border-color: #D10000;
+  box-shadow: 0 0 24px -4px rgba(209, 0, 0, 0.45);
 }
 
 .card-data {
@@ -1075,7 +1075,7 @@ html.lenis, html.lenis body {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(128, 0, 32, 0.4) 0%, rgba(128, 0, 32, 0.1) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(209, 0, 0, 0.38) 0%, rgba(209, 0, 0, 0.08) 50%, transparent 75%);
   top: 44%;
   left: 36%;
   transform: translate(-50%, -50%);
@@ -1097,22 +1097,22 @@ html.lenis, html.lenis body {
 }
 
 .bulb-aura {
-  fill: rgba(128, 0, 32, 0.2);
+  fill: rgba(209, 0, 0, 0.2);
   filter: blur(5px);
 }
 
 .bulb-glass {
-  stroke: #9e1b32;
+  stroke: #b80c0c;
   stroke-width: 1.5;
-  fill: rgba(128, 0, 32, 0.08);
+  fill: rgba(209, 0, 0, 0.06);
 }
 
 .bulb-filament {
-  stroke: #800020;
+  stroke: #D10000;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 5px #9e1b32);
+  filter: drop-shadow(0 0 5px #a30707);
   animation: filament-flicker 2.5s infinite ease-in-out;
 }
 
@@ -1132,15 +1132,15 @@ html.lenis, html.lenis body {
 }
 
 .bulb-link {
-  stroke: rgba(128, 0, 32, 0.4);
+  stroke: rgba(209, 0, 0, 0.35);
   stroke-width: 1;
   stroke-dasharray: 2 2;
   animation: link-dash-flow 3s infinite linear;
 }
 
 .bulb-link-dot {
-  fill: #800020;
-  filter: drop-shadow(0 0 3px #9e1b32);
+  fill: #D10000;
+  filter: drop-shadow(0 0 3px #a30707);
 }
 
 .sat-pill {
@@ -1150,7 +1150,7 @@ html.lenis, html.lenis body {
   gap: 0.38rem;
   padding: 0.28rem 0.5rem;
   background: rgba(14, 15, 22, 0.94);
-  border: 1px solid rgba(128, 0, 32, 0.35);
+  border: 1px solid rgba(209, 0, 0, 0.35);
   border-radius: 7px;
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -1162,7 +1162,7 @@ html.lenis, html.lenis body {
 }
 
 .sat-pill:hover {
-  border-color: #800020;
+  border-color: #D10000;
   transform: scale(1.04);
   color: #fff;
 }
@@ -1191,8 +1191,8 @@ html.lenis, html.lenis body {
 }
 
 .dot-orange {
-  background: #800020;
-  box-shadow: 0 0 6px rgba(128, 0, 32, 0.9);
+  background: #D10000;
+  box-shadow: 0 0 6px rgba(209, 0, 0, 0.9);
   animation: pill-dot-pulse 2.2s infinite ease-in-out;
 }
 
@@ -1597,7 +1597,7 @@ html.lenis, html.lenis body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, #800020, #a855f7, transparent);
+  background: linear-gradient(90deg, transparent, #D10000, #a855f7, transparent);
   animation: packet-travel 1.8s infinite linear;
 }
 
@@ -1653,7 +1653,7 @@ html.lenis, html.lenis body {
 .bracket-line::before { left: 0; }
 .bracket-line::after { right: 0; }
 
-.bracket-explore .bracket-line { background: #800020; box-shadow: 0 0 6px rgba(128, 0, 32, 0.5); }
+.bracket-explore .bracket-line { background: #D10000; box-shadow: 0 0 6px rgba(209, 0, 0, 0.5); }
 .bracket-build .bracket-line { background: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.5); }
 .bracket-validate .bracket-line { background: #22c55e; box-shadow: 0 0 6px rgba(34, 197, 94, 0.5); }
 .bracket-deploy .bracket-line { background: #818cf8; box-shadow: 0 0 6px rgba(129, 140, 248, 0.5); }
@@ -1678,7 +1678,7 @@ html.lenis, html.lenis body {
   transition: all 0.2s ease;
 }
 
-.bracket-explore .bracket-title { color: #800020; }
+.bracket-explore .bracket-title { color: #D10000; }
 .bracket-build .bracket-title { color: #a855f7; }
 .bracket-validate .bracket-title { color: #22c55e; }
 .bracket-deploy .bracket-title { color: #818cf8; }
@@ -1706,10 +1706,10 @@ html.lenis, html.lenis body {
 }
 
 @keyframes filament-flicker {
-  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px #800020); }
-  25% { opacity: 1; filter: drop-shadow(0 0 8px #9e1b32); }
-  60% { opacity: 0.75; filter: drop-shadow(0 0 3px #800020); }
-  80% { opacity: 0.95; filter: drop-shadow(0 0 6px #800020); }
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px #D10000); }
+  25% { opacity: 1; filter: drop-shadow(0 0 8px #e61919); }
+  60% { opacity: 0.75; filter: drop-shadow(0 0 3px #D10000); }
+  80% { opacity: 0.95; filter: drop-shadow(0 0 6px #D10000); }
 }
 
 @keyframes link-dash-flow {
@@ -1772,8 +1772,8 @@ html.lenis, html.lenis body {
   font-size: 0.82rem;
   letter-spacing: 0.12em;
   color: var(--brand-orange);
-  background: rgba(128, 0, 32, 0.12);
-  border: 1px solid rgba(128, 0, 32, 0.35);
+  background: rgba(209, 0, 0, 0.12);
+  border: 1px solid rgba(209, 0, 0, 0.35);
   padding: 0.42rem 0.95rem;
   border-radius: 9999px;
   font-weight: 700;
@@ -1802,7 +1802,7 @@ html.lenis, html.lenis body {
 .carousel-btn:hover:not(:disabled) {
   border-color: var(--brand-orange);
   color: #fff;
-  background: rgba(128, 0, 32, 0.2);
+  background: rgba(209, 0, 0, 0.2);
   box-shadow: 0 0 14px var(--brand-orange-glow);
 }
 
@@ -1887,7 +1887,7 @@ html.lenis, html.lenis body {
   opacity: 1;
   transform: scale(1);
   border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(128, 0, 32, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(209, 0, 0, 0.12);
 }
 
 .showcase-grid {
@@ -1970,8 +1970,8 @@ html.lenis, html.lenis body {
 }
 
 .p-tag.accent-orange {
-  background: rgba(128, 0, 32, 0.15);
-  border: 1px solid rgba(128, 0, 32, 0.4);
+  background: rgba(209, 0, 0, 0.15);
+  border: 1px solid rgba(209, 0, 0, 0.4);
   color: var(--brand-orange);
 }
 
@@ -2142,8 +2142,8 @@ html.lenis, html.lenis body {
 
 .exp-badge.accent-orange-badge {
   color: var(--brand-orange);
-  background: rgba(128, 0, 32, 0.12);
-  border-color: rgba(128, 0, 32, 0.35);
+  background: rgba(209, 0, 0, 0.12);
+  border-color: rgba(209, 0, 0, 0.35);
 }
 
 .exp-company {
@@ -2217,8 +2217,8 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.65rem 1.25rem;
-  background: rgba(128, 0, 32, 0.1);
-  border: 1px solid rgba(128, 0, 32, 0.35);
+  background: rgba(209, 0, 0, 0.1);
+  border: 1px solid rgba(209, 0, 0, 0.35);
   border-radius: 8px;
   color: #fff;
   font-family: var(--font-mono);
@@ -2228,7 +2228,7 @@ html.lenis, html.lenis body {
 }
 
 .proof-btn:hover {
-  background: rgba(128, 0, 32, 0.22);
+  background: rgba(209, 0, 0, 0.22);
   border-color: var(--brand-orange);
   transform: translateY(-2px);
 }
@@ -2441,7 +2441,7 @@ html.lenis, html.lenis body {
   border: 1.5px solid var(--border-active);
   border-radius: 18px;
   padding: clamp(1.25rem, 2.2vh, 1.75rem) clamp(1.5rem, 2.5vw, 2.25rem);
-  box-shadow: 0 25px 80px -20px rgba(128, 0, 32, 0.3);
+  box-shadow: 0 25px 80px -20px rgba(209, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
 }
@@ -2540,7 +2540,7 @@ html.lenis, html.lenis body {
 
 .btn-copy-email:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(128, 0, 32, 0.5);
+  box-shadow: 0 10px 24px rgba(209, 0, 0, 0.5);
 }
 
 .copy-toast {
@@ -2602,8 +2602,8 @@ html.lenis, html.lenis body {
   justify-content: space-between;
   align-items: center;
   padding: 0.65rem 1.25rem;
-  background: rgba(128, 0, 32, 0.12);
-  border: 1px solid rgba(128, 0, 32, 0.35);
+  background: rgba(209, 0, 0, 0.12);
+  border: 1px solid rgba(209, 0, 0, 0.35);
   border-radius: 10px;
   margin-bottom: 1rem;
   flex-wrap: wrap;
