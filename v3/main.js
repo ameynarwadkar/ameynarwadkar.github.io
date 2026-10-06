@@ -42,6 +42,11 @@ function initSlideshowDeck() {
 
   function goToChapter(index) {
     const targetIdx = Math.max(0, Math.min(index, chapters.length - 1));
+    if (targetIdx === currentIdx) {
+      isLocked = false;
+      return;
+    }
+
     currentIdx = targetIdx;
     window.__currentChapterIdx = currentIdx;
     isLocked = true;
@@ -51,19 +56,17 @@ function initSlideshowDeck() {
     if (targetEl) {
       if (window.__lenis) {
         window.__lenis.scrollTo(targetEl, {
-          duration: 0.85,
+          duration: 0.8,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           onComplete: () => {
-            lockTimer = setTimeout(() => {
-              isLocked = false;
-            }, 100);
+            isLocked = false;
           }
         });
       } else {
         targetEl.scrollIntoView({ behavior: 'smooth' });
-        lockTimer = setTimeout(() => {
+        setTimeout(() => {
           isLocked = false;
-        }, 750);
+        }, 600);
       }
     } else {
       isLocked = false;
@@ -71,7 +74,7 @@ function initSlideshowDeck() {
 
     lockTimer = setTimeout(() => {
       isLocked = false;
-    }, 850);
+    }, 750);
   }
 
   window.__goToChapter = goToChapter;
