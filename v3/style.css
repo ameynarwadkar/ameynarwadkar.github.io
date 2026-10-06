@@ -2018,14 +2018,14 @@ html.lenis, html.lenis body {
 }
 
 .horizontal-projects-track .project-card {
-  flex: 0 0 clamp(860px, 72vw, 1160px);
-  width: clamp(860px, 72vw, 1160px);
+  flex: 0 0 clamp(880px, 75vw, 1220px);
+  width: clamp(880px, 75vw, 1220px);
   max-width: 90vw;
   box-sizing: border-box;
-  background: rgba(16, 14, 12, 0.85);
+  background: rgba(13, 10, 19, 0.85);
   border: 1px solid var(--border-warm);
   border-radius: 24px;
-  padding: clamp(2.4rem, 4vh, 3.4rem) clamp(2.6rem, 3.5vw, 4rem);
+  padding: clamp(2.2rem, 3.6vh, 3.2rem) clamp(2.4rem, 3.2vw, 3.8rem);
   backdrop-filter: blur(16px);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.4s ease,
@@ -2042,6 +2042,13 @@ html.lenis, html.lenis body {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 105, 77, 0.10);
 }
 
+/* Extra-large presentation specifically for Tracxo hero card */
+.horizontal-projects-track .showcase-tracxo {
+  flex: 0 0 clamp(980px, 84vw, 1380px);
+  width: clamp(980px, 84vw, 1380px);
+  padding: clamp(1.8rem, 2.6vh, 2.6rem) clamp(2.2rem, 2.8vw, 3.2rem);
+}
+
 .showcase-grid {
   display: grid;
   grid-template-columns: 1.32fr 1fr;
@@ -2053,8 +2060,14 @@ html.lenis, html.lenis body {
   grid-template-columns: 1.32fr 1fr;
 }
 
+/* Give Tracxo visual column an expansive share of the card */
+.showcase-tracxo .showcase-grid {
+  grid-template-columns: 1.82fr 1fr;
+  gap: clamp(1.8rem, 2.8vw, 3.2rem);
+}
+
 @media (max-width: 1000px) {
-  .showcase-grid, .showcase-grid.reverse {
+  .showcase-grid, .showcase-grid.reverse, .showcase-tracxo .showcase-grid {
     grid-template-columns: 1fr;
     gap: 1.8rem;
   }
@@ -2072,6 +2085,21 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Tracxo image frame enlarged even more */
+.showcase-tracxo .media-frame {
+  aspect-ratio: 16 / 9.8;
+  max-height: clamp(430px, 62vh, 600px);
+  min-height: 380px;
+  border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+  .showcase-tracxo .media-frame {
+    min-height: unset;
+    max-height: 420px;
+  }
 }
 
 .media-frame.frame-zoomable {
