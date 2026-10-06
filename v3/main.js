@@ -426,7 +426,6 @@ function initAmbientCanvas() {
 function initHudSync() {
   const thumb = document.getElementById('hud-scroll-progress');
   const indices = document.querySelectorAll('.hud-idx');
-  const navLinks = document.querySelectorAll('.v3-nav .nav-link');
   const chapters = document.querySelectorAll('.chapter-screen');
 
   function updateScroll() {
@@ -455,14 +454,6 @@ function initHudSync() {
         idx.classList.add('active');
       } else {
         idx.classList.remove('active');
-      }
-    });
-
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === `#${activeId}`) {
-        link.style.color = '#ff694d';
-      } else {
-        link.style.color = '';
       }
     });
   }
