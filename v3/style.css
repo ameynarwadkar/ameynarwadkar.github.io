@@ -16,6 +16,22 @@
   --brand-purple: #c4b5fd;
   --brand-green: #6bcf8a;
 
+  /* Behind-The-Scenes Signature Rainbow Spectrum */
+  --color-1: hsl(0 100% 63%);
+  --color-2: hsl(270 100% 63%);
+  --color-3: hsl(210 100% 63%);
+  --color-4: hsl(195 100% 63%);
+  --color-5: hsl(90 100% 63%);
+  --rainbow: linear-gradient(
+    90deg,
+    var(--color-1),
+    var(--color-5),
+    var(--color-3),
+    var(--color-4),
+    var(--color-2),
+    var(--color-1)
+  );
+
   --text-main: #f0f0f5;
   --text-muted: rgba(240, 240, 245, 0.65);
   --text-dim: rgba(240, 240, 245, 0.4);
@@ -35,6 +51,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
   background-color: var(--bg-deep);
   color: var(--text-main);
   font-family: var(--font-display);
@@ -49,6 +66,7 @@ body.scrolly-body {
   color: var(--text-main);
   min-height: 100vh;
   overflow-x: hidden;
+  scroll-snap-type: y mandatory;
 }
 
 /* Ambient Canvas */
@@ -314,7 +332,7 @@ body.scrolly-body {
   z-index: 10;
   margin-left: calc(var(--hud-width) + 3rem);
   padding-right: 4vw;
-  padding-top: 4.5rem;
+  padding-top: 0;
 }
 
 @media (max-width: 1100px) {
@@ -324,16 +342,22 @@ body.scrolly-body {
   .scrolly-main {
     margin-left: 5vw;
     padding-right: 5vw;
+    padding-top: 0;
   }
 }
 
 .chapter-screen {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 6rem 0;
+  padding: 4.5rem 0 clamp(1rem, 2.5vh, 2rem) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  box-sizing: border-box;
+  position: relative;
 }
 
 .chapter-content {
@@ -344,7 +368,7 @@ body.scrolly-body {
 
 /* Section Header Badges */
 .section-lead {
-  margin-bottom: 3.5rem;
+  margin-bottom: clamp(1rem, 2vh, 1.8rem);
 }
 
 .section-tag {
@@ -356,7 +380,7 @@ body.scrolly-body {
   letter-spacing: 0.15em;
   color: var(--brand-orange);
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .section-tag .tag-num {
@@ -369,7 +393,7 @@ body.scrolly-body {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -378,19 +402,20 @@ body.scrolly-body {
 
 .section-subtitle {
   font-family: var(--font-sub);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
   color: var(--text-muted);
   max-width: 650px;
-  margin-top: 0.85rem;
-  line-height: 1.5;
+  margin-top: 0.6rem;
+  line-height: 1.4;
 }
 
 /* ==========================================================================
    CHAPTER 01: WHO AM I? (HERO & 3D TILT CARD)
    ========================================================================== */
 .chapter-hero {
-  min-height: calc(100vh - 4.5rem);
-  padding: 4rem 0 6rem 0;
+  height: 100vh;
+  height: 100dvh;
+  padding: 4.5rem 0 clamp(1rem, 2.5vh, 2rem) 0;
 }
 
 .hero-grid {
@@ -552,26 +577,101 @@ body.scrolly-body {
   transform: translateY(-2px);
 }
 
-/* 3D Perspective Card Wrap */
+/* 3D Perspective Card Wrap & Behind-The-Scenes Glow System */
 .card-3d-wrap {
-  perspective: 1200px;
-  display: flex;
-  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Card Glow radiating in all 360° directions */
+.card-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 36px;
+  background-image: var(--rainbow);
+  background-size: 260% 260%;
+  filter: blur(38px);
+  opacity: 0.42;
+  pointer-events: none;
+  z-index: 1;
+  animation: card-rainbow 6.5s infinite linear;
+  transition: opacity 0.35s ease, filter 0.35s ease;
+  will-change: transform, opacity, filter;
+}
+
+/* Dynamic chromatic flare that concentrates under the cursor */
+.card-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 260px at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    transparent 70%
+  );
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.card-3d-wrap:hover .card-glow {
+  opacity: 0.95;
+  filter: blur(46px);
+  animation-duration: 2.2s;
+}
+
+.card-3d-wrap:hover .card-glow::after {
+  opacity: 1;
 }
 
 .card-3d {
   position: relative;
+  z-index: 2;
   width: 100%;
-  max-width: 400px;
   border-radius: 20px;
   overflow: hidden;
-  background: #111116;
+  background-color: #111116;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8),
               0 0 30px -10px var(--brand-orange-glow);
   transform-style: preserve-3d;
-  transition: transform 0.15s ease-out, box-shadow 0.25s ease;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.35s ease;
   cursor: pointer;
+}
+
+/* On hover: rainbow border matching behind-the-scenes aesthetic */
+.card-3d-wrap:hover .card-3d {
+  border-color: transparent;
+  background-image: linear-gradient(#111116, #111116), var(--rainbow);
+  background-size: 100% 100%, 260% 260%;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 30px 75px -15px rgba(0, 0, 0, 0.9),
+              0 0 40px -8px rgba(255, 68, 33, 0.35);
+  animation: card-rainbow 2.2s infinite linear;
+}
+
+@keyframes card-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-glow,
+  .card-3d-wrap:hover .card-3d {
+    animation: none;
+  }
 }
 
 .card-media-shell {
@@ -579,6 +679,7 @@ body.scrolly-body {
   width: 100%;
   height: 480px;
   overflow: hidden;
+  border-radius: inherit;
 }
 
 .hero-avatar-img {
@@ -590,7 +691,7 @@ body.scrolly-body {
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-.card-3d:hover .hero-avatar-img {
+.card-3d-wrap:hover .hero-avatar-img {
   transform: scale(1.04);
   filter: grayscale(0%) contrast(112%);
 }
@@ -707,9 +808,9 @@ body.scrolly-body {
    ========================================================================== */
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: clamp(1rem, 2vh, 1.8rem);
 }
 
 .pillar-card {
@@ -717,7 +818,7 @@ body.scrolly-body {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
-  padding: 2rem 1.75rem;
+  padding: clamp(1.2rem, 2vh, 1.6rem);
   backdrop-filter: blur(12px);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
@@ -1805,4 +1906,19 @@ body.scrolly-body {
   color: var(--text-muted);
   line-height: 1.5;
   margin-top: 1rem;
+}
+
+/* ==========================================================================
+   FULL-SCREEN SCROLL SNAP RESPONSIVE FALLBACK
+   ========================================================================== */
+@media (max-height: 650px), (max-width: 960px) {
+  html, body.scrolly-body {
+    scroll-snap-type: none;
+  }
+  .chapter-screen {
+    height: auto;
+    min-height: 100vh;
+    scroll-snap-align: none;
+    padding: 6rem 0 3rem 0;
+  }
 }
