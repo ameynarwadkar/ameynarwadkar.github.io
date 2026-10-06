@@ -28,7 +28,7 @@
 **Interfaces:**
 - Produces: `<script src="vendor/lenis.min.js">` in DOM and `data-lenis-prevent` on `#projects-carousel`.
 
-- [ ] **Step 1: Write test script checking Lenis script presence and carousel isolation attribute**
+- [x] **Step 1: Write test script checking Lenis script presence and carousel isolation attribute**
 
 ```javascript
 // scratch/test_lenis_task1.js
@@ -84,10 +84,10 @@ if (!evalRes.result.value.hasLenis || !evalRes.result.value.hasPrevent) {
 }
 ```
 
-- [ ] **Step 2: Run test script to verify it fails initially**
-- [ ] **Step 3: Update `v3/index.html` to load Lenis and add `data-lenis-prevent` to `#projects-carousel`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 1 changes**
+- [x] **Step 2: Run test script to verify it fails initially**
+- [x] **Step 3: Update `v3/index.html` to load Lenis and add `data-lenis-prevent` to `#projects-carousel`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 1 changes**
 
 ---
 
@@ -100,11 +100,11 @@ if (!evalRes.result.value.hasLenis || !evalRes.result.value.hasPrevent) {
 **Interfaces:**
 - Produces: CSS rules for Lenis smooth scrolling (`html.lenis`, `.lenis-smooth`, `[data-lenis-prevent]`) and replaces rigid snap locks with non-blocking momentum compatibility.
 
-- [ ] **Step 1: Write test script checking Lenis CSS rules and absence of conflicting snap locks**
-- [ ] **Step 2: Run test script to verify it fails**
-- [ ] **Step 3: Add Lenis styling rules to `v3/style.css`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 2 changes**
+- [x] **Step 1: Write test script checking Lenis CSS rules and absence of conflicting snap locks**
+- [x] **Step 2: Run test script to verify it fails**
+- [x] **Step 3: Add Lenis styling rules to `v3/style.css`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 2 changes**
 
 ---
 
@@ -117,11 +117,11 @@ if (!evalRes.result.value.hasLenis || !evalRes.result.value.hasPrevent) {
 **Interfaces:**
 - Produces: `window.__lenis` instance, continuous RAF loop, HUD scroll tracker, and magnetic snap settling when scrolling ends.
 
-- [ ] **Step 1: Write test script simulating wheel momentum and verifying animated scroll interpolation**
-- [ ] **Step 2: Run test script to verify it fails**
-- [ ] **Step 3: Implement Lenis initialization, HUD sync, and magnetic chapter settling in `v3/main.js`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 3 changes**
+- [x] **Step 1: Write test script simulating wheel momentum and verifying animated scroll interpolation**
+- [x] **Step 2: Run test script to verify it fails**
+- [x] **Step 3: Implement Lenis initialization, HUD sync, and magnetic chapter settling in `v3/main.js`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 3 changes**
 
 ---
 
@@ -133,6 +133,6 @@ if (!evalRes.result.value.hasLenis || !evalRes.result.value.hasPrevent) {
 **Interfaces:**
 - Validates: Full flow including wheel momentum, chapter settling, HUD active synchronization, anchor link smooth transition, and Chapter 03 carousel independence.
 
-- [ ] **Step 1: Write and run comprehensive E2E test script**
-- [ ] **Step 2: Capture visual verification screenshots**
-- [ ] **Step 3: Commit any final refinements and update plan**
+- [x] **Step 1: Write and run comprehensive E2E test script**
+- [x] **Step 2: Capture visual verification screenshots**
+- [x] **Step 3: Commit any final refinements and update plan**
