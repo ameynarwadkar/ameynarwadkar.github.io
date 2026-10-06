@@ -58,10 +58,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Fallback smooth scroll & proximity snap when Lenis is not active */
+/* Fallback smooth scroll when Lenis is not active */
 html:not(.lenis) {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
 }
 
 body.scrolly-body {
@@ -76,11 +75,6 @@ body.scrolly-body {
 html.lenis, html.lenis body {
   height: auto;
   scroll-behavior: auto !important;
-  scroll-snap-type: none !important;
-}
-
-html.lenis .chapter-screen {
-  scroll-snap-align: none !important;
 }
 
 .lenis.lenis-smooth {
@@ -369,21 +363,17 @@ html.lenis .chapter-screen {
 }
 
 .chapter-screen {
-  height: 100vh;
-  height: 100dvh;
-  scroll-snap-align: start;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4.5rem 0 clamp(0.75rem, 1.5vh, 1.5rem) 0;
+  padding: clamp(4.5rem, 7vh, 6rem) 0 clamp(2rem, 3.5vh, 3.5rem) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   box-sizing: border-box;
   position: relative;
-}
-
-html.lenis .chapter-screen {
-  scroll-snap-align: none;
 }
 
 .chapter-content {
@@ -439,19 +429,18 @@ html.lenis .chapter-screen {
    CHAPTER 01: WHO AM I? (HERO & 3D TILT CARD)
    ========================================================================== */
 .chapter-hero {
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
   justify-content: center;
-  padding: 0;
+  padding: clamp(5rem, 8vh, 6.5rem) 0 clamp(2.5rem, 4vh, 4rem) 0;
   position: relative;
 }
 
 .chapter-hero .scroll-cue {
-  position: absolute;
-  bottom: clamp(1.2rem, 3.5vh, 2.5rem);
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 0;
+  margin-top: clamp(2rem, 4vh, 3.5rem);
+  display: flex;
+  justify-content: center;
 }
 
 .hero-grid {
@@ -2787,16 +2776,10 @@ html.lenis .chapter-screen {
 }
 
 /* ==========================================================================
-   FULL-SCREEN SCROLL SNAP RESPONSIVE FALLBACK
+   RESPONSIVE ADJUSTMENTS
    ========================================================================== */
 @media (max-height: 650px), (max-width: 960px) {
-  html, body.scrolly-body {
-    scroll-snap-type: none;
-  }
   .chapter-screen {
-    height: auto;
-    min-height: 100vh;
-    scroll-snap-align: none;
     padding: 6rem 0 3rem 0;
   }
 }

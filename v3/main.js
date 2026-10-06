@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initLenisSmoothScroll();
-  initSlideshowDeck();
+  initAnchorNav();
   initAmbientCanvas();
   initHudSync();
   init3DCardTilt();
@@ -18,179 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   0. SLIDESHOW DECK TRANSITIONS & SMOOTH SCROLL CONTROLLER
-   ========================================================================== */
-function initSlideshowDeck() {
-  const chapters = ['ch-who', 'ch-what', 'ch-done', 'ch-worked', 'ch-studied', 'ch-contact'];
-  let currentIdx = 0;
-  let isTransitioning = false;
-  let lastTriggerTime = 0;
-  let momentumDecayTimer = null;
-
-  window.__chapters = chapters;
-  window.__currentChapterIdx = 0;
-
-  function updateCurrentFromScroll() {
-    if (isTransitioning) return;
-    const vh = window.innerHeight;
-    const scrollY = window.scrollY;
-    const idx = Math.round(scrollY / vh);
-    currentIdx = Math.max(0, Math.min(idx, chapters.length - 1));
-    window.__currentChapterIdx = currentIdx;
-  }
-
-  window.addEventListener('scroll', updateCurrentFromScroll, { passive: true });
-
-  function goToChapter(index) {
-    const targetIdx = Math.max(0, Math.min(index, chapters.length - 1));
-    if (targetIdx === currentIdx && isTransitioning) {
-      return;
-    }
-
-    currentIdx = targetIdx;
-    window.__currentChapterIdx = currentIdx;
-    isTransitioning = true;
-    lastTriggerTime = performance.now();
-
-    const targetEl = document.getElementById(chapters[targetIdx]);
-    if (targetEl) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(targetEl, {
-          duration: 1.05,
-          easing: (t) => 1 - Math.pow(1 - t, 3.5), // Buttery-smooth quartic glide
-          onComplete: () => {
-            isTransitioning = false;
-          }
-        });
-      } else {
-        targetEl.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => {
-          isTransitioning = false;
-        }, 700);
-      }
-    } else {
-      isTransitioning = false;
-    }
-
-    // Safety timeout in case onComplete callback is delayed
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 1200);
-  }
-
-  window.__goToChapter = goToChapter;
-
-  // 1. Wheel Gesture Interceptor for Slideshow Deck Transition
-  window.addEventListener('wheel', (e) => {
-    if (window.innerWidth < 960 || window.innerHeight < 650) return;
-
-    // Allow horizontal trackpad swiping inside projects-carousel
-    const carousel = document.getElementById('projects-carousel');
-    if (carousel && carousel.contains(e.target)) {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-    }
-
-    e.preventDefault();
-
-    const now = performance.now();
-
-    // Reset momentum cooldown timer (debounce trackpad inertial tail)
-    clearTimeout(momentumDecayTimer);
-    momentumDecayTimer = setTimeout(() => {
-      // momentum finished
-    }, 180);
-
-    // Lockout during active transition + momentum cooldown buffer
-    if (isTransitioning || (now - lastTriggerTime < 950)) {
-      return;
-    }
-
-    // Require intentional gesture (ignore micro-jitters)
-    if (Math.abs(e.deltaY) < 22) return;
-
-    if (e.deltaY > 0) {
-      if (currentIdx < chapters.length - 1) {
-        goToChapter(currentIdx + 1);
-      }
-    } else if (e.deltaY < 0) {
-      if (currentIdx > 0) {
-        goToChapter(currentIdx - 1);
-      }
-    }
-  }, { passive: false });
-
-  // 2. Keyboard Navigation
-  window.addEventListener('keydown', (e) => {
-    if (window.innerWidth < 960 || window.innerHeight < 650) return;
-    if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
-
-    if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
-      if (currentIdx < chapters.length - 1 && !isTransitioning) {
-        e.preventDefault();
-        goToChapter(currentIdx + 1);
-      }
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
-      if (currentIdx > 0 && !isTransitioning) {
-        e.preventDefault();
-        goToChapter(currentIdx - 1);
-      }
-    }
-  });
-
-  // 3. Touch Swipes on Mobile / Touchscreens
-  let touchStartY = null;
-  window.addEventListener('touchstart', (e) => {
-    if (e.touches && e.touches.length === 1) {
-      touchStartY = e.touches[0].clientY;
-    }
-  }, { passive: true });
-
-  window.addEventListener('touchend', (e) => {
-    if (touchStartY === null || window.innerWidth < 960 || window.innerHeight < 650) return;
-    const touchEndY = e.changedTouches[0].clientY;
-    const deltaY = touchStartY - touchEndY;
-    touchStartY = null;
-
-    if (Math.abs(deltaY) > 50 && !isTransitioning) {
-      if (deltaY > 0 && currentIdx < chapters.length - 1) {
-        goToChapter(currentIdx + 1);
-      } else if (deltaY < 0 && currentIdx > 0) {
-        goToChapter(currentIdx - 1);
-      }
-    }
-  }, { passive: true });
-
-  // 4. Intercept HUD Chapter Navigation Links
-  document.querySelectorAll('a[href^="#ch-"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href').replace('#', '');
-      const idx = chapters.indexOf(targetId);
-      if (idx !== -1) {
-        e.preventDefault();
-        goToChapter(idx);
-      }
-    });
-  });
-
-  // 5. Return to Top in footer
-  const returnBtn = document.getElementById('btn-return-top');
-  if (returnBtn) {
-    returnBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      goToChapter(0);
-    });
-  }
-}
-
-/* ==========================================================================
-   0. LENIS INERTIAL SMOOTH SCROLL ENGINE & MAGNETIC SETTLING
+   0. LENIS INERTIAL SMOOTH SCROLL ENGINE
    ========================================================================== */
 function initLenisSmoothScroll() {
   if (typeof window.Lenis !== 'function') return;
 
   const lenis = new Lenis({
     lerp: 0.085,
-    wheelMultiplier: 0.95,
+    wheelMultiplier: 1.0,
     smoothWheel: true,
     touchMultiplier: 1.2,
     infinite: false,
@@ -204,6 +39,54 @@ function initLenisSmoothScroll() {
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
+}
+
+/* ==========================================================================
+   0. SMOOTH ANCHOR NAVIGATION & LENIS BRIDGE
+   ========================================================================== */
+function initAnchorNav() {
+  const chapters = ['ch-who', 'ch-what', 'ch-done', 'ch-worked', 'ch-studied', 'ch-contact'];
+  window.__chapters = chapters;
+
+  function scrollToTarget(target) {
+    let targetEl = null;
+    if (typeof target === 'string') {
+      const cleanId = target.replace('#', '');
+      targetEl = document.getElementById(cleanId);
+    } else if (typeof target === 'number') {
+      const id = chapters[Math.max(0, Math.min(target, chapters.length - 1))];
+      targetEl = document.getElementById(id);
+    } else if (target instanceof HTMLElement) {
+      targetEl = target;
+    }
+
+    if (!targetEl) return;
+
+    if (window.__lenis) {
+      window.__lenis.scrollTo(targetEl, {
+        offset: 0,
+        duration: 1.05,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      });
+    } else {
+      targetEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  window.__goToChapter = scrollToTarget;
+
+  // Intercept all hash anchor clicks for buttery-smooth Lenis glides
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const hash = anchor.getAttribute('href');
+      if (!hash || hash === '#' || hash.length < 2) return;
+      const targetEl = document.querySelector(hash);
+      if (targetEl) {
+        e.preventDefault();
+        scrollToTarget(targetEl);
+      }
+    });
+  });
 }
 
 /* ==========================================================================
@@ -336,6 +219,9 @@ function initHudSync() {
   }
 
   window.addEventListener('scroll', updateScroll, { passive: true });
+  if (window.__lenis) {
+    window.__lenis.on('scroll', updateScroll);
+  }
   updateScroll();
 }
 
