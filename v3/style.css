@@ -703,35 +703,41 @@ html.lenis, html.lenis body {
 }
 
 .hero-meta-strip {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1rem 1.4rem;
-  background: rgba(245, 240, 232, 0.02);
+  gap: 0.85rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.42rem 0.95rem;
+  background: rgba(245, 240, 232, 0.03);
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
 }
 
 .meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
 
 .meta-label {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
+  padding-right: 0.55rem;
+  border-right: 1px solid rgba(245, 240, 232, 0.12);
+  line-height: 1;
 }
 
 .meta-val {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .meta-val.highlight-green {
@@ -741,7 +747,7 @@ html.lenis, html.lenis body {
 
 .meta-divider {
   width: 1px;
-  height: 28px;
+  height: 14px;
   background: var(--border-subtle);
 }
 
