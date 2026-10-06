@@ -4,43 +4,69 @@
    ========================================================================== */
 
 :root {
-  --bg-deep: #08080a;
-  --bg-card: rgba(18, 18, 22, 0.7);
-  --bg-card-hover: rgba(26, 26, 32, 0.9);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(209, 0, 0, 0.55);
-  
-  --brand-orange: #D10000;
-  --brand-orange-glow: rgba(209, 0, 0, 0.4);
-  --brand-crimson: #D10000;
-  --brand-crimson-glow: rgba(209, 0, 0, 0.4);
-  --brand-cyan: #51f2f1;
-  --brand-purple: #c4b5fd;
-  --brand-green: #6bcf8a;
+  /* Premium Claude-Inspired Foundation & Surfaces */
+  --bg-primary: #0A0908;
+  --bg-secondary: #100E0C;
+  --bg-elevated: #16120F;
 
-  /* Behind-The-Scenes Signature Red Spectrum — Vivid & Deep Red Tones */
-  --glow-red-1: #D10000; /* Vivid Crimson */
-  --glow-red-2: #6e0202; /* Deep Blood Red */
-  --glow-red-3: #a30707; /* Rich Velvet Red */
-  --glow-red-4: #4a0000; /* Midnight Wine */
-  --glow-red-5: #8c0505; /* Dark Garnet */
-  --glow-red-6: #b80c0c; /* Warm Scarlet */
+  /* Warm Typography System */
+  --text-primary: #F5F0E8;
+  --text-secondary: #A9A097;
+  --text-muted: #706A64;
 
-  --card-red-glow: linear-gradient(
+  /* Subtle Warm Terracotta Borders */
+  --border-subtle: rgba(218, 119, 86, 0.16);
+  --border-default: rgba(218, 119, 86, 0.28);
+  --border-active: rgba(217, 119, 87, 0.45);
+  --border-warm: rgba(245, 240, 232, 0.08);
+
+  /* Claude Terracotta / Burnt Orange Accents */
+  --accent-primary: #D97757;
+  --accent-bright: #E88968;
+  --accent-soft: #C96A4B;
+  --accent-dark: #8F4935;
+
+  /* Restrained, Non-Neon Glows */
+  --accent-glow: rgba(217, 119, 87, 0.18);
+  --accent-glow-subtle: rgba(217, 119, 87, 0.10);
+  --accent-bg: rgba(217, 119, 87, 0.07);
+
+  /* Legacy Variable Aliases mapped to new tokens */
+  --bg-deep: var(--bg-primary);
+  --bg-card: rgba(16, 14, 12, 0.75);
+  --bg-card-hover: rgba(22, 18, 15, 0.9);
+
+  --brand-orange: var(--accent-primary);
+  --brand-orange-glow: var(--accent-glow);
+  --brand-crimson: var(--accent-primary);
+  --brand-crimson-glow: var(--accent-glow);
+  --brand-cyan: var(--accent-bright);
+  --brand-purple: var(--accent-soft);
+  --brand-green: var(--accent-primary);
+
+  /* Claude Burnt Orange / Terracotta Card Glow Spectrum */
+  --glow-orange-1: #D97757;
+  --glow-orange-2: #8F4935;
+  --glow-orange-3: #C96A4B;
+  --glow-orange-4: #5C2D1F;
+  --glow-orange-5: #A35439;
+  --glow-orange-6: #E88968;
+
+  --card-orange-glow: linear-gradient(
     135deg,
-    var(--glow-red-1),
-    var(--glow-red-3),
-    var(--glow-red-2),
-    var(--glow-red-5),
-    var(--glow-red-6),
-    var(--glow-red-4),
-    var(--glow-red-1)
+    var(--glow-orange-1),
+    var(--glow-orange-3),
+    var(--glow-orange-2),
+    var(--glow-orange-5),
+    var(--glow-orange-6),
+    var(--glow-orange-4),
+    var(--glow-orange-1)
   );
-  --rainbow: var(--card-red-glow);
+  --card-red-glow: var(--card-orange-glow);
+  --rainbow: var(--card-orange-glow);
 
-  --text-main: #f0f0f5;
-  --text-muted: rgba(240, 240, 245, 0.65);
-  --text-dim: rgba(240, 240, 245, 0.4);
+  --text-main: var(--text-primary);
+  --text-dim: var(--text-muted);
 
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-sub: 'Space Grotesk', sans-serif;
@@ -101,7 +127,7 @@ html.lenis, html.lenis body {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.45;
 }
 
 /* ==========================================================================
@@ -118,7 +144,7 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
-  background: rgba(8, 8, 10, 0.75);
+  background: rgba(10, 9, 8, 0.85);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
@@ -134,7 +160,7 @@ html.lenis, html.lenis body {
 .brand-monogram {
   width: 34px;
   height: 34px;
-  background: var(--brand-orange);
+  background: var(--accent-primary);
   color: #fff;
   font-family: var(--font-mono);
   font-size: 0.82rem;
@@ -143,7 +169,7 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  box-shadow: 0 0 16px var(--brand-orange-glow);
+  box-shadow: 0 0 16px var(--accent-glow);
   letter-spacing: -0.05em;
 }
 
@@ -157,13 +183,13 @@ html.lenis, html.lenis body {
   font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .brand-sub {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: var(--brand-cyan);
+  color: var(--accent-soft);
   letter-spacing: 0.08em;
 }
 
@@ -176,14 +202,14 @@ html.lenis, html.lenis body {
 .nav-link {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-dim);
+  color: var(--text-secondary);
   text-decoration: none;
   letter-spacing: 0.08em;
   transition: all 0.2s ease;
 }
 
-.nav-link:hover {
-  color: #fff;
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-primary);
 }
 
 .nav-actions {
@@ -196,38 +222,42 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
   padding: 0.45rem 0.9rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(245, 240, 232, 0.04);
+  border: 1px solid rgba(245, 240, 232, 0.14);
   border-radius: 6px;
   letter-spacing: 0.05em;
   transition: all 0.2s ease;
 }
 
 .btn-nav-cv:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #fff;
+  background: rgba(245, 240, 232, 0.09);
+  border-color: var(--text-primary);
 }
 
 .btn-nav-contact {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
   padding: 0.45rem 1rem;
-  background: var(--brand-orange);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
   border-radius: 6px;
   letter-spacing: 0.06em;
-  box-shadow: 0 0 14px var(--brand-orange-glow);
+  box-shadow: 0 0 14px rgba(217, 119, 87, 0.08);
   transition: all 0.2s ease;
 }
 
 .btn-nav-contact:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 22px rgba(209, 0, 0, 0.55);
+  background: var(--accent-bg);
+  border-color: var(--accent-bright);
+  color: #fff;
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 @media (max-width: 1024px) {
@@ -262,15 +292,15 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.15em;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .hud-status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--brand-orange);
-  box-shadow: 0 0 10px var(--brand-orange);
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-glow);
   animation: pulse-dot 2s infinite ease-in-out;
 }
 
@@ -289,7 +319,7 @@ html.lenis, html.lenis body {
 
 .hud-track {
   width: 2px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(245, 240, 232, 0.08);
   border-radius: 2px;
   position: relative;
 }
@@ -297,10 +327,10 @@ html.lenis, html.lenis body {
 .hud-thumb {
   width: 2px;
   height: 0%;
-  background: linear-gradient(to bottom, var(--brand-cyan), var(--brand-orange));
+  background: linear-gradient(to bottom, var(--accent-bright), var(--accent-primary));
   border-radius: 2px;
   transition: height 0.15s ease-out;
-  box-shadow: 0 0 8px var(--brand-orange-glow);
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
 .hud-indices {
@@ -316,34 +346,34 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   text-decoration: none;
-  color: var(--text-dim);
+  color: var(--text-muted);
   transition: all 0.25s ease;
   letter-spacing: 0.08em;
 }
 
 .hud-idx:hover {
-  color: var(--text-main);
+  color: var(--text-primary);
   transform: translateX(4px);
 }
 
 .hud-idx.active {
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
 .hud-idx.active .idx-num {
-  color: var(--brand-orange);
+  color: var(--accent-primary);
 }
 
 .hud-idx.active .idx-name {
-  color: #fff;
-  text-shadow: 0 0 12px var(--brand-orange-glow);
+  color: var(--text-primary);
+  text-shadow: 0 0 12px var(--accent-glow);
 }
 
 .hud-footer {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   letter-spacing: 0.05em;
 }
 
@@ -378,7 +408,7 @@ html.lenis, html.lenis body {
   justify-content: center;
   align-items: center;
   padding: clamp(4.5rem, 7vh, 6rem) 0 clamp(2rem, 3.5vh, 3.5rem) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(245, 240, 232, 0.04);
   box-sizing: border-box;
   position: relative;
 }
@@ -401,17 +431,18 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.15em;
-  color: var(--brand-orange);
+  color: var(--accent-primary);
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 
 .section-tag .tag-num {
   padding: 0.2rem 0.45rem;
-  background: rgba(209, 0, 0, 0.15);
-  border: 1px solid rgba(209, 0, 0, 0.35);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-subtle);
   border-radius: 4px;
   font-weight: 700;
+  color: var(--accent-primary);
 }
 
 .section-title {
@@ -420,13 +451,13 @@ html.lenis, html.lenis body {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .section-subtitle {
   font-family: var(--font-sub);
   font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   max-width: 650px;
   margin-top: 0.6rem;
   line-height: 1.4;
@@ -469,13 +500,13 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.35rem 0.8rem;
-  background: rgba(209, 0, 0, 0.12);
-  border: 1px solid rgba(209, 0, 0, 0.35);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-subtle);
   border-radius: 9999px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
-  color: var(--brand-orange);
+  color: var(--accent-primary);
   margin-bottom: 1.5rem;
 }
 
@@ -483,8 +514,8 @@ html.lenis, html.lenis body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--brand-orange);
-  box-shadow: 0 0 8px var(--brand-orange);
+  background: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-glow);
   animation: pulse-dot 1.8s infinite;
 }
 
@@ -494,19 +525,19 @@ html.lenis, html.lenis body {
   line-height: 0.95;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 1.25rem;
 }
 
 .hero-name .name-first {
   display: block;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .hero-name .name-last {
   display: block;
-  color: var(--brand-orange);
-  text-shadow: 0 0 35px var(--brand-orange-glow);
+  color: var(--accent-primary);
+  text-shadow: 0 0 35px var(--accent-glow);
 }
 
 .hero-discipline {
@@ -520,14 +551,14 @@ html.lenis, html.lenis body {
   font-family: var(--font-sub);
   font-size: clamp(1.2rem, 2vw, 1.55rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .discipline-sub {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--brand-cyan);
+  color: var(--accent-soft);
   letter-spacing: 0.04em;
 }
 
@@ -535,7 +566,7 @@ html.lenis, html.lenis body {
   font-family: var(--font-display);
   font-size: clamp(1rem, 1.4vw, 1.2rem);
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   max-width: 580px;
   margin-bottom: 2rem;
   font-weight: 400;
@@ -546,7 +577,7 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 1.5rem;
   padding: 1rem 1.4rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 240, 232, 0.02);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   margin-bottom: 2rem;
@@ -562,20 +593,20 @@ html.lenis, html.lenis body {
 .meta-label {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   letter-spacing: 0.1em;
 }
 
 .meta-val {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .meta-val.highlight-green {
-  color: var(--brand-green);
-  text-shadow: 0 0 10px rgba(107, 207, 138, 0.4);
+  color: var(--accent-bright);
+  text-shadow: none;
 }
 
 .meta-divider {
@@ -594,8 +625,8 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   padding: 0.4rem 0.8rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(245, 240, 232, 0.08);
   border-radius: 6px;
   color: var(--text-muted);
   letter-spacing: 0.04em;
@@ -603,9 +634,9 @@ html.lenis, html.lenis body {
 }
 
 .hero-pill:hover {
-  color: #fff;
-  border-color: var(--brand-orange);
-  background: rgba(209, 0, 0, 0.15);
+  color: var(--text-primary);
+  border-color: var(--border-default);
+  background: var(--accent-bg);
   transform: translateY(-2px);
 }
 
@@ -617,23 +648,23 @@ html.lenis, html.lenis body {
   margin: 0 auto;
 }
 
-/* Card Glow radiating in all 360° directions — Multi-shade Crimson halo */
+/* Card Glow radiating in all 360° directions — Multi-shade Terracotta halo */
 .card-glow {
   position: absolute;
   inset: -30px;
   border-radius: 36px;
-  background-image: var(--card-red-glow);
+  background-image: var(--card-orange-glow);
   background-size: 240% 240%;
   filter: blur(36px);
-  opacity: 0.32;
+  opacity: 0.26;
   pointer-events: none;
   z-index: 1;
-  animation: card-red-glow 7s infinite ease-in-out;
+  animation: card-orange-glow 7s infinite ease-in-out;
   transition: opacity 0.35s ease, filter 0.35s ease;
   will-change: transform, opacity, filter;
 }
 
-/* Dynamic chromatic flare that concentrates under the cursor in red tones */
+/* Dynamic chromatic flare that concentrates under the cursor in warm tones */
 .card-glow::after {
   content: '';
   position: absolute;
@@ -641,8 +672,8 @@ html.lenis, html.lenis body {
   border-radius: inherit;
   background: radial-gradient(
     circle 260px at var(--glow-x, 50%) var(--glow-y, 50%),
-    rgba(209, 0, 0, 0.25) 0%,
-    rgba(140, 5, 5, 0.1) 40%,
+    rgba(232, 137, 104, 0.20) 0%,
+    rgba(217, 119, 87, 0.07) 40%,
     transparent 70%
   );
   mix-blend-mode: screen;
@@ -651,13 +682,13 @@ html.lenis, html.lenis body {
 }
 
 .card-3d-wrap:hover .card-glow {
-  opacity: 0.52;
-  filter: blur(42px);
+  opacity: 0.42;
+  filter: blur(40px);
   animation-duration: 4.5s;
 }
 
 .card-3d-wrap:hover .card-glow::after {
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .card-3d {
@@ -666,25 +697,37 @@ html.lenis, html.lenis body {
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #111116;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: var(--bg-elevated);
+  border: 1px solid rgba(245, 240, 232, 0.12);
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8),
-              0 0 25px -10px rgba(209, 0, 0, 0.25);
+              0 0 20px -10px var(--accent-glow-subtle);
   transform-style: preserve-3d;
   transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.35s ease;
   cursor: pointer;
 }
 
-/* On hover: subtle crimson border matching behind-the-scenes aesthetic */
+/* On hover: subtle warm border matching editorial terracotta aesthetic */
 .card-3d-wrap:hover .card-3d {
   border-color: transparent;
-  background-image: linear-gradient(#111116, #111116), var(--card-red-glow);
+  background-image: linear-gradient(var(--bg-elevated), var(--bg-elevated)), var(--card-orange-glow);
   background-size: 100% 100%, 240% 240%;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   box-shadow: 0 30px 75px -15px rgba(0, 0, 0, 0.9),
-              0 0 30px -8px rgba(209, 0, 0, 0.4);
-  animation: card-red-glow 4.5s infinite ease-in-out;
+              0 0 24px -8px var(--accent-glow);
+  animation: card-orange-glow 4.5s infinite ease-in-out;
+}
+
+@keyframes card-orange-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes card-red-glow {
@@ -744,7 +787,7 @@ html.lenis, html.lenis body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(245, 240, 232, 0.15) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
   mix-blend-mode: overlay;
@@ -767,7 +810,7 @@ html.lenis, html.lenis body {
   justify-content: space-between;
   padding: 1.5rem;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(8,8,10,0.6) 0%, transparent 35%, transparent 65%, rgba(8,8,10,0.85) 100%);
+  background: linear-gradient(to bottom, rgba(10,9,8,0.6) 0%, transparent 35%, transparent 65%, rgba(10,9,8,0.85) 100%);
 }
 
 .card-chip-top {
@@ -776,13 +819,13 @@ html.lenis, html.lenis body {
   gap: 0.5rem;
   align-self: flex-start;
   padding: 0.35rem 0.7rem;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(16, 14, 12, 0.8);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-subtle);
   border-radius: 9999px;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--brand-cyan);
+  color: var(--accent-bright);
   letter-spacing: 0.08em;
 }
 
@@ -790,8 +833,8 @@ html.lenis, html.lenis body {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--brand-cyan);
-  box-shadow: 0 0 6px var(--brand-cyan);
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-glow);
 }
 
 .card-chip-bottom {
@@ -799,16 +842,16 @@ html.lenis, html.lenis body {
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.8rem 1.2rem;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(16, 14, 12, 0.85);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
 }
 
 .chip-mono {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   letter-spacing: 0.1em;
 }
 
@@ -816,7 +859,7 @@ html.lenis, html.lenis body {
   font-family: var(--font-sub);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 0.05em;
 }
 
@@ -834,17 +877,17 @@ html.lenis, html.lenis body {
   padding: 0.55rem 1.2rem;
   border: 1px solid var(--border-subtle);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 240, 232, 0.02);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   letter-spacing: 0.1em;
   animation: float-cue 2.5s infinite ease-in-out;
 }
 
 @keyframes float-cue {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); color: var(--text-main); border-color: rgba(255,255,255,0.25); }
+  50% { transform: translateY(6px); color: var(--text-primary); border-color: var(--border-default); }
 }
 
 /* ==========================================================================
@@ -866,7 +909,7 @@ html.lenis, html.lenis body {
   gap: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.82rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -877,9 +920,9 @@ html.lenis, html.lenis body {
   width: 22px;
   height: 22px;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: rgba(245, 240, 232, 0.08);
+  border: 1px solid rgba(245, 240, 232, 0.15);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 0.78rem;
 }
@@ -889,30 +932,30 @@ html.lenis, html.lenis body {
   font-size: clamp(2.5rem, 4.2vw, 3.8rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 0.4rem;
   line-height: 1.1;
 }
 
 .sys-headline .accent-orange {
-  color: #D10000;
+  color: var(--accent-primary);
 }
 
 .sys-headline .accent-purple {
-  color: #a855f7;
+  color: var(--accent-bright);
 }
 
 .sys-subtitle {
   font-size: clamp(1.02rem, 1.35vw, 1.22rem);
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .sys-architecture-card {
-  background: #08090e;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-warm);
   border-radius: 24px;
   padding: clamp(2rem, 3.2vh, 2.75rem) clamp(1.6rem, 2.2vw, 2.4rem) clamp(1.8rem, 2.6vh, 2.4rem);
-  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.94), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.94), inset 0 1px 0 rgba(245, 240, 232, 0.04);
   backdrop-filter: blur(16px);
   max-width: 1480px;
   width: 100%;
@@ -927,13 +970,13 @@ html.lenis, html.lenis body {
   margin-bottom: 1.5rem;
 }
 
-/* Pipe Card (6 Lifecycle Process Cards) */
+/* Pipe Card (6 Lifecycle Process Cards — Unified Warm Terracotta Architecture) */
 .pipe-card {
   flex: 1 1 0;
   min-width: clamp(155px, 11vw, 190px);
   max-width: 235px;
-  background: #06070a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-warm);
   border-radius: 14px;
   padding: 1.25rem 0.95rem;
   display: flex;
@@ -947,7 +990,9 @@ html.lenis, html.lenis body {
 
 .pipe-card:hover, .pipe-card.active-stage {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.28);
+  border-color: rgba(217, 119, 87, 0.45);
+  background: rgba(217, 119, 87, 0.035);
+  box-shadow: 0 0 24px rgba(217, 119, 87, 0.10);
 }
 
 .card-header {
@@ -962,33 +1007,38 @@ html.lenis, html.lenis body {
   font-weight: 700;
   margin-bottom: 0.25rem;
   letter-spacing: 0.06em;
+  color: var(--accent-soft);
+  transition: color 0.25s ease;
 }
 
-.step-orange { color: #D10000; }
-.step-blue { color: #3b82f6; }
-.step-purple { color: #a855f7; }
-.step-cyan { color: #00f0ff; }
-.step-green { color: #22c55e; }
-.step-indigo { color: #818cf8; }
+.pipe-card:hover .step-num,
+.pipe-card.active-stage .step-num {
+  color: var(--accent-bright);
+}
+
+/* Unified step colors */
+.step-orange, .step-blue, .step-purple, .step-cyan, .step-green, .step-indigo {
+  color: var(--accent-soft);
+}
 
 .step-title {
   font-family: var(--font-display);
   font-size: 1.12rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 0.25rem;
   line-height: 1.2;
 }
 
 .step-desc {
   font-size: 0.82rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   line-height: 1.4;
   min-height: 38px;
 }
 
 .text-cyan-accent {
-  color: #06b6d4;
+  color: var(--accent-bright);
   opacity: 0.95;
 }
 
@@ -1001,65 +1051,27 @@ html.lenis, html.lenis body {
   justify-content: center;
   position: relative;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.035);
+  background: rgba(245, 240, 232, 0.015);
+  border: 1px solid rgba(245, 240, 232, 0.035);
   padding: 0.45rem;
   overflow: hidden;
 }
 
-/* Card Themes & Hover/Active Glows */
-.card-discover {
-  border-color: rgba(209, 0, 0, 0.35);
-  background: rgba(209, 0, 0, 0.04);
-}
-.card-discover:hover, .card-discover.active-stage {
-  border-color: #D10000;
-  box-shadow: 0 0 24px -4px rgba(209, 0, 0, 0.45);
+/* Unified Card Themes & Hover/Active Glows */
+.card-discover, .card-data, .card-prototype, .card-build, .card-eval, .card-deploy {
+  border-color: var(--border-warm);
+  background: var(--bg-secondary);
 }
 
-.card-data {
-  border-color: rgba(59, 130, 246, 0.25);
-  background: rgba(59, 130, 246, 0.02);
-}
-.card-data:hover, .card-data.active-stage {
-  border-color: #3b82f6;
-  box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
-}
-
-.card-prototype {
-  border-color: rgba(168, 85, 247, 0.25);
-  background: rgba(168, 85, 247, 0.02);
-}
-.card-prototype:hover, .card-prototype.active-stage {
-  border-color: #a855f7;
-  box-shadow: 0 0 24px -4px rgba(168, 85, 247, 0.35);
-}
-
-.card-build {
-  border-color: rgba(0, 240, 255, 0.25);
-  background: rgba(0, 240, 255, 0.02);
-}
-.card-build:hover, .card-build.active-stage {
-  border-color: #00f0ff;
-  box-shadow: 0 0 24px -4px rgba(0, 240, 255, 0.35);
-}
-
-.card-eval {
-  border-color: rgba(34, 197, 94, 0.25);
-  background: rgba(34, 197, 94, 0.02);
-}
-.card-eval:hover, .card-eval.active-stage {
-  border-color: #22c55e;
-  box-shadow: 0 0 24px -4px rgba(34, 197, 94, 0.35);
-}
-
-.card-deploy {
-  border-color: rgba(129, 140, 248, 0.25);
-  background: rgba(129, 140, 248, 0.02);
-}
+.card-discover:hover, .card-discover.active-stage,
+.card-data:hover, .card-data.active-stage,
+.card-prototype:hover, .card-prototype.active-stage,
+.card-build:hover, .card-build.active-stage,
+.card-eval:hover, .card-eval.active-stage,
 .card-deploy:hover, .card-deploy.active-stage {
-  border-color: #818cf8;
-  box-shadow: 0 0 24px -4px rgba(129, 140, 248, 0.35);
+  border-color: rgba(217, 119, 87, 0.45);
+  background: rgba(217, 119, 87, 0.035);
+  box-shadow: 0 0 24px rgba(217, 119, 87, 0.10);
 }
 
 /* ==========================================================================
@@ -1075,7 +1087,7 @@ html.lenis, html.lenis body {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(209, 0, 0, 0.38) 0%, rgba(209, 0, 0, 0.08) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(217, 119, 87, 0.22) 0%, rgba(217, 119, 87, 0.05) 50%, transparent 75%);
   top: 44%;
   left: 36%;
   transform: translate(-50%, -50%);
@@ -1097,27 +1109,27 @@ html.lenis, html.lenis body {
 }
 
 .bulb-aura {
-  fill: rgba(209, 0, 0, 0.2);
+  fill: rgba(217, 119, 87, 0.12);
   filter: blur(5px);
 }
 
 .bulb-glass {
-  stroke: #b80c0c;
+  stroke: var(--accent-dark);
   stroke-width: 1.5;
-  fill: rgba(209, 0, 0, 0.06);
+  fill: rgba(217, 119, 87, 0.04);
 }
 
 .bulb-filament {
-  stroke: #D10000;
+  stroke: var(--accent-primary);
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 5px #a30707);
+  filter: drop-shadow(0 0 4px var(--accent-glow));
   animation: filament-flicker 2.5s infinite ease-in-out;
 }
 
 .bulb-base {
-  stroke: rgba(255, 255, 255, 0.45);
+  stroke: rgba(245, 240, 232, 0.45);
   stroke-width: 1.5;
   stroke-linecap: round;
 }
@@ -1132,15 +1144,15 @@ html.lenis, html.lenis body {
 }
 
 .bulb-link {
-  stroke: rgba(209, 0, 0, 0.35);
+  stroke: var(--border-subtle);
   stroke-width: 1;
   stroke-dasharray: 2 2;
   animation: link-dash-flow 3s infinite linear;
 }
 
 .bulb-link-dot {
-  fill: #D10000;
-  filter: drop-shadow(0 0 3px #a30707);
+  fill: var(--accent-primary);
+  filter: drop-shadow(0 0 3px var(--accent-glow));
 }
 
 .sat-pill {
@@ -1149,12 +1161,12 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.38rem;
   padding: 0.28rem 0.5rem;
-  background: rgba(14, 15, 22, 0.94);
-  border: 1px solid rgba(209, 0, 0, 0.35);
+  background: rgba(16, 14, 12, 0.94);
+  border: 1px solid var(--border-subtle);
   border-radius: 7px;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: #e2e8f0;
+  color: var(--text-secondary);
   white-space: nowrap;
   transition: all 0.2s ease;
   z-index: 2;
@@ -1162,9 +1174,9 @@ html.lenis, html.lenis body {
 }
 
 .sat-pill:hover {
-  border-color: #D10000;
+  border-color: var(--accent-primary);
   transform: scale(1.04);
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .sat-needs {
@@ -1191,8 +1203,8 @@ html.lenis, html.lenis body {
 }
 
 .dot-orange {
-  background: #D10000;
-  box-shadow: 0 0 6px rgba(209, 0, 0, 0.9);
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-glow);
   animation: pill-dot-pulse 2.2s infinite ease-in-out;
 }
 
@@ -1220,33 +1232,33 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.38rem;
   padding: 0.34rem 0.46rem;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(245, 240, 232, 0.025);
+  border: 1px solid rgba(245, 240, 232, 0.07);
   border-radius: 7px;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   line-height: 1.18;
   transition: all 0.2s ease;
 }
 
 .sub-chip:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
+  border-color: var(--border-default);
+  background: var(--accent-bg);
+  color: var(--text-primary);
   transform: translateY(-1px);
 }
 
 .chip-icon {
   width: 14px;
   height: 14px;
-  stroke: #3b82f6;
+  stroke: var(--accent-soft);
   flex-shrink: 0;
   transition: stroke 0.2s ease;
 }
 
-.card-build .chip-icon { stroke: #00f0ff; }
-.card-deploy .chip-icon { stroke: #818cf8; }
+.card-build .chip-icon { stroke: var(--accent-soft); }
+.card-deploy .chip-icon { stroke: var(--accent-soft); }
 
 .data-slabs-art {
   width: 78px;
@@ -1263,8 +1275,8 @@ html.lenis, html.lenis body {
 }
 
 .slab-layer {
-  fill: rgba(59, 130, 246, 0.12);
-  stroke: rgba(147, 51, 234, 0.85);
+  fill: rgba(217, 119, 87, 0.06);
+  stroke: rgba(217, 119, 87, 0.45);
   stroke-width: 1.2;
 }
 
@@ -1273,16 +1285,16 @@ html.lenis, html.lenis body {
 .slab-bot { animation: slab-float-3 3s infinite ease-in-out 0.6s; }
 
 .slab-edge {
-  fill: rgba(59, 130, 246, 0.06);
-  stroke: rgba(59, 130, 246, 0.45);
+  fill: rgba(217, 119, 87, 0.03);
+  stroke: rgba(217, 119, 87, 0.25);
   stroke-width: 1;
 }
 
 .data-cube {
-  fill: #38bdf8;
-  stroke: #818cf8;
+  fill: var(--accent-primary);
+  stroke: var(--accent-bright);
   stroke-width: 0.8;
-  filter: drop-shadow(0 0 4px #38bdf8);
+  filter: drop-shadow(0 0 3px var(--accent-glow));
 }
 
 .cube-1 { animation: cube-bob 2.4s infinite ease-in-out; }
@@ -1299,8 +1311,8 @@ html.lenis, html.lenis body {
 .ide-window {
   width: 100%;
   height: 100%;
-  background: #040508;
-  border: 1px solid rgba(168, 85, 247, 0.25);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
   border-radius: 9px;
   display: flex;
   flex-direction: column;
@@ -1313,8 +1325,8 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: space-between;
   padding: 0.32rem 0.52rem;
-  background: rgba(168, 85, 247, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(217, 119, 87, 0.05);
+  border-bottom: 1px solid rgba(245, 240, 232, 0.05);
 }
 
 .ide-dots {
@@ -1327,17 +1339,17 @@ html.lenis, html.lenis body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(245, 240, 232, 0.25);
 }
 
-.dot-1 { background: #ef4444; opacity: 0.75; }
-.dot-2 { background: #eab308; opacity: 0.75; }
-.dot-3 { background: #22c55e; opacity: 0.75; }
+.dot-1 { background: rgba(217, 119, 87, 0.7); opacity: 0.85; }
+.dot-2 { background: rgba(232, 137, 104, 0.5); opacity: 0.85; }
+.dot-3 { background: rgba(169, 160, 151, 0.4); opacity: 0.85; }
 
 .ide-ctrls {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(245, 240, 232, 0.3);
   display: flex;
   gap: 0.35rem;
 }
@@ -1357,21 +1369,21 @@ html.lenis, html.lenis body {
   gap: 0.42rem;
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   transition: all 0.2s ease;
 }
 
 .ide-item:hover {
-  color: #fff;
+  color: var(--text-primary);
   transform: translateX(2px);
 }
 
 .ide-icon {
   width: 14px;
   height: 14px;
-  stroke: #c084fc;
+  stroke: var(--accent-soft);
   flex-shrink: 0;
-  filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.5));
+  filter: drop-shadow(0 0 3px var(--accent-glow));
 }
 
 /* ==========================================================================
@@ -1415,25 +1427,25 @@ html.lenis, html.lenis body {
 }
 
 .srv-slab {
-  fill: rgba(0, 240, 255, 0.1);
-  stroke: rgba(0, 240, 255, 0.65);
+  fill: rgba(217, 119, 87, 0.06);
+  stroke: rgba(217, 119, 87, 0.45);
   stroke-width: 1.2;
 }
 
 .srv-edge {
-  fill: rgba(0, 240, 255, 0.05);
-  stroke: rgba(0, 240, 255, 0.45);
+  fill: rgba(217, 119, 87, 0.03);
+  stroke: rgba(217, 119, 87, 0.25);
   stroke-width: 1;
 }
 
 .cyan-core {
-  fill: #00f0ff;
-  filter: drop-shadow(0 0 8px #00f0ff);
+  fill: var(--accent-primary);
+  filter: drop-shadow(0 0 6px var(--accent-glow));
   animation: core-glow-pulse 2.2s infinite ease-in-out;
 }
 
 .srv-wire {
-  stroke: #22d3ee;
+  stroke: var(--accent-soft);
   stroke-width: 1.2;
   stroke-dasharray: 3 2;
   animation: link-dash-flow 2.5s infinite linear;
@@ -1460,21 +1472,21 @@ html.lenis, html.lenis body {
   gap: 0.38rem;
   font-family: var(--font-mono);
   font-size: 0.66rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .eval-row:hover {
-  color: #fff;
+  color: var(--text-primary);
   transform: translateX(2px);
 }
 
 .eval-check {
-  color: #22c55e;
+  color: var(--accent-bright);
   font-weight: 800;
   font-size: 0.86rem;
-  filter: drop-shadow(0 0 4px #22c55e);
+  filter: drop-shadow(0 0 3px var(--accent-glow));
   animation: check-glow 2s infinite ease-in-out;
   flex-shrink: 0;
 }
@@ -1482,7 +1494,7 @@ html.lenis, html.lenis body {
 .eval-icon {
   width: 13px;
   height: 13px;
-  stroke: #4ade80;
+  stroke: var(--accent-soft);
   flex-shrink: 0;
   opacity: 0.85;
 }
@@ -1538,35 +1550,35 @@ html.lenis, html.lenis body {
 }
 
 .globe-halo {
-  fill: rgba(129, 140, 248, 0.12);
+  fill: rgba(217, 119, 87, 0.08);
   filter: blur(8px);
 }
 
 .globe-sphere {
-  stroke: rgba(129, 140, 248, 0.5);
+  stroke: rgba(217, 119, 87, 0.45);
   stroke-width: 1.2;
 }
 
 .globe-lat, .globe-equator, .globe-long, .globe-axis {
-  stroke: rgba(129, 140, 248, 0.38);
+  stroke: rgba(217, 119, 87, 0.25);
   stroke-width: 1;
 }
 
 .globe-node {
-  fill: #c084fc;
-  filter: drop-shadow(0 0 3px #c084fc);
+  fill: var(--accent-bright);
+  filter: drop-shadow(0 0 3px var(--accent-glow));
 }
 
 .globe-orbit {
-  stroke: #c084fc;
+  stroke: var(--accent-soft);
   stroke-width: 1.2;
   stroke-dasharray: 4 2;
   animation: link-dash-flow 4s infinite linear;
 }
 
 .orbit-sat {
-  fill: #818cf8;
-  filter: drop-shadow(0 0 6px #818cf8);
+  fill: var(--accent-primary);
+  filter: drop-shadow(0 0 4px var(--accent-glow));
   animation: sat-pulse 2.2s infinite ease-in-out;
 }
 
@@ -1585,7 +1597,7 @@ html.lenis, html.lenis body {
 .arrow-track {
   width: 9px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(245, 240, 232, 0.1);
   position: relative;
   overflow: hidden;
   border-radius: 1px;
@@ -1597,14 +1609,14 @@ html.lenis, html.lenis body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, #D10000, #a855f7, transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-bright), transparent);
   animation: packet-travel 1.8s infinite linear;
 }
 
 .arrow-tip {
   font-family: var(--font-mono);
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(245, 240, 232, 0.35);
   line-height: 1;
 }
 
@@ -1616,7 +1628,7 @@ html.lenis, html.lenis body {
   grid-template-columns: 2fr 2fr 1fr 1fr;
   gap: 1.25rem;
   padding-top: 1.4rem;
-  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  border-top: 1px dashed rgba(245, 240, 232, 0.08);
 }
 
 .phase-bracket {
@@ -1634,6 +1646,7 @@ html.lenis, html.lenis body {
   height: 3px;
   margin-bottom: 0.65rem;
   border-radius: 1px;
+  background: rgba(245, 240, 232, 0.16);
   opacity: 0.85;
   transition: all 0.3s ease;
 }
@@ -1653,20 +1666,26 @@ html.lenis, html.lenis body {
 .bracket-line::before { left: 0; }
 .bracket-line::after { right: 0; }
 
-.bracket-explore .bracket-line { background: #D10000; box-shadow: 0 0 6px rgba(209, 0, 0, 0.5); }
-.bracket-build .bracket-line { background: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.5); }
-.bracket-validate .bracket-line { background: #22c55e; box-shadow: 0 0 6px rgba(34, 197, 94, 0.5); }
-.bracket-deploy .bracket-line { background: #818cf8; box-shadow: 0 0 6px rgba(129, 140, 248, 0.5); }
+.bracket-explore .bracket-line,
+.bracket-build .bracket-line,
+.bracket-validate .bracket-line,
+.bracket-deploy .bracket-line {
+  background: rgba(245, 240, 232, 0.16);
+  box-shadow: none;
+}
 
-.phase-bracket.active-bracket .bracket-line {
+.phase-bracket.active-bracket .bracket-line,
+.phase-bracket:hover .bracket-line {
   height: 4px;
   opacity: 1;
-  box-shadow: 0 0 16px currentColor;
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 .phase-bracket:hover .bracket-title,
 .phase-bracket.active-bracket .bracket-title {
   transform: translateY(-1px);
+  color: var(--accent-primary);
 }
 
 .bracket-title {
@@ -1676,17 +1695,20 @@ html.lenis, html.lenis body {
   letter-spacing: 0.09em;
   margin-bottom: 0.2rem;
   transition: all 0.2s ease;
+  color: var(--text-secondary);
 }
 
-.bracket-explore .bracket-title { color: #D10000; }
-.bracket-build .bracket-title { color: #a855f7; }
-.bracket-validate .bracket-title { color: #22c55e; }
-.bracket-deploy .bracket-title { color: #818cf8; }
+.bracket-explore .bracket-title,
+.bracket-build .bracket-title,
+.bracket-validate .bracket-title,
+.bracket-deploy .bracket-title {
+  color: var(--text-secondary);
+}
 
 .bracket-sub {
   font-family: var(--font-mono);
   font-size: 0.76rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 /* Keyframe Animations */
@@ -1706,10 +1728,10 @@ html.lenis, html.lenis body {
 }
 
 @keyframes filament-flicker {
-  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px #D10000); }
-  25% { opacity: 1; filter: drop-shadow(0 0 8px #e61919); }
-  60% { opacity: 0.75; filter: drop-shadow(0 0 3px #D10000); }
-  80% { opacity: 0.95; filter: drop-shadow(0 0 6px #D10000); }
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px var(--accent-glow)); }
+  25% { opacity: 1; filter: drop-shadow(0 0 8px var(--accent-glow)); }
+  60% { opacity: 0.75; filter: drop-shadow(0 0 3px var(--accent-glow)); }
+  80% { opacity: 0.95; filter: drop-shadow(0 0 6px var(--accent-glow)); }
 }
 
 @keyframes link-dash-flow {
@@ -1733,22 +1755,22 @@ html.lenis, html.lenis body {
 
 @keyframes cube-bob {
   0%, 100% { transform: translateY(0); opacity: 0.7; }
-  50% { transform: translateY(-4px); opacity: 1; filter: drop-shadow(0 0 6px #38bdf8); }
+  50% { transform: translateY(-4px); opacity: 1; filter: drop-shadow(0 0 4px var(--accent-glow)); }
 }
 
 @keyframes core-glow-pulse {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px #00f0ff); }
-  50% { transform: scale(1.2); filter: drop-shadow(0 0 10px #00f0ff); }
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px var(--accent-glow)); }
+  50% { transform: scale(1.2); filter: drop-shadow(0 0 8px var(--accent-glow)); }
 }
 
 @keyframes check-glow {
   0%, 100% { opacity: 0.75; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.15); }
+  50% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 4px var(--accent-glow)); }
 }
 
 @keyframes sat-pulse {
   0%, 100% { opacity: 0.6; transform: scale(0.95); }
-  50% { opacity: 1; transform: scale(1.25); filter: drop-shadow(0 0 6px currentColor); }
+  50% { opacity: 1; transform: scale(1.25); filter: drop-shadow(0 0 6px var(--accent-glow)); }
 }
 
 /* ==========================================================================
@@ -1771,9 +1793,9 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   letter-spacing: 0.12em;
-  color: var(--brand-orange);
-  background: rgba(209, 0, 0, 0.12);
-  border: 1px solid rgba(209, 0, 0, 0.35);
+  color: var(--accent-primary);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-subtle);
   padding: 0.42rem 0.95rem;
   border-radius: 9999px;
   font-weight: 700;
@@ -1789,8 +1811,8 @@ html.lenis, html.lenis body {
   height: 44px;
   border-radius: 10px;
   border: 1px solid var(--border-subtle);
-  background: rgba(17, 17, 22, 0.8);
-  color: var(--text-main);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1800,10 +1822,10 @@ html.lenis, html.lenis body {
 }
 
 .carousel-btn:hover:not(:disabled) {
-  border-color: var(--brand-orange);
-  color: #fff;
-  background: rgba(209, 0, 0, 0.2);
-  box-shadow: 0 0 14px var(--brand-orange-glow);
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  background: var(--accent-bg);
+  box-shadow: 0 0 14px var(--accent-glow);
 }
 
 .carousel-btn:disabled {
@@ -1817,7 +1839,7 @@ html.lenis, html.lenis body {
   min-height: 320vh;
   padding: 0 !important;
   position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(245, 240, 232, 0.04);
   box-sizing: border-box;
 }
 
@@ -1870,8 +1892,8 @@ html.lenis, html.lenis body {
   width: clamp(860px, 72vw, 1160px);
   max-width: 90vw;
   box-sizing: border-box;
-  background: rgba(14, 14, 18, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(16, 14, 12, 0.85);
+  border: 1px solid var(--border-warm);
   border-radius: 24px;
   padding: clamp(2.4rem, 4vh, 3.4rem) clamp(2.6rem, 3.5vw, 4rem);
   backdrop-filter: blur(16px);
@@ -1886,8 +1908,8 @@ html.lenis, html.lenis body {
 .horizontal-projects-track .project-card.active-card {
   opacity: 1;
   transform: scale(1);
-  border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(209, 0, 0, 0.12);
+  border-color: var(--border-active);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 24px rgba(217, 119, 87, 0.10);
 }
 
 .showcase-grid {
@@ -1912,8 +1934,8 @@ html.lenis, html.lenis body {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: #000;
+  border: 1px solid rgba(245, 240, 232, 0.12);
+  background: var(--bg-primary);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
   aspect-ratio: 16 / 10;
   max-height: clamp(280px, 38vh, 360px);
@@ -1943,13 +1965,13 @@ html.lenis, html.lenis body {
   bottom: 1rem;
   left: 1rem;
   padding: 0.42rem 0.85rem;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgba(10, 9, 8, 0.85);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-subtle);
   border-radius: 7px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 0.1em;
 }
 
@@ -1967,30 +1989,39 @@ html.lenis, html.lenis body {
   padding: 0.32rem 0.72rem;
   border-radius: 5px;
   letter-spacing: 0.08em;
+  background: rgba(245, 240, 232, 0.04);
+  border: 1px solid rgba(245, 240, 232, 0.1);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.p-tag:hover {
+  border-color: var(--border-default);
+  color: var(--text-primary);
 }
 
 .p-tag.accent-orange {
-  background: rgba(209, 0, 0, 0.15);
-  border: 1px solid rgba(209, 0, 0, 0.4);
-  color: var(--brand-orange);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-primary);
 }
 
 .p-tag.accent-cyan {
-  background: rgba(81, 242, 241, 0.12);
-  border: 1px solid rgba(81, 242, 241, 0.4);
-  color: var(--brand-cyan);
+  background: rgba(245, 240, 232, 0.04);
+  border: 1px solid rgba(245, 240, 232, 0.12);
+  color: var(--text-secondary);
 }
 
 .p-tag.accent-purple {
-  background: rgba(196, 181, 253, 0.15);
-  border: 1px solid rgba(196, 181, 253, 0.4);
-  color: var(--brand-purple);
+  background: rgba(245, 240, 232, 0.04);
+  border: 1px solid rgba(245, 240, 232, 0.12);
+  color: var(--text-secondary);
 }
 
 .p-meta {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   letter-spacing: 0.08em;
 }
 
@@ -1998,7 +2029,7 @@ html.lenis, html.lenis body {
   font-family: var(--font-sub);
   font-size: clamp(1.85rem, 2.5vw, 2.45rem);
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   line-height: 1.15;
   margin-bottom: 0.75rem;
   letter-spacing: -0.025em;
@@ -2006,7 +2037,7 @@ html.lenis, html.lenis body {
 
 .project-summary {
   font-size: clamp(1.0rem, 1.22vw, 1.14rem);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.62;
   margin-bottom: clamp(1.2rem, 2vh, 1.8rem);
 }
@@ -2020,8 +2051,8 @@ html.lenis, html.lenis body {
 
 .m-card {
   padding: 0.7rem 1.05rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid var(--border-warm);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -2032,14 +2063,14 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 1.5rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .m-lbl {
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -2056,7 +2087,7 @@ html.lenis, html.lenis body {
   width: 32px;
   height: 5px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(245, 240, 232, 0.15);
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -2064,8 +2095,8 @@ html.lenis, html.lenis body {
 
 .carousel-dot.active {
   width: 62px;
-  background: var(--brand-orange);
-  box-shadow: 0 0 10px var(--brand-orange-glow);
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 @media (max-width: 960px) {
@@ -2105,8 +2136,8 @@ html.lenis, html.lenis body {
 }
 
 .exp-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-warm);
   border-radius: 14px;
   padding: 1.25rem 1.75rem;
   backdrop-filter: blur(12px);
@@ -2114,7 +2145,7 @@ html.lenis, html.lenis body {
 }
 
 .exp-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--border-default);
   transform: translateY(-2px);
 }
 
@@ -2132,25 +2163,25 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
-  color: var(--brand-cyan);
+  color: var(--text-secondary);
   padding: 0.25rem 0.55rem;
-  background: rgba(81, 242, 241, 0.1);
-  border: 1px solid rgba(81, 242, 241, 0.3);
+  background: rgba(245, 240, 232, 0.04);
+  border: 1px solid rgba(245, 240, 232, 0.12);
   border-radius: 4px;
   margin-bottom: 0.4rem;
 }
 
 .exp-badge.accent-orange-badge {
-  color: var(--brand-orange);
-  background: rgba(209, 0, 0, 0.12);
-  border-color: rgba(209, 0, 0, 0.35);
+  color: var(--accent-primary);
+  background: var(--accent-bg);
+  border-color: var(--border-subtle);
 }
 
 .exp-company {
   font-family: var(--font-sub);
   font-size: 1.45rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
@@ -2158,7 +2189,7 @@ html.lenis, html.lenis body {
   display: block;
   font-family: var(--font-display);
   font-size: 0.92rem;
-  color: #fff;
+  color: var(--text-primary);
   margin-top: 0.15rem;
   font-weight: 500;
 }
@@ -2167,7 +2198,7 @@ html.lenis, html.lenis body {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-top: 0.15rem;
 }
 
@@ -2175,8 +2206,8 @@ html.lenis, html.lenis body {
   display: flex;
   gap: 1.25rem;
   padding: 0.65rem 1.25rem;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 9, 8, 0.5);
+  border: 1px solid rgba(245, 240, 232, 0.08);
   border-radius: 10px;
 }
 
@@ -2190,7 +2221,7 @@ html.lenis, html.lenis body {
   font-family: var(--font-mono);
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--brand-orange);
+  color: var(--accent-primary);
 }
 
 .counter-desc {
@@ -2201,7 +2232,7 @@ html.lenis, html.lenis body {
 
 .exp-narrative {
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 0.85rem;
   max-width: 850px;
@@ -2217,10 +2248,10 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.65rem 1.25rem;
-  background: rgba(209, 0, 0, 0.1);
-  border: 1px solid rgba(209, 0, 0, 0.35);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
   border-radius: 8px;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   cursor: pointer;
@@ -2228,8 +2259,9 @@ html.lenis, html.lenis body {
 }
 
 .proof-btn:hover {
-  background: rgba(209, 0, 0, 0.22);
-  border-color: var(--brand-orange);
+  background: var(--accent-bg);
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 16px var(--accent-glow);
   transform: translateY(-2px);
 }
 
@@ -2249,8 +2281,8 @@ html.lenis, html.lenis body {
 }
 
 .edu-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-warm);
   border-radius: 18px;
   overflow: hidden;
   display: flex;
@@ -2281,13 +2313,13 @@ html.lenis, html.lenis body {
   top: 1rem;
   left: 1rem;
   padding: 0.35rem 0.7rem;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(10, 9, 8, 0.8);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(245, 240, 232, 0.15);
   border-radius: 6px;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 0.08em;
 }
 
@@ -2301,7 +2333,7 @@ html.lenis, html.lenis body {
 .edu-degree {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--brand-orange);
+  color: var(--accent-primary);
   letter-spacing: 0.08em;
   font-weight: 700;
 }
@@ -2310,20 +2342,20 @@ html.lenis, html.lenis body {
   font-family: var(--font-sub);
   font-size: 1.6rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0.2rem 0;
 }
 
 .edu-field {
   font-family: var(--font-display);
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
 
 .thesis-card {
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 9, 8, 0.5);
+  border: 1px solid rgba(245, 240, 232, 0.08);
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: auto;
@@ -2339,32 +2371,32 @@ html.lenis, html.lenis body {
 }
 
 .thesis-badge {
-  color: var(--brand-purple);
+  color: var(--accent-soft);
   font-weight: 700;
 }
 
 .thesis-triples {
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .thesis-title {
   font-family: var(--font-sub);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 0.6rem;
 }
 
 .thesis-desc {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.55;
   margin-bottom: 1rem;
 }
 
 .rule-formula-box {
-  background: #050508;
-  border: 1px solid rgba(196, 181, 253, 0.25);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
   padding: 0.85rem 1rem;
   display: flex;
@@ -2375,33 +2407,33 @@ html.lenis, html.lenis body {
 }
 
 .rule-formula-box:hover {
-  border-color: var(--brand-purple);
-  box-shadow: 0 0 20px rgba(196, 181, 253, 0.15);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .formula-label {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: var(--brand-purple);
+  color: var(--accent-soft);
   letter-spacing: 0.1em;
 }
 
 .formula-code {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .formula-sub {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .edu-desc {
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -2419,14 +2451,14 @@ html.lenis, html.lenis body {
   gap: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .hl-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--brand-orange);
+  background: var(--accent-primary);
 }
 
 /* ==========================================================================
@@ -2437,11 +2469,11 @@ html.lenis, html.lenis body {
 }
 
 .contact-console {
-  background: #0d0d12;
-  border: 1.5px solid var(--border-active);
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-default);
   border-radius: 18px;
   padding: clamp(1.25rem, 2.2vh, 1.75rem) clamp(1.5rem, 2.5vw, 2.25rem);
-  box-shadow: 0 25px 80px -20px rgba(209, 0, 0, 0.25);
+  box-shadow: 0 25px 80px -20px var(--accent-glow);
   position: relative;
   overflow: hidden;
 }
@@ -2453,7 +2485,7 @@ html.lenis, html.lenis body {
   margin-bottom: 0.85rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 0.6rem;
 }
@@ -2462,7 +2494,7 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--brand-green);
+  color: var(--accent-bright);
   font-weight: 600;
 }
 
@@ -2470,8 +2502,8 @@ html.lenis, html.lenis body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--brand-green);
-  box-shadow: 0 0 8px var(--brand-green);
+  background: var(--accent-bright);
+  box-shadow: 0 0 8px var(--accent-glow);
   animation: pulse-dot 1.5s infinite;
 }
 
@@ -2479,7 +2511,7 @@ html.lenis, html.lenis body {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: -0.03em;
   margin-bottom: 0.35rem;
 }
@@ -2487,7 +2519,7 @@ html.lenis, html.lenis body {
 .console-lead {
   font-family: var(--font-sub);
   font-size: clamp(0.85rem, 1.1vw, 0.95rem);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   max-width: 680px;
   margin-bottom: 1rem;
   line-height: 1.45;
@@ -2506,8 +2538,8 @@ html.lenis, html.lenis body {
   flex: 1;
   min-width: 240px;
   padding: 0.6rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(245, 240, 232, 0.12);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -2516,7 +2548,7 @@ html.lenis, html.lenis body {
 .email-mono {
   font-family: var(--font-mono);
   font-size: 0.88rem;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 0.05em;
 }
 
@@ -2525,29 +2557,31 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1.25rem;
-  background: var(--brand-orange);
-  border: none;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
   border-radius: 8px;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
   letter-spacing: 0.06em;
   transition: all 0.2s ease;
-  box-shadow: 0 6px 18px var(--brand-orange-glow);
+  box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 .btn-copy-email:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(209, 0, 0, 0.5);
+  background: var(--accent-bg);
+  border-color: var(--accent-bright);
+  box-shadow: 0 8px 22px var(--accent-glow);
 }
 
 .copy-toast {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--brand-green);
+  color: var(--accent-bright);
   opacity: 0;
   transform: translateY(-5px);
   transition: all 0.25s ease;
@@ -2568,8 +2602,8 @@ html.lenis, html.lenis body {
 
 .action-card {
   padding: 0.65rem 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-subtle);
+  background: rgba(245, 240, 232, 0.02);
+  border: 1px solid var(--border-warm);
   border-radius: 10px;
   text-decoration: none;
   display: flex;
@@ -2579,8 +2613,8 @@ html.lenis, html.lenis body {
 }
 
 .action-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: var(--accent-bg);
+  border-color: var(--border-default);
   transform: translateY(-2px);
 }
 
@@ -2588,13 +2622,13 @@ html.lenis, html.lenis body {
   font-family: var(--font-sub);
   font-size: 0.88rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .act-handle {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .cv-download-bar {
@@ -2602,8 +2636,8 @@ html.lenis, html.lenis body {
   justify-content: space-between;
   align-items: center;
   padding: 0.65rem 1.25rem;
-  background: rgba(209, 0, 0, 0.12);
-  border: 1px solid rgba(209, 0, 0, 0.35);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-subtle);
   border-radius: 10px;
   margin-bottom: 1rem;
   flex-wrap: wrap;
@@ -2620,21 +2654,21 @@ html.lenis, html.lenis body {
   font-family: var(--font-sub);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .cv-ver {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--brand-orange);
+  color: var(--accent-primary);
 }
 
 .btn-cv-download {
   padding: 0.8rem 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
   border-radius: 8px;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 600;
@@ -2644,8 +2678,9 @@ html.lenis, html.lenis body {
 }
 
 .btn-cv-download:hover {
-  background: #fff;
-  color: #000;
+  background: var(--accent-bg);
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 20px var(--accent-glow);
   transform: translateY(-2px);
 }
 
@@ -2660,7 +2695,7 @@ html.lenis, html.lenis body {
   background: transparent;
   border: 1px solid var(--border-subtle);
   border-radius: 9999px;
-  color: var(--text-dim);
+  color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   cursor: pointer;
@@ -2669,8 +2704,8 @@ html.lenis, html.lenis body {
 }
 
 .btn-return-top:hover {
-  border-color: #fff;
-  color: #fff;
+  border-color: var(--border-default);
+  color: var(--text-primary);
 }
 
 .console-footer {
@@ -2679,7 +2714,7 @@ html.lenis, html.lenis body {
   align-items: center;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   border-top: 1px solid var(--border-subtle);
   padding-top: 0.75rem;
   flex-wrap: wrap;
@@ -2687,11 +2722,11 @@ html.lenis, html.lenis body {
 }
 
 .v3-switch-note {
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .v-switch-link {
-  color: var(--brand-cyan);
+  color: var(--accent-primary);
   text-decoration: none;
   margin: 0 0.2rem;
 }
@@ -2723,7 +2758,7 @@ html.lenis, html.lenis body {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(10, 9, 8, 0.85);
   backdrop-filter: blur(10px);
 }
 
@@ -2732,8 +2767,8 @@ html.lenis, html.lenis body {
   z-index: 10;
   max-width: 850px;
   width: 90vw;
-  background: #111116;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
@@ -2744,24 +2779,24 @@ html.lenis, html.lenis body {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(245, 240, 232, 0.03);
   border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--brand-cyan);
+  color: var(--accent-primary);
 }
 
 .modal-close {
   background: transparent;
   border: none;
-  color: var(--text-dim);
+  color: var(--text-muted);
   font-size: 1.1rem;
   cursor: pointer;
   padding: 0.25rem 0.5rem;
 }
 
 .modal-close:hover {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .modal-body {
@@ -2777,7 +2812,7 @@ html.lenis, html.lenis body {
 
 .modal-caption {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.5;
   margin-top: 1rem;
 }

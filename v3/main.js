@@ -115,8 +115,8 @@ function initAmbientCanvas() {
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
         radius: Math.random() * 1.5 + 0.5,
-        alpha: Math.random() * 0.35 + 0.1,
-        color: Math.random() > 0.65 ? '#D10000' : '#51f2f1'
+        alpha: Math.random() * 0.16 + 0.05,
+        color: Math.random() > 0.5 ? '#D97757' : '#706A64'
       });
     }
   }
@@ -210,7 +210,7 @@ function initHudSync() {
 
     navLinks.forEach(link => {
       if (link.getAttribute('href') === `#${activeId}`) {
-        link.style.color = '#fff';
+        link.style.color = '#D97757';
       } else {
         link.style.color = '';
       }
@@ -277,7 +277,7 @@ function init3DCardTilt() {
 
     if (sheen) {
       sheen.style.opacity = '1';
-      sheen.style.background = `radial-gradient(circle at ${(mouseX / bounds.width) * 100}% ${(mouseY / bounds.height) * 100}%, rgba(255, 255, 255, 0.28) 0%, transparent 60%)`;
+      sheen.style.background = `radial-gradient(circle at ${(mouseX / bounds.width) * 100}% ${(mouseY / bounds.height) * 100}%, rgba(245, 240, 232, 0.18) 0%, transparent 60%)`;
     }
   });
 
