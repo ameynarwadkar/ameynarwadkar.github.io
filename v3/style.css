@@ -1914,6 +1914,142 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================================
+   CHAPTER 02 SUB-SECTION: ENGINEERED STACK & CAPABILITIES
+   ========================================================================== */
+.skills-sub-lead {
+  margin-top: clamp(3.5rem, 6vh, 5rem);
+  margin-bottom: 1.75rem;
+}
+
+.skills-lead-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.skills-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-glow);
+}
+
+.skills-sub-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.skills-sub-desc {
+  font-family: var(--font-sub);
+  font-size: clamp(0.88rem, 1.1vw, 0.96rem);
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin-top: 0.35rem;
+  line-height: 1.45;
+}
+
+.skills-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.skill-category-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 105, 77, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(255, 105, 77, 0.1);
+}
+
+.skill-cat-header {
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(255, 105, 77, 0.18);
+}
+
+.skill-cat-idx {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-primary);
+  margin-bottom: 0.25rem;
+}
+
+.skill-cat-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.skill-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: rgba(245, 240, 232, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.32rem 0.6rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.skill-chip:hover {
+  transform: translateY(-1.5px);
+  color: #ffffff;
+  background: rgba(255, 105, 77, 0.1);
+  border-color: rgba(255, 105, 77, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 105, 77, 0.15);
+}
+
+@media (max-width: 1100px) {
+  .skills-matrix-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ==========================================================================
    CHAPTER 03: WHAT I'VE DONE? (HORIZONTAL PINNED SHOWCASE)
    ========================================================================== */
 .projects-header-row {
