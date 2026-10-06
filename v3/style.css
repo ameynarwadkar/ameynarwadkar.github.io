@@ -56,6 +56,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Fallback smooth scroll when Lenis is not active */
@@ -832,45 +833,46 @@ html.lenis, html.lenis body {
    CHAPTER 02: WHAT I DO? (INTEGRATED SYSTEM ARCHITECTURE PIPELINE)
    ========================================================================== */
 #ch-what .chapter-content {
-  max-width: 1360px;
+  max-width: 1480px;
+  width: 95%;
 }
 
 .sys-lead {
-  margin-bottom: clamp(1.2rem, 2.4vh, 1.8rem);
+  margin-bottom: clamp(1.2rem, 2vh, 1.8rem);
   text-align: left;
 }
 
 .sys-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--text-dim);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
 }
 
 .sys-badge-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
   font-weight: 700;
-  font-size: 0.74rem;
+  font-size: 0.78rem;
 }
 
 .sys-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+  font-size: clamp(2.5rem, 4.2vw, 3.8rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #fff;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
   line-height: 1.1;
 }
 
@@ -883,18 +885,18 @@ html.lenis, html.lenis body {
 }
 
 .sys-subtitle {
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-size: clamp(1.02rem, 1.35vw, 1.22rem);
   color: var(--text-muted);
 }
 
 .sys-architecture-card {
   background: #08090e;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 1.6rem 1.25rem 1.35rem;
-  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.94), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 24px;
+  padding: clamp(2rem, 3.2vh, 2.75rem) clamp(1.6rem, 2.2vw, 2.4rem) clamp(1.8rem, 2.6vh, 2.4rem);
+  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.94), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(16px);
-  max-width: 1360px;
+  max-width: 1480px;
   width: 100%;
   margin: 0 auto;
 }
@@ -903,19 +905,19 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  gap: 0.35rem;
-  margin-bottom: 1.25rem;
+  gap: clamp(0.35rem, 0.45vw, 0.6rem);
+  margin-bottom: 1.5rem;
 }
 
 /* Pipe Card (6 Lifecycle Process Cards) */
 .pipe-card {
-  flex: 1;
-  min-width: 165px;
-  max-width: 205px;
+  flex: 1 1 0;
+  min-width: clamp(155px, 11vw, 190px);
+  max-width: 235px;
   background: #06070a;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 0.95rem 0.65rem;
+  border-radius: 14px;
+  padding: 1.25rem 0.95rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -926,22 +928,22 @@ html.lenis, html.lenis body {
 }
 
 .pipe-card:hover, .pipe-card.active-stage {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .card-header {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.65rem;
   text-align: left;
 }
 
 .step-num {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  margin-bottom: 0.2rem;
-  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.06em;
 }
 
 .step-orange { color: #ff5533; }
@@ -953,18 +955,18 @@ html.lenis, html.lenis body {
 
 .step-title {
   font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
   line-height: 1.2;
 }
 
 .step-desc {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   color: var(--text-dim);
-  line-height: 1.35;
-  min-height: 28px;
+  line-height: 1.4;
+  min-height: 38px;
 }
 
 .text-cyan-accent {
@@ -974,16 +976,16 @@ html.lenis, html.lenis body {
 
 /* Visual Container */
 .card-visual {
-  height: 168px;
+  height: 215px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  border-radius: 8px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  padding: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  padding: 0.45rem;
   overflow: hidden;
 }
 
@@ -1052,11 +1054,11 @@ html.lenis, html.lenis body {
 
 .bulb-glow {
   position: absolute;
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 85, 51, 0.35) 0%, rgba(255, 85, 51, 0.08) 50%, transparent 75%);
-  top: 42%;
+  top: 44%;
   left: 36%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -1065,10 +1067,10 @@ html.lenis, html.lenis body {
 
 .bulb-center {
   position: absolute;
-  top: 14px;
-  left: 10px;
-  width: 64px;
-  height: 78px;
+  top: 18px;
+  left: 12px;
+  width: 76px;
+  height: 92px;
 }
 
 .bulb-svg {
@@ -1127,18 +1129,18 @@ html.lenis, html.lenis body {
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.22rem 0.42rem;
-  background: rgba(14, 15, 22, 0.92);
+  gap: 0.38rem;
+  padding: 0.28rem 0.5rem;
+  background: rgba(14, 15, 22, 0.94);
   border: 1px solid rgba(255, 85, 51, 0.3);
-  border-radius: 6px;
+  border-radius: 7px;
   font-family: var(--font-mono);
-  font-size: 0.61rem;
+  font-size: 0.68rem;
   color: #e2e8f0;
   white-space: nowrap;
   transition: all 0.2s ease;
   z-index: 2;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
 }
 
 .sat-pill:hover {
@@ -1148,24 +1150,24 @@ html.lenis, html.lenis body {
 }
 
 .sat-needs {
-  top: 8px;
-  right: 2px;
+  top: 10px;
+  right: 4px;
 }
 
 .sat-constraints {
-  top: 64px;
-  right: 2px;
+  top: 78px;
+  right: 4px;
 }
 
 .sat-metrics {
-  bottom: 6px;
+  bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .pill-dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -1184,29 +1186,29 @@ html.lenis, html.lenis body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 0.35rem;
-  padding: 0.35rem 0.2rem;
+  gap: 0.45rem;
+  padding: 0.4rem 0.25rem;
 }
 
 .data-chips-col {
   display: flex;
   flex-direction: column;
-  gap: 0.42rem;
+  gap: 0.5rem;
   flex: 1;
 }
 
 .sub-chip {
   display: flex;
   align-items: center;
-  gap: 0.32rem;
-  padding: 0.28rem 0.38rem;
+  gap: 0.38rem;
+  padding: 0.34rem 0.46rem;
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 6px;
+  border-radius: 7px;
   font-family: var(--font-mono);
-  font-size: 0.59rem;
+  font-size: 0.68rem;
   color: #cbd5e1;
-  line-height: 1.15;
+  line-height: 1.18;
   transition: all 0.2s ease;
 }
 
@@ -1218,8 +1220,8 @@ html.lenis, html.lenis body {
 }
 
 .chip-icon {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   stroke: #3b82f6;
   flex-shrink: 0;
   transition: stroke 0.2s ease;
@@ -1229,7 +1231,7 @@ html.lenis, html.lenis body {
 .card-deploy .chip-icon { stroke: #818cf8; }
 
 .data-slabs-art {
-  width: 66px;
+  width: 78px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -1239,7 +1241,7 @@ html.lenis, html.lenis body {
 .slabs-svg {
   width: 100%;
   height: auto;
-  max-height: 140px;
+  max-height: 165px;
 }
 
 .slab-layer {
@@ -1273,7 +1275,7 @@ html.lenis, html.lenis body {
    CARD 03: PROTOTYPE VISUAL (MINI-IDE MODAL)
    ========================================================================== */
 .visual-prototype {
-  padding: 0.2rem;
+  padding: 0.25rem;
 }
 
 .ide-window {
@@ -1281,7 +1283,7 @@ html.lenis, html.lenis body {
   height: 100%;
   background: #040508;
   border: 1px solid rgba(168, 85, 247, 0.25);
-  border-radius: 8px;
+  border-radius: 9px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1292,20 +1294,20 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.25rem 0.45rem;
+  padding: 0.32rem 0.52rem;
   background: rgba(168, 85, 247, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .ide-dots {
   display: flex;
-  gap: 0.22rem;
+  gap: 0.26rem;
   align-items: center;
 }
 
 .w-dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.25);
 }
@@ -1316,27 +1318,27 @@ html.lenis, html.lenis body {
 
 .ide-ctrls {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.62rem;
   color: rgba(255, 255, 255, 0.3);
   display: flex;
-  gap: 0.3rem;
+  gap: 0.35rem;
 }
 
 .ide-body {
-  padding: 0.35rem 0.45rem;
+  padding: 0.45rem 0.55rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  gap: 0.28rem;
+  gap: 0.38rem;
 }
 
 .ide-item {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.42rem;
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.74rem;
   color: #cbd5e1;
   transition: all 0.2s ease;
 }
@@ -1347,8 +1349,8 @@ html.lenis, html.lenis body {
 }
 
 .ide-icon {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   stroke: #c084fc;
   flex-shrink: 0;
   filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.5));
@@ -1362,27 +1364,27 @@ html.lenis, html.lenis body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.3rem 0.15rem;
+  gap: 0.38rem;
+  padding: 0.38rem 0.2rem;
 }
 
 .sub-chips-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.3rem;
+  gap: 0.38rem;
   width: 100%;
 }
 
 .card-build .sub-chip {
-  font-size: 0.56rem;
-  padding: 0.22rem 0.28rem;
-  gap: 0.25rem;
+  font-size: 0.65rem;
+  padding: 0.28rem 0.36rem;
+  gap: 0.28rem;
   min-width: 0;
 }
 
 .server-core-wrap {
   width: 100%;
-  height: 64px;
+  height: 78px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1390,8 +1392,8 @@ html.lenis, html.lenis body {
 }
 
 .server-svg {
-  width: 82px;
-  height: 60px;
+  width: 100px;
+  height: 74px;
 }
 
 .srv-slab {
@@ -1423,23 +1425,23 @@ html.lenis, html.lenis body {
    CARD 05: EVALUATE & HARDEN VISUAL (5-ROW VERIFICATION CHECKLIST)
    ========================================================================== */
 .visual-eval {
-  padding: 0.35rem 0.25rem;
+  padding: 0.4rem 0.35rem;
   justify-content: center;
 }
 
 .eval-list {
   display: flex;
   flex-direction: column;
-  gap: 0.42rem;
+  gap: 0.52rem;
   width: 100%;
 }
 
 .eval-row {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.38rem;
   font-family: var(--font-mono);
-  font-size: 0.59rem;
+  font-size: 0.66rem;
   color: #cbd5e1;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -1453,15 +1455,15 @@ html.lenis, html.lenis body {
 .eval-check {
   color: #22c55e;
   font-weight: 800;
-  font-size: 0.74rem;
+  font-size: 0.86rem;
   filter: drop-shadow(0 0 4px #22c55e);
   animation: check-glow 2s infinite ease-in-out;
   flex-shrink: 0;
 }
 
 .eval-icon {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   stroke: #4ade80;
   flex-shrink: 0;
   opacity: 0.85;
@@ -1470,7 +1472,7 @@ html.lenis, html.lenis body {
 .eval-label {
   white-space: nowrap;
   letter-spacing: -0.015em;
-  font-size: 0.59rem;
+  font-size: 0.66rem;
 }
 
 /* ==========================================================================
@@ -1481,31 +1483,31 @@ html.lenis, html.lenis body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.3rem 0.15rem;
+  gap: 0.38rem;
+  padding: 0.38rem 0.2rem;
 }
 
 .card-deploy .sub-chips-row {
-  grid-template-columns: 1.22fr 0.88fr;
-  gap: 0.25rem;
+  grid-template-columns: 1.28fr 0.72fr;
+  gap: 0.28rem;
 }
 
 .card-deploy .sub-chip {
-  font-size: 0.54rem;
-  padding: 0.2rem 0.28rem;
-  line-height: 1.1;
-  gap: 0.22rem;
+  font-size: 0.62rem;
+  padding: 0.26rem 0.34rem;
+  line-height: 1.15;
+  gap: 0.24rem;
   min-width: 0;
 }
 
 .card-deploy .chip-icon {
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 13px;
 }
 
 .globe-wrap {
   width: 100%;
-  height: 72px;
+  height: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1513,8 +1515,8 @@ html.lenis, html.lenis body {
 }
 
 .globe-svg {
-  width: 94px;
-  height: 72px;
+  width: 114px;
+  height: 88px;
 }
 
 .globe-halo {
@@ -1558,12 +1560,12 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: center;
   gap: 0.15rem;
-  width: 16px;
+  width: 14px;
   flex-shrink: 0;
 }
 
 .arrow-track {
-  width: 10px;
+  width: 9px;
   height: 2px;
   background: rgba(255, 255, 255, 0.12);
   position: relative;
@@ -1583,7 +1585,7 @@ html.lenis, html.lenis body {
 
 .arrow-tip {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.35);
   line-height: 1;
 }
@@ -1594,8 +1596,8 @@ html.lenis, html.lenis body {
 .phase-brackets-rail {
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr;
-  gap: 0.85rem;
-  padding-top: 1.1rem;
+  gap: 1.25rem;
+  padding-top: 1.4rem;
   border-top: 1px dashed rgba(255, 255, 255, 0.08);
 }
 
@@ -1611,8 +1613,8 @@ html.lenis, html.lenis body {
 .bracket-line {
   position: relative;
   width: 100%;
-  height: 2.5px;
-  margin-bottom: 0.55rem;
+  height: 3px;
+  margin-bottom: 0.65rem;
   border-radius: 1px;
   opacity: 0.85;
   transition: all 0.3s ease;
@@ -1622,9 +1624,9 @@ html.lenis, html.lenis body {
 .bracket-line::after {
   content: '';
   position: absolute;
-  top: -5px;
-  width: 2.5px;
-  height: 8px;
+  top: -6px;
+  width: 3px;
+  height: 9px;
   background: inherit;
   border-radius: 1px;
   box-shadow: inherit;
@@ -1639,7 +1641,7 @@ html.lenis, html.lenis body {
 .bracket-deploy .bracket-line { background: #818cf8; box-shadow: 0 0 6px rgba(129, 140, 248, 0.5); }
 
 .phase-bracket.active-bracket .bracket-line {
-  height: 3.5px;
+  height: 4px;
   opacity: 1;
   box-shadow: 0 0 16px currentColor;
 }
@@ -1651,10 +1653,10 @@ html.lenis, html.lenis body {
 
 .bracket-title {
   font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-size: 0.94rem;
   font-weight: 700;
   letter-spacing: 0.09em;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.2rem;
   transition: all 0.2s ease;
 }
 
@@ -1665,7 +1667,7 @@ html.lenis, html.lenis body {
 
 .bracket-sub {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   color: var(--text-dim);
 }
 
@@ -1732,42 +1734,42 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================================
-   CHAPTER 03: WHAT I'VE DONE? (CAROUSEL, FLAGSHIPS & SIMULATOR)
+   CHAPTER 03: WHAT I'VE DONE? (HORIZONTAL PINNED SHOWCASE)
    ========================================================================== */
 .projects-header-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: clamp(1rem, 2vh, 1.8rem);
+  margin-bottom: clamp(1rem, 2vh, 1.6rem);
 }
 
 .carousel-hud-controls {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .carousel-counter-pill {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   letter-spacing: 0.12em;
   color: var(--brand-orange);
   background: rgba(255, 68, 33, 0.08);
   border: 1px solid rgba(255, 68, 33, 0.3);
-  padding: 0.35rem 0.8rem;
+  padding: 0.42rem 0.95rem;
   border-radius: 9999px;
   font-weight: 700;
 }
 
 .carousel-nav-btns {
   display: inline-flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .carousel-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
   border: 1px solid var(--border-subtle);
   background: rgba(17, 17, 22, 0.8);
   color: var(--text-main);
@@ -1775,7 +1777,7 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.15rem;
   transition: all 0.2s ease;
 }
 
@@ -1783,7 +1785,7 @@ html.lenis, html.lenis body {
   border-color: var(--brand-orange);
   color: #fff;
   background: rgba(255, 68, 33, 0.18);
-  box-shadow: 0 0 12px var(--brand-orange-glow);
+  box-shadow: 0 0 14px var(--brand-orange-glow);
 }
 
 .carousel-btn:disabled {
@@ -1791,9 +1793,6 @@ html.lenis, html.lenis body {
   cursor: not-allowed;
 }
 
-/* ==========================================================================
-   CHAPTER 03: WHAT I'VE DONE? (HORIZONTAL PINNED SHOWCASE)
-   ========================================================================== */
 .chapter-horizontal-screen {
   display: block !important;
   height: 320vh;
@@ -1817,12 +1816,12 @@ html.lenis, html.lenis body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: clamp(4.5rem, 7vh, 6rem) 0 clamp(2rem, 3.5vh, 3rem) 0;
+  padding: clamp(4rem, 6vh, 5.5rem) 0 clamp(1.8rem, 3vh, 2.5rem) 0;
 }
 
 .horizontal-content-container {
-  max-width: 1320px;
-  width: 100%;
+  max-width: 1480px;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1849,14 +1848,14 @@ html.lenis, html.lenis body {
 }
 
 .horizontal-projects-track .project-card {
-  flex: 0 0 clamp(720px, 64vw, 940px);
-  width: clamp(720px, 64vw, 940px);
+  flex: 0 0 clamp(860px, 72vw, 1160px);
+  width: clamp(860px, 72vw, 1160px);
   max-width: 90vw;
   box-sizing: border-box;
-  background: rgba(14, 14, 18, 0.82);
+  background: rgba(14, 14, 18, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: clamp(1.8rem, 3vh, 2.6rem) clamp(2rem, 2.8vw, 3rem);
+  border-radius: 24px;
+  padding: clamp(2.4rem, 4vh, 3.4rem) clamp(2.6rem, 3.5vw, 4rem);
   backdrop-filter: blur(16px);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.4s ease,
@@ -1869,19 +1868,19 @@ html.lenis, html.lenis body {
 .horizontal-projects-track .project-card.active-card {
   opacity: 1;
   transform: scale(1);
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 68, 33, 0.08);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 68, 33, 0.09);
 }
 
 .showcase-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(1.8rem, 2.8vw, 3.2rem);
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: clamp(2rem, 3vw, 3.6rem);
   align-items: center;
 }
 
 .showcase-grid.reverse {
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.12fr 0.88fr;
 }
 
 @media (max-width: 1000px) {
@@ -1893,13 +1892,13 @@ html.lenis, html.lenis body {
 
 .media-frame {
   position: relative;
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   background: #000;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
   aspect-ratio: 16 / 10;
-  max-height: clamp(210px, 30vh, 290px);
+  max-height: clamp(280px, 38vh, 360px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1923,15 +1922,15 @@ html.lenis, html.lenis body {
 
 .media-overlay-badge {
   position: absolute;
-  bottom: 0.85rem;
-  left: 0.85rem;
-  padding: 0.35rem 0.75rem;
-  background: rgba(0, 0, 0, 0.8);
+  bottom: 1rem;
+  left: 1rem;
+  padding: 0.42rem 0.85rem;
+  background: rgba(0, 0, 0, 0.82);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
+  border-radius: 7px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   color: #fff;
   letter-spacing: 0.1em;
 }
@@ -1939,16 +1938,16 @@ html.lenis, html.lenis body {
 .project-tag-row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.85rem;
+  gap: 0.85rem;
+  margin-bottom: 0.95rem;
 }
 
 .p-tag {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.32rem 0.72rem;
+  border-radius: 5px;
   letter-spacing: 0.08em;
 }
 
@@ -1972,55 +1971,56 @@ html.lenis, html.lenis body {
 
 .p-meta {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: var(--text-dim);
   letter-spacing: 0.08em;
 }
 
 .project-headline {
   font-family: var(--font-sub);
-  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
-  font-weight: 700;
+  font-size: clamp(1.85rem, 2.5vw, 2.45rem);
+  font-weight: 800;
   color: #fff;
   line-height: 1.15;
-  margin-bottom: 0.6rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
 }
 
 .project-summary {
-  font-size: clamp(0.85rem, 1.05vw, 0.92rem);
+  font-size: clamp(1.0rem, 1.22vw, 1.14rem);
   color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: clamp(0.8rem, 1.6vh, 1.2rem);
+  line-height: 1.62;
+  margin-bottom: clamp(1.2rem, 2vh, 1.8rem);
 }
 
 .metric-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-  margin-top: clamp(0.8rem, 1.6vh, 1.4rem);
+  gap: 1rem;
+  margin-top: clamp(1rem, 2vh, 1.6rem);
 }
 
 .m-card {
-  padding: 0.55rem 0.85rem;
+  padding: 0.7rem 1.05rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-subtle);
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .m-val {
   font-family: var(--font-mono);
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #fff;
+  letter-spacing: -0.01em;
 }
 
 .m-lbl {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.74rem;
   color: var(--text-dim);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2030,14 +2030,14 @@ html.lenis, html.lenis body {
 .carousel-dots {
   display: flex;
   justify-content: center;
-  gap: 0.6rem;
-  margin-top: clamp(1rem, 2vh, 1.6rem);
+  gap: 0.8rem;
+  margin-top: clamp(1.2rem, 2.2vh, 1.8rem);
 }
 
 .carousel-dot {
-  width: 24px;
-  height: 4px;
-  border-radius: 2px;
+  width: 32px;
+  height: 5px;
+  border-radius: 3px;
   background: rgba(255, 255, 255, 0.15);
   border: none;
   cursor: pointer;
@@ -2045,7 +2045,7 @@ html.lenis, html.lenis body {
 }
 
 .carousel-dot.active {
-  width: 48px;
+  width: 62px;
   background: var(--brand-orange);
   box-shadow: 0 0 10px var(--brand-orange-glow);
 }
