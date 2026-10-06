@@ -56,7 +56,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Fallback smooth scroll when Lenis is not active */
@@ -69,7 +69,7 @@ body.scrolly-body {
   background-color: var(--bg-deep);
   color: var(--text-main);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Lenis Smooth Scrolling Engine Integration */
