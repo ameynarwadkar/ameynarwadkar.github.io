@@ -51,7 +51,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   background-color: var(--bg-deep);
   color: var(--text-main);
   font-family: var(--font-display);
@@ -60,13 +59,31 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fallback proximity snap when Lenis is not active */
+html:not(.lenis) {
+  scroll-snap-type: y proximity;
+}
+
 body.scrolly-body {
   position: relative;
   background-color: var(--bg-deep);
   color: var(--text-main);
   min-height: 100vh;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
+}
+
+/* Lenis Smooth Scrolling Engine Integration */
+html.lenis, html.lenis body {
+  height: auto;
+  scroll-snap-type: none !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 /* Ambient Canvas */
@@ -350,7 +367,6 @@ body.scrolly-body {
   height: 100vh;
   height: 100dvh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -358,6 +374,10 @@ body.scrolly-body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   box-sizing: border-box;
   position: relative;
+}
+
+html.lenis .chapter-screen {
+  scroll-snap-align: none;
 }
 
 .chapter-content {
