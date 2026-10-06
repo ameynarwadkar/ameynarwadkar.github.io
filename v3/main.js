@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initLenisSmoothScroll();
+  initSlideshowDeck();
   initAmbientCanvas();
   initHudSync();
   init3DCardTilt();
@@ -15,6 +16,155 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightboxModal();
   initContactActions();
 });
+
+/* ==========================================================================
+   0. SLIDESHOW DECK TRANSITIONS & SMOOTH SCROLL CONTROLLER
+   ========================================================================== */
+function initSlideshowDeck() {
+  const chapters = ['ch-who', 'ch-what', 'ch-done', 'ch-worked', 'ch-studied', 'ch-contact'];
+  let currentIdx = 0;
+  let isLocked = false;
+  let lockTimer = null;
+
+  window.__chapters = chapters;
+  window.__currentChapterIdx = 0;
+
+  function updateCurrentFromScroll() {
+    if (isLocked) return;
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY;
+    const idx = Math.round(scrollY / vh);
+    currentIdx = Math.max(0, Math.min(idx, chapters.length - 1));
+    window.__currentChapterIdx = currentIdx;
+  }
+
+  window.addEventListener('scroll', updateCurrentFromScroll, { passive: true });
+
+  function goToChapter(index) {
+    const targetIdx = Math.max(0, Math.min(index, chapters.length - 1));
+    currentIdx = targetIdx;
+    window.__currentChapterIdx = currentIdx;
+    isLocked = true;
+    clearTimeout(lockTimer);
+
+    const targetEl = document.getElementById(chapters[targetIdx]);
+    if (targetEl) {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(targetEl, {
+          duration: 0.85,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          onComplete: () => {
+            lockTimer = setTimeout(() => {
+              isLocked = false;
+            }, 100);
+          }
+        });
+      } else {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        lockTimer = setTimeout(() => {
+          isLocked = false;
+        }, 750);
+      }
+    } else {
+      isLocked = false;
+    }
+
+    lockTimer = setTimeout(() => {
+      isLocked = false;
+    }, 850);
+  }
+
+  window.__goToChapter = goToChapter;
+
+  // 1. Wheel Gesture Interceptor for Slideshow Deck Transition
+  window.addEventListener('wheel', (e) => {
+    if (window.innerWidth < 960 || window.innerHeight < 650) return;
+
+    // Allow horizontal trackpad swiping inside projects-carousel
+    const carousel = document.getElementById('projects-carousel');
+    if (carousel && carousel.contains(e.target)) {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    }
+
+    if (Math.abs(e.deltaY) < 18) return; // ignore micro-jitters
+
+    e.preventDefault();
+
+    if (isLocked) return;
+
+    if (e.deltaY > 0) {
+      if (currentIdx < chapters.length - 1) {
+        goToChapter(currentIdx + 1);
+      }
+    } else if (e.deltaY < 0) {
+      if (currentIdx > 0) {
+        goToChapter(currentIdx - 1);
+      }
+    }
+  }, { passive: false });
+
+  // 2. Keyboard Navigation
+  window.addEventListener('keydown', (e) => {
+    if (window.innerWidth < 960 || window.innerHeight < 650) return;
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
+      if (currentIdx < chapters.length - 1) {
+        e.preventDefault();
+        goToChapter(currentIdx + 1);
+      }
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
+      if (currentIdx > 0) {
+        e.preventDefault();
+        goToChapter(currentIdx - 1);
+      }
+    }
+  });
+
+  // 3. Touch Swipes on Mobile / Touchscreens
+  let touchStartY = null;
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches.length === 1) {
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    if (touchStartY === null || window.innerWidth < 960 || window.innerHeight < 650) return;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaY = touchStartY - touchEndY;
+    touchStartY = null;
+
+    if (Math.abs(deltaY) > 55 && !isLocked) {
+      if (deltaY > 0 && currentIdx < chapters.length - 1) {
+        goToChapter(currentIdx + 1);
+      } else if (deltaY < 0 && currentIdx > 0) {
+        goToChapter(currentIdx - 1);
+      }
+    }
+  }, { passive: true });
+
+  // 4. Intercept HUD Chapter Navigation Links
+  document.querySelectorAll('a[href^="#ch-"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href').replace('#', '');
+      const idx = chapters.indexOf(targetId);
+      if (idx !== -1) {
+        e.preventDefault();
+        goToChapter(idx);
+      }
+    });
+  });
+
+  // 5. Return to Top in footer
+  const returnBtn = document.getElementById('btn-return-top');
+  if (returnBtn) {
+    returnBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToChapter(0);
+    });
+  }
+}
 
 /* ==========================================================================
    0. LENIS INERTIAL SMOOTH SCROLL ENGINE & MAGNETIC SETTLING
@@ -38,63 +188,6 @@ function initLenisSmoothScroll() {
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
-
-  // Magnetic Chapter Settling
-  let settleTimeout = null;
-  let isSettling = false;
-
-  function checkMagneticSettling() {
-    if (isSettling) return;
-    // Only settle on desktop viewports where full 100vh chapters apply
-    if (window.innerWidth < 960 || window.innerHeight < 650) return;
-
-    const currentY = lenis.scroll;
-    const vh = window.innerHeight;
-    const targetChapterIdx = Math.round(currentY / vh);
-    const targetY = targetChapterIdx * vh;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const boundedTarget = Math.max(0, Math.min(targetY, maxScroll));
-    const dist = Math.abs(boundedTarget - currentY);
-
-    // If within attraction range (between 3px and 45% of viewport height)
-    if (dist > 3 && dist < vh * 0.45) {
-      isSettling = true;
-      lenis.scrollTo(boundedTarget, {
-        duration: 0.7,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        onComplete: () => {
-          isSettling = false;
-        }
-      });
-    }
-  }
-
-  lenis.on('scroll', (e) => {
-    clearTimeout(settleTimeout);
-    // When scroll velocity drops, trigger gentle magnetic attraction to chapter
-    if (!isSettling && Math.abs(e.velocity) < 0.25) {
-      settleTimeout = setTimeout(checkMagneticSettling, 120);
-    }
-  });
-
-  // Intercept anchor clicks for chapter navigation
-  document.querySelectorAll('a[href^="#ch-"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        isSettling = true;
-        lenis.scrollTo(targetEl, {
-          duration: 0.85,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          onComplete: () => {
-            isSettling = false;
-          }
-        });
-      }
-    });
-  });
 }
 
 /* ==========================================================================
