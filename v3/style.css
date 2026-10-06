@@ -50,7 +50,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--bg-deep);
   color: var(--text-main);
   font-family: var(--font-display);
@@ -59,8 +58,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Fallback proximity snap when Lenis is not active */
+/* Fallback smooth scroll & proximity snap when Lenis is not active */
 html:not(.lenis) {
+  scroll-behavior: smooth;
   scroll-snap-type: y proximity;
 }
 
@@ -75,14 +75,19 @@ body.scrolly-body {
 /* Lenis Smooth Scrolling Engine Integration */
 html.lenis, html.lenis body {
   height: auto;
+  scroll-behavior: auto !important;
   scroll-snap-type: none !important;
+}
+
+html.lenis .chapter-screen {
+  scroll-snap-align: none !important;
 }
 
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
+.lenis [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
 

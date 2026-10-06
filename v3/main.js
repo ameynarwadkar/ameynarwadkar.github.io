@@ -23,14 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
 function initSlideshowDeck() {
   const chapters = ['ch-who', 'ch-what', 'ch-done', 'ch-worked', 'ch-studied', 'ch-contact'];
   let currentIdx = 0;
-  let isLocked = false;
-  let lockTimer = null;
+  let isTransitioning = false;
+  let lastTriggerTime = 0;
+  let momentumDecayTimer = null;
 
   window.__chapters = chapters;
   window.__currentChapterIdx = 0;
 
   function updateCurrentFromScroll() {
-    if (isLocked) return;
+    if (isTransitioning) return;
     const vh = window.innerHeight;
     const scrollY = window.scrollY;
     const idx = Math.round(scrollY / vh);
@@ -42,39 +43,39 @@ function initSlideshowDeck() {
 
   function goToChapter(index) {
     const targetIdx = Math.max(0, Math.min(index, chapters.length - 1));
-    if (targetIdx === currentIdx) {
-      isLocked = false;
+    if (targetIdx === currentIdx && isTransitioning) {
       return;
     }
 
     currentIdx = targetIdx;
     window.__currentChapterIdx = currentIdx;
-    isLocked = true;
-    clearTimeout(lockTimer);
+    isTransitioning = true;
+    lastTriggerTime = performance.now();
 
     const targetEl = document.getElementById(chapters[targetIdx]);
     if (targetEl) {
       if (window.__lenis) {
         window.__lenis.scrollTo(targetEl, {
-          duration: 0.8,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          duration: 1.05,
+          easing: (t) => 1 - Math.pow(1 - t, 3.5), // Buttery-smooth quartic glide
           onComplete: () => {
-            isLocked = false;
+            isTransitioning = false;
           }
         });
       } else {
         targetEl.scrollIntoView({ behavior: 'smooth' });
         setTimeout(() => {
-          isLocked = false;
-        }, 600);
+          isTransitioning = false;
+        }, 700);
       }
     } else {
-      isLocked = false;
+      isTransitioning = false;
     }
 
-    lockTimer = setTimeout(() => {
-      isLocked = false;
-    }, 750);
+    // Safety timeout in case onComplete callback is delayed
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 1200);
   }
 
   window.__goToChapter = goToChapter;
@@ -89,11 +90,23 @@ function initSlideshowDeck() {
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
     }
 
-    if (Math.abs(e.deltaY) < 18) return; // ignore micro-jitters
-
     e.preventDefault();
 
-    if (isLocked) return;
+    const now = performance.now();
+
+    // Reset momentum cooldown timer (debounce trackpad inertial tail)
+    clearTimeout(momentumDecayTimer);
+    momentumDecayTimer = setTimeout(() => {
+      // momentum finished
+    }, 180);
+
+    // Lockout during active transition + momentum cooldown buffer
+    if (isTransitioning || (now - lastTriggerTime < 950)) {
+      return;
+    }
+
+    // Require intentional gesture (ignore micro-jitters)
+    if (Math.abs(e.deltaY) < 22) return;
 
     if (e.deltaY > 0) {
       if (currentIdx < chapters.length - 1) {
@@ -112,12 +125,12 @@ function initSlideshowDeck() {
     if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
 
     if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
-      if (currentIdx < chapters.length - 1) {
+      if (currentIdx < chapters.length - 1 && !isTransitioning) {
         e.preventDefault();
         goToChapter(currentIdx + 1);
       }
     } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
-      if (currentIdx > 0) {
+      if (currentIdx > 0 && !isTransitioning) {
         e.preventDefault();
         goToChapter(currentIdx - 1);
       }
@@ -138,7 +151,7 @@ function initSlideshowDeck() {
     const deltaY = touchStartY - touchEndY;
     touchStartY = null;
 
-    if (Math.abs(deltaY) > 55 && !isLocked) {
+    if (Math.abs(deltaY) > 50 && !isTransitioning) {
       if (deltaY > 0 && currentIdx < chapters.length - 1) {
         goToChapter(currentIdx + 1);
       } else if (deltaY < 0 && currentIdx > 0) {
