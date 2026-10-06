@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAmbientCanvas();
   initHudSync();
   init3DCardTilt();
-  initPillarInteractions();
+  initArchitecturePipeline();
   initTracxoSimulator();
   initProjectCarousel();
   initExperienceCounters();
@@ -400,46 +400,56 @@ function init3DCardTilt() {
 }
 
 /* ==========================================================================
-   4. PILLAR INTERACTIONS & FLOW PULSE (CHAPTER 02)
+   4. SYSTEM ARCHITECTURE PIPELINE INTERACTIONS (CHAPTER 02)
    ========================================================================== */
-function initPillarInteractions() {
-  const pillars = document.querySelectorAll('.pillar-card');
-  const pulsePath = document.getElementById('flow-pulse-path');
-  const dots = document.querySelectorAll('.flow-node-dot');
+function initArchitecturePipeline() {
+  const nodes = document.querySelectorAll('.pipe-node, .pipe-col');
+  const brackets = document.querySelectorAll('.phase-bracket');
+  const arrows = document.querySelectorAll('.arrow-pulse');
 
-  const pillarColors = ['#ff4421', '#51f2f1', '#c4b5fd', '#6bcf8a'];
+  // Stage hover highlights corresponding bracket and speeds up pulse
+  nodes.forEach(node => {
+    node.addEventListener('mouseenter', () => {
+      nodes.forEach(n => n.classList.remove('active-stage'));
+      node.classList.add('active-stage');
 
-  pillars.forEach((pillar, idx) => {
-    pillar.addEventListener('mouseenter', () => {
-      pillars.forEach(p => p.classList.remove('active-node'));
-      pillar.classList.add('active-node');
-
-      if (pulsePath) {
-        pulsePath.style.stroke = pillarColors[idx] || '#ff4421';
-        pulsePath.style.animationDuration = '1.2s';
-      }
-
-      dots.forEach((dot, dotIdx) => {
-        if (dotIdx === idx) {
-          dot.setAttribute('r', '9');
-          dot.style.fill = pillarColors[idx];
+      const phaseId = node.dataset.phase;
+      brackets.forEach(b => {
+        if (b.id === phaseId) {
+          b.classList.add('active-bracket');
         } else {
-          dot.setAttribute('r', '6');
-          dot.style.fill = '#111116';
+          b.classList.remove('active-bracket');
+        }
+      });
+
+      arrows.forEach(a => {
+        a.style.animationDuration = '0.9s';
+      });
+    });
+
+    node.addEventListener('mouseleave', () => {
+      node.classList.remove('active-stage');
+      brackets.forEach(b => b.classList.remove('active-bracket'));
+      arrows.forEach(a => {
+        a.style.animationDuration = '1.8s';
+      });
+    });
+  });
+
+  // Bracket hover highlights all matching stages
+  brackets.forEach(bracket => {
+    bracket.addEventListener('mouseenter', () => {
+      bracket.classList.add('active-bracket');
+      nodes.forEach(n => {
+        if (n.dataset.phase === bracket.id) {
+          n.classList.add('active-stage');
         }
       });
     });
 
-    pillar.addEventListener('mouseleave', () => {
-      pillar.classList.remove('active-node');
-      if (pulsePath) {
-        pulsePath.style.stroke = '#ff4421';
-        pulsePath.style.animationDuration = '3s';
-      }
-      dots.forEach(dot => {
-        dot.setAttribute('r', '6');
-        dot.style.fill = '#111116';
-      });
+    bracket.addEventListener('mouseleave', () => {
+      bracket.classList.remove('active-bracket');
+      nodes.forEach(n => n.classList.remove('active-stage'));
     });
   });
 }

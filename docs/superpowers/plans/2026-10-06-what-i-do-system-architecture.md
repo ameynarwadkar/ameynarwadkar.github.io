@@ -27,11 +27,11 @@
 **Interfaces:**
 - Produces: `.sys-architecture-card`, `.pipeline-track`, 7 stage nodes with connector arrows, and 4 phase brackets.
 
-- [ ] **Step 1: Write test script checking for existence of all 7 pipeline stages and 4 phase brackets**
-- [ ] **Step 2: Run test script to verify it fails initially**
-- [ ] **Step 3: Update `v3/index.html` Chapter 02 markup with the integrated architecture pipeline**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 1 changes**
+- [x] **Step 1: Write test script checking for existence of all 7 pipeline stages and 4 phase brackets**
+- [x] **Step 2: Run test script to verify it fails initially**
+- [x] **Step 3: Update `v3/index.html` Chapter 02 markup with the integrated architecture pipeline**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 1 changes**
 
 ---
 
@@ -44,11 +44,11 @@
 **Interfaces:**
 - Produces: Minimal glassmorphic container styles, stage cards with custom theme colors, animated connector packet flows, and bracket rails.
 
-- [ ] **Step 1: Write test script verifying card height <= 580px, layout alignment, and packet-travel animation**
-- [ ] **Step 2: Run test script to verify it fails**
-- [ ] **Step 3: Add CSS for architecture card, nodes, connectors, and keyframe animations in `v3/style.css`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 2 changes**
+- [x] **Step 1: Write test script verifying card height <= 580px, layout alignment, and packet-travel animation**
+- [x] **Step 2: Run test script to verify it fails**
+- [x] **Step 3: Add CSS for architecture card, nodes, connectors, and keyframe animations in `v3/style.css`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 2 changes**
 
 ---
 
@@ -61,11 +61,11 @@
 **Interfaces:**
 - Produces: `initArchitecturePipeline()` handling hover states that light up corresponding phase brackets and stage highlights.
 
-- [ ] **Step 1: Write test script simulating hover on pipeline stages and verifying active classes**
-- [ ] **Step 2: Run test script to verify it fails**
-- [ ] **Step 3: Implement `initArchitecturePipeline()` in `v3/main.js` and register in `DOMContentLoaded`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 3 changes**
+- [x] **Step 1: Write test script simulating hover on pipeline stages and verifying active classes**
+- [x] **Step 2: Run test script to verify it fails**
+- [x] **Step 3: Implement `initArchitecturePipeline()` in `v3/main.js` and register in `DOMContentLoaded`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 3 changes**
 
 ---
 
@@ -77,6 +77,6 @@
 **Interfaces:**
 - Validates: Full flow, animations, 100vh centering, and captures visual screenshots.
 
-- [ ] **Step 1: Write and run comprehensive E2E test script**
-- [ ] **Step 2: Review captured visual screenshot of Chapter 02**
-- [ ] **Step 3: Commit final plan verification and cleanup**
+- [x] **Step 1: Write and run comprehensive E2E test script**
+- [x] **Step 2: Review captured visual screenshot of Chapter 02**
+- [x] **Step 3: Commit final plan verification and cleanup**
