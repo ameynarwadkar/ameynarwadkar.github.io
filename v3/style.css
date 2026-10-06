@@ -353,8 +353,8 @@ body.scrolly-body {
   scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 4.5rem 0 clamp(1rem, 2.5vh, 2rem) 0;
+  justify-content: flex-start;
+  padding: 5.25rem 0 clamp(0.75rem, 1.5vh, 1.25rem) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   box-sizing: border-box;
   position: relative;
@@ -1199,48 +1199,48 @@ body.scrolly-body {
 
 .project-headline {
   font-family: var(--font-sub);
-  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.15;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
 
 .project-summary {
-  font-size: 0.95rem;
+  font-size: clamp(0.82rem, 1.05vw, 0.88rem);
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.75rem;
+  line-height: 1.45;
+  margin-bottom: clamp(0.6rem, 1.2vh, 1rem);
 }
 
 .metric-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0.75rem;
+  margin-bottom: clamp(0.6rem, 1.2vh, 1rem);
 }
 
 .m-card {
-  padding: 0.9rem 1rem;
+  padding: 0.5rem 0.75rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.15rem;
 }
 
 .m-val {
   font-family: var(--font-mono);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
 }
 
 .m-lbl {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--text-dim);
   letter-spacing: 0.05em;
 }
@@ -1249,8 +1249,8 @@ body.scrolly-body {
 .agent-simulator {
   background: rgba(10, 10, 14, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.25rem;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
 }
 
 .sim-header {
