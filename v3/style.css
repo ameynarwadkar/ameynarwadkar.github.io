@@ -4,37 +4,37 @@
    ========================================================================== */
 
 :root {
-  /* Premium Claude-Inspired Foundation & Surfaces */
-  --bg-primary: #0A0908;
-  --bg-secondary: #100E0C;
-  --bg-elevated: #16120F;
+  /* Deep Space Cosmic Foundation & Surfaces */
+  --bg-primary: #06050a;
+  --bg-secondary: #0c0a14;
+  --bg-elevated: #131020;
 
-  /* Warm Typography System */
+  /* Warm Celestial Typography System */
   --text-primary: #F5F0E8;
   --text-secondary: #A9A097;
   --text-muted: #706A64;
 
-  /* Subtle Warm Terracotta Borders */
-  --border-subtle: rgba(218, 119, 86, 0.16);
-  --border-default: rgba(218, 119, 86, 0.28);
-  --border-active: rgba(217, 119, 87, 0.45);
+  /* Subtle Warm Orange (#ff694d) Borders */
+  --border-subtle: rgba(255, 105, 77, 0.16);
+  --border-default: rgba(255, 105, 77, 0.28);
+  --border-active: rgba(255, 105, 77, 0.48);
   --border-warm: rgba(245, 240, 232, 0.08);
 
-  /* Claude Terracotta / Burnt Orange Accents */
-  --accent-primary: #D97757;
-  --accent-bright: #E88968;
-  --accent-soft: #C96A4B;
-  --accent-dark: #8F4935;
+  /* Vibrant Orange (#ff694d) Accents */
+  --accent-primary: #ff694d;
+  --accent-bright: #ff856c;
+  --accent-soft: #e5553a;
+  --accent-dark: #b83a22;
 
-  /* Restrained, Non-Neon Glows */
-  --accent-glow: rgba(217, 119, 87, 0.18);
-  --accent-glow-subtle: rgba(217, 119, 87, 0.10);
-  --accent-bg: rgba(217, 119, 87, 0.07);
+  /* Luminous Stardust Glows */
+  --accent-glow: rgba(255, 105, 77, 0.22);
+  --accent-glow-subtle: rgba(255, 105, 77, 0.10);
+  --accent-bg: rgba(255, 105, 77, 0.08);
 
   /* Legacy Variable Aliases mapped to new tokens */
   --bg-deep: var(--bg-primary);
-  --bg-card: rgba(16, 14, 12, 0.75);
-  --bg-card-hover: rgba(22, 18, 15, 0.9);
+  --bg-card: rgba(13, 10, 19, 0.72);
+  --bg-card-hover: rgba(20, 16, 28, 0.88);
 
   --brand-orange: var(--accent-primary);
   --brand-orange-glow: var(--accent-glow);
@@ -44,13 +44,13 @@
   --brand-purple: var(--accent-soft);
   --brand-green: var(--accent-primary);
 
-  /* Claude Burnt Orange / Terracotta Card Glow Spectrum */
-  --glow-orange-1: #D97757;
-  --glow-orange-2: #8F4935;
-  --glow-orange-3: #C96A4B;
-  --glow-orange-4: #5C2D1F;
-  --glow-orange-5: #A35439;
-  --glow-orange-6: #E88968;
+  /* Orange #ff694d Card Glow Spectrum */
+  --glow-orange-1: #ff694d;
+  --glow-orange-2: #8f2e1b;
+  --glow-orange-3: #e5553a;
+  --glow-orange-4: #54160a;
+  --glow-orange-5: #bf4026;
+  --glow-orange-6: #ff856c;
 
   --card-orange-glow: linear-gradient(
     135deg,
@@ -99,6 +99,12 @@ html:not(.lenis) {
 body.scrolly-body {
   position: relative;
   background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(42, 18, 75, 0.45), transparent 70%),
+    radial-gradient(ellipse 65% 45% at 90% 55%, rgba(255, 105, 77, 0.05), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 40%, rgba(20, 26, 68, 0.32), transparent 60%),
+    radial-gradient(ellipse 75% 60% at 50% 105%, rgba(32, 14, 58, 0.38), transparent 75%);
+  background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
   overflow-x: clip;
@@ -118,7 +124,7 @@ html.lenis, html.lenis body {
   overscroll-behavior: contain;
 }
 
-/* Ambient Canvas */
+/* Ambient Canvas — Deep Outer Space Canvas */
 #ambient-canvas {
   position: fixed;
   top: 0;
@@ -127,7 +133,7 @@ html.lenis, html.lenis body {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 1;
 }
 
 /* ==========================================================================
@@ -144,8 +150,8 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
-  background: rgba(10, 9, 8, 0.85);
-  backdrop-filter: blur(14px);
+  background: rgba(6, 5, 10, 0.82);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
 }
@@ -255,7 +261,7 @@ html.lenis, html.lenis body {
   border: 1px solid var(--border-default);
   border-radius: 6px;
   letter-spacing: 0.06em;
-  box-shadow: 0 0 14px rgba(217, 119, 87, 0.08);
+  box-shadow: 0 0 14px rgba(255, 105, 77, 0.08);
   overflow: hidden;
   isolation: isolate;
   cursor: pointer;
@@ -796,8 +802,8 @@ html.lenis, html.lenis body {
   border-radius: inherit;
   background: radial-gradient(
     circle 260px at var(--glow-x, 50%) var(--glow-y, 50%),
-    rgba(232, 137, 104, 0.20) 0%,
-    rgba(217, 119, 87, 0.07) 40%,
+    rgba(255, 133, 108, 0.20) 0%,
+    rgba(255, 105, 77, 0.07) 40%,
     transparent 70%
   );
   mix-blend-mode: screen;
@@ -1114,9 +1120,9 @@ html.lenis, html.lenis body {
 
 .pipe-card:hover, .pipe-card.active-stage {
   transform: translateY(-4px);
-  border-color: rgba(217, 119, 87, 0.45);
-  background: rgba(217, 119, 87, 0.035);
-  box-shadow: 0 0 24px rgba(217, 119, 87, 0.10);
+  border-color: rgba(255, 105, 77, 0.45);
+  background: rgba(255, 105, 77, 0.035);
+  box-shadow: 0 0 24px rgba(255, 105, 77, 0.10);
 }
 
 .card-header {
@@ -1193,9 +1199,9 @@ html.lenis, html.lenis body {
 .card-build:hover, .card-build.active-stage,
 .card-eval:hover, .card-eval.active-stage,
 .card-deploy:hover, .card-deploy.active-stage {
-  border-color: rgba(217, 119, 87, 0.45);
-  background: rgba(217, 119, 87, 0.035);
-  box-shadow: 0 0 24px rgba(217, 119, 87, 0.10);
+  border-color: rgba(255, 105, 77, 0.45);
+  background: rgba(255, 105, 77, 0.035);
+  box-shadow: 0 0 24px rgba(255, 105, 77, 0.10);
 }
 
 /* ==========================================================================
@@ -1211,7 +1217,7 @@ html.lenis, html.lenis body {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 119, 87, 0.22) 0%, rgba(217, 119, 87, 0.05) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(255, 105, 77, 0.22) 0%, rgba(255, 105, 77, 0.05) 50%, transparent 75%);
   top: 44%;
   left: 36%;
   transform: translate(-50%, -50%);
@@ -1233,14 +1239,14 @@ html.lenis, html.lenis body {
 }
 
 .bulb-aura {
-  fill: rgba(217, 119, 87, 0.12);
+  fill: rgba(255, 105, 77, 0.12);
   filter: blur(5px);
 }
 
 .bulb-glass {
   stroke: var(--accent-dark);
   stroke-width: 1.5;
-  fill: rgba(217, 119, 87, 0.04);
+  fill: rgba(255, 105, 77, 0.04);
 }
 
 .bulb-filament {
@@ -1399,8 +1405,8 @@ html.lenis, html.lenis body {
 }
 
 .slab-layer {
-  fill: rgba(217, 119, 87, 0.06);
-  stroke: rgba(217, 119, 87, 0.45);
+  fill: rgba(255, 105, 77, 0.06);
+  stroke: rgba(255, 105, 77, 0.45);
   stroke-width: 1.2;
 }
 
@@ -1409,8 +1415,8 @@ html.lenis, html.lenis body {
 .slab-bot { animation: slab-float-3 3s infinite ease-in-out 0.6s; }
 
 .slab-edge {
-  fill: rgba(217, 119, 87, 0.03);
-  stroke: rgba(217, 119, 87, 0.25);
+  fill: rgba(255, 105, 77, 0.03);
+  stroke: rgba(255, 105, 77, 0.25);
   stroke-width: 1;
 }
 
@@ -1449,7 +1455,7 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: space-between;
   padding: 0.32rem 0.52rem;
-  background: rgba(217, 119, 87, 0.05);
+  background: rgba(255, 105, 77, 0.05);
   border-bottom: 1px solid rgba(245, 240, 232, 0.05);
 }
 
@@ -1466,8 +1472,8 @@ html.lenis, html.lenis body {
   background: rgba(245, 240, 232, 0.25);
 }
 
-.dot-1 { background: rgba(217, 119, 87, 0.7); opacity: 0.85; }
-.dot-2 { background: rgba(232, 137, 104, 0.5); opacity: 0.85; }
+.dot-1 { background: rgba(255, 105, 77, 0.7); opacity: 0.85; }
+.dot-2 { background: rgba(255, 133, 108, 0.5); opacity: 0.85; }
 .dot-3 { background: rgba(169, 160, 151, 0.4); opacity: 0.85; }
 
 .ide-ctrls {
@@ -1551,14 +1557,14 @@ html.lenis, html.lenis body {
 }
 
 .srv-slab {
-  fill: rgba(217, 119, 87, 0.06);
-  stroke: rgba(217, 119, 87, 0.45);
+  fill: rgba(255, 105, 77, 0.06);
+  stroke: rgba(255, 105, 77, 0.45);
   stroke-width: 1.2;
 }
 
 .srv-edge {
-  fill: rgba(217, 119, 87, 0.03);
-  stroke: rgba(217, 119, 87, 0.25);
+  fill: rgba(255, 105, 77, 0.03);
+  stroke: rgba(255, 105, 77, 0.25);
   stroke-width: 1;
 }
 
@@ -1674,17 +1680,17 @@ html.lenis, html.lenis body {
 }
 
 .globe-halo {
-  fill: rgba(217, 119, 87, 0.08);
+  fill: rgba(255, 105, 77, 0.08);
   filter: blur(8px);
 }
 
 .globe-sphere {
-  stroke: rgba(217, 119, 87, 0.45);
+  stroke: rgba(255, 105, 77, 0.45);
   stroke-width: 1.2;
 }
 
 .globe-lat, .globe-equator, .globe-long, .globe-axis {
-  stroke: rgba(217, 119, 87, 0.25);
+  stroke: rgba(255, 105, 77, 0.25);
   stroke-width: 1;
 }
 
@@ -2033,7 +2039,7 @@ html.lenis, html.lenis body {
   opacity: 1;
   transform: scale(1);
   border-color: var(--border-active);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 24px rgba(217, 119, 87, 0.10);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 105, 77, 0.10);
 }
 
 .showcase-grid {
@@ -2079,8 +2085,8 @@ html.lenis, html.lenis body {
 }
 
 .media-frame.frame-link:hover {
-  border-color: rgba(217, 119, 87, 0.55);
-  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.8), 0 0 28px rgba(217, 119, 87, 0.16);
+  border-color: rgba(255, 105, 77, 0.55);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.8), 0 0 28px rgba(255, 105, 77, 0.16);
 }
 
 .showcase-img {
@@ -2175,7 +2181,7 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.45rem;
   padding: 0.32rem 0.8rem;
-  background: rgba(217, 119, 87, 0.08);
+  background: rgba(255, 105, 77, 0.08);
   border: 1px solid var(--border-default);
   border-radius: 9999px;
   font-family: var(--font-mono);

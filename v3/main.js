@@ -89,85 +89,335 @@ function initAnchorNav() {
 }
 
 /* ==========================================================================
-   1. AMBIENT PARTICLE CANVAS
+   1. DEEP OUTER SPACE AMBIENT CANVAS (STARFIELD, NEBULAE & METEORS)
    ========================================================================== */
 function initAmbientCanvas() {
   const canvas = document.getElementById('ambient-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let width, height;
-  let particles = [];
-  let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+  let width = 0, height = 0, dpr = 1;
+  let stars = [];
+  let shootingStars = [];
+  let lastShootingStarTime = performance.now();
+  let nextShootingStarDelay = 3500 + Math.random() * 3000;
+  let mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+  let scrollY = window.scrollY || 0;
+  let lerpedScrollY = scrollY;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Real astronomical spectral star colors
+  const STAR_PALETTES = [
+    { r: 255, g: 255, b: 255 }, // Pure White
+    { r: 224, g: 242, b: 254 }, // Blue-White (Type O/B)
+    { r: 219, g: 234, b: 254 }, // Ice Diamond (Type A)
+    { r: 254, g: 243, b: 199 }, // Pale Gold (Type G)
+    { r: 255, g: 237, b: 213 }, // Warm Amber (Type K)
+    { r: 255, g: 105, b: 77 },  // Cosmic Sunset Coral (#ff694d)
+    { r: 255, g: 133, b: 108 }, // Soft Stardust (#ff856c)
+  ];
 
   function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    createParticles();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    createStarfield();
   }
 
-  function createParticles() {
-    particles = [];
-    const count = Math.min(Math.floor((width * height) / 22000), 65);
-    for (let i = 0; i < count; i++) {
-      particles.push({
+  function createStarfield() {
+    stars = [];
+    // Responsive star count scaled by viewport area
+    const totalStars = Math.min(Math.max(Math.floor((width * height) / 4600), 180), 340);
+
+    for (let i = 0; i < totalStars; i++) {
+      const rand = Math.random();
+      let tier, radius, baseAlpha, twinkleSpeed, twinkleAmp, parallax, hasSpikes = false;
+      const palette = STAR_PALETTES[Math.floor(Math.random() * STAR_PALETTES.length)];
+
+      if (rand < 0.72) {
+        // Tier 1: Distant Deep-Space Field (72%)
+        tier = 1;
+        radius = Math.random() * 0.55 + 0.35; // 0.35 - 0.90px
+        baseAlpha = Math.random() * 0.45 + 0.20;
+        twinkleSpeed = Math.random() * 0.0018 + 0.0006;
+        twinkleAmp = Math.random() * 0.20 + 0.08;
+        parallax = 0.008;
+      } else if (rand < 0.95) {
+        // Tier 2: Mid-ground Scintillating Stars (23%)
+        tier = 2;
+        radius = Math.random() * 0.75 + 0.95; // 0.95 - 1.70px
+        baseAlpha = Math.random() * 0.35 + 0.55;
+        twinkleSpeed = Math.random() * 0.0035 + 0.0015;
+        twinkleAmp = Math.random() * 0.30 + 0.15;
+        parallax = 0.022;
+      } else {
+        // Tier 3: Major Anchor Stars with Diffraction Spikes (5%)
+        tier = 3;
+        radius = Math.random() * 0.7 + 1.8; // 1.8 - 2.5px
+        baseAlpha = Math.random() * 0.2 + 0.78;
+        twinkleSpeed = Math.random() * 0.0025 + 0.0012;
+        twinkleAmp = Math.random() * 0.18 + 0.10;
+        parallax = 0.040;
+        hasSpikes = true;
+      }
+
+      stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 1.5 + 0.5,
-        alpha: Math.random() * 0.16 + 0.05,
-        color: Math.random() > 0.5 ? '#D97757' : '#706A64'
+        vx: (Math.random() - 0.5) * 0.035,
+        vy: (Math.random() - 0.5) * 0.035,
+        tier,
+        radius,
+        baseAlpha,
+        twinkleSpeed,
+        twinkleAmp,
+        phase: Math.random() * Math.PI * 2,
+        parallax,
+        hasSpikes,
+        spikeLength: Math.random() * 7 + 8, // 8 - 15px
+        color: palette
       });
     }
   }
 
+  // Meteor / Shooting Star generator
+  function spawnShootingStar() {
+    if (prefersReducedMotion || shootingStars.length >= 2) return;
+    
+    // Start anywhere along the top 45% or upper corners
+    const startX = Math.random() * (width * 1.1) - width * 0.05;
+    const startY = Math.random() * (height * 0.4);
+    const angle = (Math.PI / 4) + (Math.random() - 0.5) * 0.32; // ~40° - 50° downward streak
+    const speed = Math.random() * 7 + 13; // 13 - 20 px/frame
+    const length = Math.random() * 70 + 90; // 90 - 160px tail
+    const isOrange = Math.random() > 0.45; // 55% tint to warm stardust #ff694d
+
+    shootingStars.push({
+      x: startX,
+      y: startY,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      length,
+      angle,
+      speed,
+      life: 1.0,
+      decay: Math.random() * 0.015 + 0.018, // ~45-55 frames duration
+      isOrange
+    });
+  }
+
+  // Draw 4-point space diffraction spikes on bright major stars
+  function drawSpikes(x, y, len, alpha, color) {
+    ctx.save();
+    ctx.lineWidth = 0.75;
+
+    // Horizontal ray with soft linear fade
+    const hGrad = ctx.createLinearGradient(x - len, y, x + len, y);
+    hGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+    hGrad.addColorStop(0.5, `rgba(255, 255, 255, ${alpha * 0.85})`);
+    hGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.strokeStyle = hGrad;
+    ctx.beginPath();
+    ctx.moveTo(x - len, y);
+    ctx.lineTo(x + len, y);
+    ctx.stroke();
+
+    // Vertical ray with soft linear fade
+    const vGrad = ctx.createLinearGradient(x, y - len, x, y + len);
+    vGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+    vGrad.addColorStop(0.5, `rgba(255, 255, 255, ${alpha * 0.85})`);
+    vGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.strokeStyle = vGrad;
+    ctx.beginPath();
+    ctx.moveTo(x, y - len);
+    ctx.lineTo(x, y + len);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // Draw deep space cosmic dust nebulae clouds
+  function drawNebulae(time) {
+    // Nebula 1: Deep cosmic violet (top-right)
+    const n1x = width * 0.75 + Math.sin(time * 0.0003) * 35;
+    const n1y = height * 0.22 + Math.cos(time * 0.00025) * 25;
+    const n1r = Math.min(width, height) * 0.52;
+    const g1 = ctx.createRadialGradient(n1x, n1y, 0, n1x, n1y, n1r);
+    g1.addColorStop(0, 'rgba(76, 29, 149, 0.055)');
+    g1.addColorStop(0.5, 'rgba(49, 46, 129, 0.025)');
+    g1.addColorStop(1, 'rgba(6, 5, 10, 0)');
+    ctx.fillStyle = g1;
+    ctx.beginPath();
+    ctx.arc(n1x, n1y, n1r, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Nebula 2: Warm stardust amber / #ff694d (mid-left)
+    const n2x = width * 0.18 + Math.cos(time * 0.00028) * 30;
+    const n2y = height * 0.55 + Math.sin(time * 0.00032) * 25;
+    const n2r = Math.min(width, height) * 0.46;
+    const g2 = ctx.createRadialGradient(n2x, n2y, 0, n2x, n2y, n2r);
+    g2.addColorStop(0, 'rgba(255, 105, 77, 0.040)');
+    g2.addColorStop(0.5, 'rgba(184, 58, 34, 0.015)');
+    g2.addColorStop(1, 'rgba(6, 5, 10, 0)');
+    ctx.fillStyle = g2;
+    ctx.beginPath();
+    ctx.arc(n2x, n2y, n2r, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Nebula 3: Midnight nebula indigo (bottom-right)
+    const n3x = width * 0.68 + Math.sin(time * 0.0002) * 25;
+    const n3y = height * 0.85 + Math.cos(time * 0.00022) * 20;
+    const n3r = Math.min(width, height) * 0.50;
+    const g3 = ctx.createRadialGradient(n3x, n3y, 0, n3x, n3y, n3r);
+    g3.addColorStop(0, 'rgba(30, 27, 75, 0.065)');
+    g3.addColorStop(0.6, 'rgba(15, 23, 42, 0.02)');
+    g3.addColorStop(1, 'rgba(6, 5, 10, 0)');
+    ctx.fillStyle = g3;
+    ctx.beginPath();
+    ctx.arc(n3x, n3y, n3r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
   window.addEventListener('resize', resize);
   window.addEventListener('mousemove', (e) => {
-    mouse.targetX = e.clientX;
-    mouse.targetY = e.clientY;
+    mouse.targetX = e.clientX - width / 2;
+    mouse.targetY = e.clientY - height / 2;
   });
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY || 0;
+  }, { passive: true });
 
   resize();
 
-  function animate() {
+  function animate(now) {
     ctx.clearRect(0, 0, width, height);
 
-    // Smooth mouse lerp
-    mouse.x += (mouse.targetX - mouse.x) * 0.08;
-    mouse.y += (mouse.targetY - mouse.y) * 0.08;
+    // Smooth mouse & scroll lerp
+    mouse.x += (mouse.targetX - mouse.x) * 0.04;
+    mouse.y += (mouse.targetY - mouse.y) * 0.04;
+    lerpedScrollY += (scrollY - lerpedScrollY) * 0.06;
 
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
+    // 1. Draw atmospheric cosmic nebulae
+    drawNebulae(now);
 
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      if (p.y > height) p.y = 0;
+    // 2. Render Starfield
+    for (let i = 0; i < stars.length; i++) {
+      const p = stars[i];
 
-      // Mouse proximity repulsion
-      const dx = p.x - mouse.x;
-      const dy = p.y - mouse.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 140) {
-        const force = (140 - dist) / 140;
-        p.x += (dx / dist) * force * 1.5;
-        p.y += (dy / dist) * force * 1.5;
+      if (!prefersReducedMotion) {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Wrap around viewport edges smoothly
+        if (p.x < 0) p.x += width;
+        if (p.x > width) p.x -= width;
+        if (p.y < 0) p.y += height;
+        if (p.y > height) p.y -= height;
       }
 
+      // Parallax calculations (mouse + subtle vertical scroll travel)
+      const renderX = p.x + (mouse.x * p.parallax);
+      const renderY = ((p.y - (lerpedScrollY * p.parallax * 0.4)) % height + height) % height;
+
+      // Realistic twinkle calculation with individual period & amplitude
+      const twinkle = Math.sin(now * p.twinkleSpeed + p.phase) * p.twinkleAmp;
+      const alpha = Math.min(Math.max(p.baseAlpha + twinkle, 0.05), 1);
+      const { r, g, b } = p.color;
+
+      // Tier 3: Anchor stars with soft halo & diffraction spikes
+      if (p.hasSpikes) {
+        // Soft outer corona glow
+        const glowRad = p.radius * 4.5;
+        const corona = ctx.createRadialGradient(renderX, renderY, 0, renderX, renderY, glowRad);
+        corona.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${alpha * 0.4})`);
+        corona.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+        ctx.fillStyle = corona;
+        ctx.beginPath();
+        ctx.arc(renderX, renderY, glowRad, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 4-point space diffraction spikes
+        drawSpikes(renderX, renderY, p.spikeLength, alpha, p.color);
+      } else if (p.tier === 2 && alpha > 0.65) {
+        // Mid-ground star subtle corona when twinkling bright
+        ctx.beginPath();
+        ctx.arc(renderX, renderY, p.radius * 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.12})`;
+        ctx.fill();
+      }
+
+      // Star core pinpoint
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.globalAlpha = p.alpha;
+      ctx.arc(renderX, renderY, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
       ctx.fill();
     }
 
-    ctx.globalAlpha = 1;
+    // 3. Render Shooting Stars / Meteors
+    if (!prefersReducedMotion) {
+      if (now - lastShootingStarTime > nextShootingStarDelay) {
+        spawnShootingStar();
+        lastShootingStarTime = now;
+        nextShootingStarDelay = 3800 + Math.random() * 4200; // Next in 3.8 - 8s
+      }
+
+      for (let s = shootingStars.length - 1; s >= 0; s--) {
+        const star = shootingStars[s];
+        star.x += star.vx;
+        star.y += star.vy;
+        star.life -= star.decay;
+
+        if (star.life <= 0 || star.x < -100 || star.x > width + 100 || star.y > height + 100) {
+          shootingStars.splice(s, 1);
+          continue;
+        }
+
+        // Tail endpoint
+        const tailX = star.x - Math.cos(star.angle) * (star.length * star.life);
+        const tailY = star.y - Math.sin(star.angle) * (star.length * star.life);
+
+        // Meteor trail gradient
+        const trail = ctx.createLinearGradient(star.x, star.y, tailX, tailY);
+        if (star.isOrange) {
+          trail.addColorStop(0, `rgba(255, 255, 255, ${0.95 * star.life})`);
+          trail.addColorStop(0.15, `rgba(255, 105, 77, ${0.85 * star.life})`);
+          trail.addColorStop(0.6, `rgba(255, 133, 108, ${0.35 * star.life})`);
+          trail.addColorStop(1, 'rgba(255, 105, 77, 0)');
+        } else {
+          trail.addColorStop(0, `rgba(255, 255, 255, ${0.95 * star.life})`);
+          trail.addColorStop(0.2, `rgba(186, 230, 253, ${0.80 * star.life})`);
+          trail.addColorStop(0.7, `rgba(147, 197, 253, ${0.30 * star.life})`);
+          trail.addColorStop(1, 'rgba(147, 197, 253, 0)');
+        }
+
+        ctx.save();
+        ctx.strokeStyle = trail;
+        ctx.lineWidth = 1.4 * star.life;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(star.x, star.y);
+        ctx.lineTo(tailX, tailY);
+        ctx.stroke();
+
+        // Meteor glowing head pinpoint
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 1.3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.life})`;
+        ctx.shadowColor = star.isOrange ? '#ff694d' : '#bae6fd';
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
     requestAnimationFrame(animate);
   }
 
-  animate();
+  requestAnimationFrame(animate);
 }
 
 /* ==========================================================================
@@ -210,7 +460,7 @@ function initHudSync() {
 
     navLinks.forEach(link => {
       if (link.getAttribute('href') === `#${activeId}`) {
-        link.style.color = '#D97757';
+        link.style.color = '#ff694d';
       } else {
         link.style.color = '';
       }
