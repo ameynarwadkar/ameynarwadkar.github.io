@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DCardTilt();
   initPillarInteractions();
   initTracxoSimulator();
+  initProjectCarousel();
   initExperienceCounters();
   initLightboxModal();
   initContactActions();
@@ -153,6 +154,7 @@ function initHudSync() {
 function init3DCardTilt() {
   const wrap = document.getElementById('hero-card-wrap');
   const card = document.getElementById('hero-card-3d');
+  const glow = document.getElementById('hero-card-glow');
   const sheen = document.getElementById('card-sheen');
   if (!wrap || !card) return;
 
@@ -162,13 +164,18 @@ function init3DCardTilt() {
     bounds = wrap.getBoundingClientRect();
   }
 
-  wrap.addEventListener('mouseenter', updateBounds);
+  wrap.addEventListener('mouseenter', () => {
+    updateBounds();
+    card.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.35s ease';
+    if (glow) glow.style.transition = 'opacity 0.35s ease, filter 0.35s ease';
+  });
   window.addEventListener('resize', updateBounds);
+  window.addEventListener('scroll', updateBounds, { passive: true });
 
   wrap.addEventListener('mousemove', (e) => {
     if (!bounds) updateBounds();
-    const mouseX = e.clientX - bounds.left;
-    const mouseY = e.clientY - bounds.top;
+    const mouseX = Math.max(0, Math.min(e.clientX - bounds.left, bounds.width));
+    const mouseY = Math.max(0, Math.min(e.clientY - bounds.top, bounds.height));
 
     const xPct = (mouseX / bounds.width - 0.5) * 2; // -1 to 1
     const yPct = (mouseY / bounds.height - 0.5) * 2; // -1 to 1
@@ -178,6 +185,20 @@ function init3DCardTilt() {
 
     card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
 
+    // Behind-the-scenes card glow parallax & coordinate sync
+    if (glow) {
+      const glowShiftX = (xPct * 20).toFixed(1);
+      const glowShiftY = (yPct * 20).toFixed(1);
+      const glowRotX = (-yPct * 8).toFixed(1);
+      const glowRotY = (xPct * 8).toFixed(1);
+      glow.style.transform = `perspective(1000px) rotateX(${glowRotX}deg) rotateY(${glowRotY}deg) translate3d(${glowShiftX}px, ${glowShiftY}px, -20px) scale(1.06)`;
+
+      const pctX = ((mouseX / bounds.width) * 100).toFixed(1);
+      const pctY = ((mouseY / bounds.height) * 100).toFixed(1);
+      wrap.style.setProperty('--glow-x', `${pctX}%`);
+      wrap.style.setProperty('--glow-y', `${pctY}%`);
+    }
+
     if (sheen) {
       sheen.style.opacity = '1';
       sheen.style.background = `radial-gradient(circle at ${(mouseX / bounds.width) * 100}% ${(mouseY / bounds.height) * 100}%, rgba(255, 255, 255, 0.28) 0%, transparent 60%)`;
@@ -185,7 +206,15 @@ function init3DCardTilt() {
   });
 
   wrap.addEventListener('mouseleave', () => {
+    bounds = null;
+    card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.35s ease';
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    if (glow) {
+      glow.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease, filter 0.35s ease';
+      glow.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale(1)';
+      wrap.style.setProperty('--glow-x', '50%');
+      wrap.style.setProperty('--glow-y', '50%');
+    }
     if (sheen) {
       sheen.style.opacity = '0';
     }
@@ -284,6 +313,109 @@ function initTracxoSimulator() {
       });
     });
   });
+}
+
+/* ==========================================================================
+   5b. CHAPTER 03 HORIZONTAL PROJECT CAROUSEL CONTROLLER
+   ========================================================================== */
+function initProjectCarousel() {
+  const carousel = document.getElementById('projects-carousel');
+  const prevBtn = document.getElementById('project-prev-btn');
+  const nextBtn = document.getElementById('project-next-btn');
+  const counter = document.getElementById('project-carousel-counter');
+  const dots = document.querySelectorAll('.carousel-dot');
+  if (!carousel) return;
+
+  const cards = carousel.querySelectorAll('.showcase-card, .project-card');
+  const total = cards.length;
+  if (!total) return;
+
+  function getActiveIndex() {
+    const scrollLeft = carousel.scrollLeft;
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card, idx) => {
+      const distance = Math.abs(card.offsetLeft - carousel.offsetLeft - scrollLeft);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = idx;
+      }
+    });
+
+    return closestIndex;
+  }
+
+  function updateState(idx) {
+    if (counter) counter.innerText = `PROJECT 0${idx + 1} / 0${total}`;
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === total - 1;
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  function scrollToCard(idx) {
+    if (idx >= 0 && idx < total) {
+      const targetLeft = cards[idx].offsetLeft - carousel.offsetLeft;
+      carousel.scrollTo({ left: targetLeft, behavior: 'smooth' });
+      updateState(idx);
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const idx = getActiveIndex();
+      if (idx > 0) scrollToCard(idx - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const idx = getActiveIndex();
+      if (idx < total - 1) scrollToCard(idx + 1);
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-index'), 10);
+      scrollToCard(idx);
+    });
+  });
+
+  let scrollTimeout;
+  carousel.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      updateState(getActiveIndex());
+    }, 40);
+  }, { passive: true });
+
+  // Keyboard navigation when Chapter 03 is in view
+  window.addEventListener('keydown', (e) => {
+    const chDone = document.getElementById('ch-done');
+    if (!chDone) return;
+    const r = chDone.getBoundingClientRect();
+    const inView = r.top <= window.innerHeight * 0.6 && r.bottom >= window.innerHeight * 0.4;
+    if (!inView) return;
+
+    if (e.key === 'ArrowRight') {
+      const idx = getActiveIndex();
+      if (idx < total - 1) {
+        e.preventDefault();
+        scrollToCard(idx + 1);
+      }
+    } else if (e.key === 'ArrowLeft') {
+      const idx = getActiveIndex();
+      if (idx > 0) {
+        e.preventDefault();
+        scrollToCard(idx - 1);
+      }
+    }
+  });
+
+  updateState(0);
 }
 
 /* ==========================================================================
