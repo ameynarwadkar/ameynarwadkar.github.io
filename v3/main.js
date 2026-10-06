@@ -778,33 +778,69 @@ function initExperienceCounters() {
 }
 
 /* ==========================================================================
-   7. RESEARCH LIGHTBOX MODAL
+   7. RESEARCH & PHOTO LIGHTBOX MODAL
    ========================================================================== */
 function initLightboxModal() {
-  const openBtn = document.getElementById('open-nec-modal');
   const modal = document.getElementById('nec-modal');
   const closeBtn = document.getElementById('modal-close');
   const backdrop = document.getElementById('modal-backdrop');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalCaption = document.getElementById('modal-caption');
 
   if (!modal) return;
 
-  function open() {
+  function openModal(imgSrc, title, caption) {
+    if (modalImg && imgSrc) {
+      modalImg.src = imgSrc;
+      modalImg.alt = title || 'NEC Labs Experience Photo';
+    }
+    if (modalTitle && title) {
+      modalTitle.textContent = title;
+    }
+    if (modalCaption && caption) {
+      modalCaption.textContent = caption;
+    }
+
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
-  function close() {
+  function closeModal() {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   }
 
-  if (openBtn) openBtn.addEventListener('click', open);
-  if (closeBtn) closeBtn.addEventListener('click', close);
-  if (backdrop) backdrop.addEventListener('click', close);
+  // Bind to any moment thumbnail
+  const momentThumbs = document.querySelectorAll('.exp-moment-thumb');
+  momentThumbs.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      const src = thumb.getAttribute('data-img');
+      const title = thumb.getAttribute('data-title');
+      const caption = thumb.getAttribute('data-caption');
+      openModal(src, title, caption);
+    });
+  });
+
+  const legacyBtn = document.getElementById('open-nec-modal');
+  if (legacyBtn) {
+    legacyBtn.addEventListener('click', () => {
+      openModal(
+        '../images/fig_reliability.png',
+        'NEC LABORATORIES EUROPE // 6-STAGE VERIFICATION ARCHITECTURE',
+        'Empirical reliability evaluation of multi-stage synthetic data generation pipeline across longitudinal subject cohorts.'
+      );
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
-      close();
+      closeModal();
     }
   });
 }

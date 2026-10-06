@@ -687,6 +687,48 @@
                 <li>Outperformed statistical baselines with 2.4× lower ICC error and 26% lower holdout RMSE across 5,000+ longitudinal gap-filling predictions.</li>
                 <li>Designed schema-constrained LLM pipelines with automated validation/repair, achieving 100% structured-output parse success while tracking token usage and cost.</li>
               </ul>
+
+              <!-- NEC Moments / Life at NEC -->
+              <div class="exp-moments-block">
+                <div class="exp-moments-label">
+                  <span class="moments-icon">✦</span>
+                  <span>MOMENTS AT NEC LABS</span>
+                </div>
+                <div class="exp-moments-grid">
+                  <button class="exp-moment-thumb" type="button" 
+                          data-img="../images/nec-dragonboat.jpeg" 
+                          data-title="NEC LABS EUROPE // DRAGON BOAT RACE 2025" 
+                          data-caption="NEC Labs Europe team participating in the Heidelberg Neckar Dragon Boat Cup 2025, sporting custom Gundam headbands.">
+                    <img src="../images/nec-dragonboat.jpeg" alt="NEC Labs Dragon Boat Race Heidelberg" loading="lazy">
+                    <div class="moment-overlay">
+                      <span class="moment-tag">Dragon Boat Race</span>
+                      <span class="moment-zoom-icon">↗</span>
+                    </div>
+                  </button>
+
+                  <button class="exp-moment-thumb" type="button" 
+                          data-img="../images/nec-summerparty.jpeg" 
+                          data-title="NEC LABS EUROPE // SUMMER GATHERING 2025" 
+                          data-caption="Annual NEC Laboratories Europe Summer Gathering (July 2025) with the research and development teams.">
+                    <img src="../images/nec-summerparty.jpeg" alt="NEC Labs Summer Gathering 2025" loading="lazy">
+                    <div class="moment-overlay">
+                      <span class="moment-tag">Summer Gathering</span>
+                      <span class="moment-zoom-icon">↗</span>
+                    </div>
+                  </button>
+
+                  <button class="exp-moment-thumb" type="button" 
+                          data-img="../images/nec-christmas.jpg" 
+                          data-title="NEC LABS EUROPE // SEASON'S GREETINGS & WINTER CELEBRATION" 
+                          data-caption="Season's Greetings team photo and winter celebration at NEC Laboratories Europe in Heidelberg.">
+                    <img src="../images/nec-christmas.jpg" alt="NEC Labs Winter Celebration" loading="lazy">
+                    <div class="moment-overlay">
+                      <span class="moment-tag">Winter Celebration</span>
+                      <span class="moment-zoom-icon">↗</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -889,19 +931,20 @@
 
   </main>
 
-  <!-- Research Proof Lightbox Modal -->
+  <!-- Research / Photo Lightbox Modal -->
   <div class="lightbox-modal" id="nec-modal" aria-hidden="true">
     <div class="modal-backdrop" id="modal-backdrop"></div>
     <div class="modal-dialog">
       <div class="modal-header">
-        <span class="modal-title">NEC LABORATORIES EUROPE // 6-STAGE VERIFICATION ARCHITECTURE</span>
-        <button class="modal-close" id="modal-close">✕</button>
+        <span class="modal-title" id="modal-title">NEC LABORATORIES EUROPE</span>
+        <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
       </div>
       <div class="modal-body">
-        <img src="../images/fig_reliability.png" alt="Benchmark Reliability Evaluation" class="modal-img">
-        <p class="modal-caption">
-          Figure: Empirical reliability evaluation of multi-stage synthetic data generation pipeline across longitudinal
-          subject cohorts (81% reduction in quality loss; 2.4× lower ICC estimation error).
+        <div class="modal-img-container">
+          <img src="../images/nec-dragonboat.jpeg" alt="NEC Labs Moment" class="modal-img" id="modal-img">
+        </div>
+        <p class="modal-caption" id="modal-caption">
+          NEC Laboratories Europe moments and team gallery.
         </p>
       </div>
     </div>
