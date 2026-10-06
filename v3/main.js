@@ -116,7 +116,7 @@ function initAmbientCanvas() {
         vy: (Math.random() - 0.5) * 0.4,
         radius: Math.random() * 1.5 + 0.5,
         alpha: Math.random() * 0.35 + 0.1,
-        color: Math.random() > 0.65 ? '#ff4421' : '#51f2f1'
+        color: Math.random() > 0.65 ? '#800020' : '#51f2f1'
       });
     }
   }

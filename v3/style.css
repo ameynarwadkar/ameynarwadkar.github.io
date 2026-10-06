@@ -8,29 +8,35 @@
   --bg-card: rgba(18, 18, 22, 0.7);
   --bg-card-hover: rgba(26, 26, 32, 0.9);
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(255, 68, 33, 0.5);
+  --border-active: rgba(128, 0, 32, 0.55);
   
-  --brand-orange: #ff4421;
-  --brand-orange-glow: rgba(255, 68, 33, 0.35);
+  --brand-orange: #800020;
+  --brand-orange-glow: rgba(128, 0, 32, 0.45);
+  --brand-burgundy: #800020;
+  --brand-burgundy-glow: rgba(128, 0, 32, 0.45);
   --brand-cyan: #51f2f1;
   --brand-purple: #c4b5fd;
   --brand-green: #6bcf8a;
 
-  /* Behind-The-Scenes Signature Rainbow Spectrum */
-  --color-1: hsl(0 100% 63%);
-  --color-2: hsl(270 100% 63%);
-  --color-3: hsl(210 100% 63%);
-  --color-4: hsl(195 100% 63%);
-  --color-5: hsl(90 100% 63%);
-  --rainbow: linear-gradient(
-    90deg,
-    var(--color-1),
-    var(--color-5),
-    var(--color-3),
-    var(--color-4),
-    var(--color-2),
-    var(--color-1)
+  /* Behind-The-Scenes Signature Red Spectrum — Velvet & Burgundy Tones */
+  --glow-red-1: #800020; /* Authentic Burgundy */
+  --glow-red-2: #560a1b; /* Deep Wine / Bordeaux */
+  --glow-red-3: #9b1931; /* Rich Velvet Garnet */
+  --glow-red-4: #3f0410; /* Dark Maroon */
+  --glow-red-5: #6d0f23; /* Warm Oxblood */
+  --glow-red-6: #a8243c; /* Subtle Ruby Rose Highlight */
+
+  --card-red-glow: linear-gradient(
+    135deg,
+    var(--glow-red-1),
+    var(--glow-red-3),
+    var(--glow-red-2),
+    var(--glow-red-5),
+    var(--glow-red-6),
+    var(--glow-red-4),
+    var(--glow-red-1)
   );
+  --rainbow: var(--card-red-glow);
 
   --text-main: #f0f0f5;
   --text-muted: rgba(240, 240, 245, 0.65);
@@ -221,7 +227,7 @@ html.lenis, html.lenis body {
 
 .btn-nav-contact:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 22px rgba(255, 68, 33, 0.6);
+  box-shadow: 0 0 22px rgba(128, 0, 32, 0.55);
 }
 
 @media (max-width: 1024px) {
@@ -402,8 +408,8 @@ html.lenis, html.lenis body {
 
 .section-tag .tag-num {
   padding: 0.2rem 0.45rem;
-  background: rgba(255, 68, 33, 0.15);
-  border: 1px solid rgba(255, 68, 33, 0.3);
+  background: rgba(128, 0, 32, 0.15);
+  border: 1px solid rgba(128, 0, 32, 0.35);
   border-radius: 4px;
   font-weight: 700;
 }
@@ -463,8 +469,8 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.35rem 0.8rem;
-  background: rgba(255, 68, 33, 0.08);
-  border: 1px solid rgba(255, 68, 33, 0.3);
+  background: rgba(128, 0, 32, 0.12);
+  border: 1px solid rgba(128, 0, 32, 0.35);
   border-radius: 9999px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -599,7 +605,7 @@ html.lenis, html.lenis body {
 .hero-pill:hover {
   color: #fff;
   border-color: var(--brand-orange);
-  background: rgba(255, 68, 33, 0.1);
+  background: rgba(128, 0, 32, 0.15);
   transform: translateY(-2px);
 }
 
@@ -611,23 +617,23 @@ html.lenis, html.lenis body {
   margin: 0 auto;
 }
 
-/* Card Glow radiating in all 360° directions */
+/* Card Glow radiating in all 360° directions — Multi-shade Burgundy halo */
 .card-glow {
   position: absolute;
   inset: -30px;
   border-radius: 36px;
-  background-image: var(--rainbow);
-  background-size: 260% 260%;
-  filter: blur(38px);
-  opacity: 0.42;
+  background-image: var(--card-red-glow);
+  background-size: 240% 240%;
+  filter: blur(34px);
+  opacity: 0.35;
   pointer-events: none;
   z-index: 1;
-  animation: card-rainbow 6.5s infinite linear;
+  animation: card-red-glow 7s infinite ease-in-out;
   transition: opacity 0.35s ease, filter 0.35s ease;
   will-change: transform, opacity, filter;
 }
 
-/* Dynamic chromatic flare that concentrates under the cursor */
+/* Dynamic chromatic flare that concentrates under the cursor in red tones */
 .card-glow::after {
   content: '';
   position: absolute;
@@ -635,23 +641,23 @@ html.lenis, html.lenis body {
   border-radius: inherit;
   background: radial-gradient(
     circle 260px at var(--glow-x, 50%) var(--glow-y, 50%),
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.15) 35%,
+    rgba(180, 25, 55, 0.28) 0%,
+    rgba(128, 0, 32, 0.12) 40%,
     transparent 70%
   );
-  mix-blend-mode: overlay;
+  mix-blend-mode: screen;
   opacity: 0;
   transition: opacity 0.35s ease;
 }
 
 .card-3d-wrap:hover .card-glow {
-  opacity: 0.95;
-  filter: blur(46px);
-  animation-duration: 2.2s;
+  opacity: 0.58;
+  filter: blur(40px);
+  animation-duration: 4.5s;
 }
 
 .card-3d-wrap:hover .card-glow::after {
-  opacity: 1;
+  opacity: 0.65;
 }
 
 .card-3d {
@@ -663,22 +669,34 @@ html.lenis, html.lenis body {
   background-color: #111116;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8),
-              0 0 30px -10px var(--brand-orange-glow);
+              0 0 25px -10px rgba(128, 0, 32, 0.3);
   transform-style: preserve-3d;
   transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.35s ease;
   cursor: pointer;
 }
 
-/* On hover: rainbow border matching behind-the-scenes aesthetic */
+/* On hover: subtle burgundy border matching behind-the-scenes aesthetic */
 .card-3d-wrap:hover .card-3d {
   border-color: transparent;
-  background-image: linear-gradient(#111116, #111116), var(--rainbow);
-  background-size: 100% 100%, 260% 260%;
+  background-image: linear-gradient(#111116, #111116), var(--card-red-glow);
+  background-size: 100% 100%, 240% 240%;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   box-shadow: 0 30px 75px -15px rgba(0, 0, 0, 0.9),
-              0 0 40px -8px rgba(255, 68, 33, 0.35);
-  animation: card-rainbow 2.2s infinite linear;
+              0 0 32px -8px rgba(128, 0, 32, 0.45);
+  animation: card-red-glow 4.5s infinite ease-in-out;
+}
+
+@keyframes card-red-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes card-rainbow {
@@ -877,7 +895,7 @@ html.lenis, html.lenis body {
 }
 
 .sys-headline .accent-orange {
-  color: #ff5533;
+  color: #800020;
 }
 
 .sys-headline .accent-purple {
@@ -946,7 +964,7 @@ html.lenis, html.lenis body {
   letter-spacing: 0.06em;
 }
 
-.step-orange { color: #ff5533; }
+.step-orange { color: #800020; }
 .step-blue { color: #3b82f6; }
 .step-purple { color: #a855f7; }
 .step-cyan { color: #00f0ff; }
@@ -991,12 +1009,12 @@ html.lenis, html.lenis body {
 
 /* Card Themes & Hover/Active Glows */
 .card-discover {
-  border-color: rgba(255, 85, 51, 0.25);
-  background: rgba(255, 85, 51, 0.02);
+  border-color: rgba(128, 0, 32, 0.35);
+  background: rgba(128, 0, 32, 0.04);
 }
 .card-discover:hover, .card-discover.active-stage {
-  border-color: #ff5533;
-  box-shadow: 0 0 24px -4px rgba(255, 85, 51, 0.35);
+  border-color: #800020;
+  box-shadow: 0 0 24px -4px rgba(128, 0, 32, 0.45);
 }
 
 .card-data {
@@ -1057,7 +1075,7 @@ html.lenis, html.lenis body {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 85, 51, 0.35) 0%, rgba(255, 85, 51, 0.08) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(128, 0, 32, 0.4) 0%, rgba(128, 0, 32, 0.1) 50%, transparent 75%);
   top: 44%;
   left: 36%;
   transform: translate(-50%, -50%);
@@ -1079,22 +1097,22 @@ html.lenis, html.lenis body {
 }
 
 .bulb-aura {
-  fill: rgba(255, 85, 51, 0.15);
+  fill: rgba(128, 0, 32, 0.2);
   filter: blur(5px);
 }
 
 .bulb-glass {
-  stroke: #ff7755;
+  stroke: #9e1b32;
   stroke-width: 1.5;
-  fill: rgba(255, 85, 51, 0.08);
+  fill: rgba(128, 0, 32, 0.08);
 }
 
 .bulb-filament {
-  stroke: #ff5533;
+  stroke: #800020;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 5px #ff5533);
+  filter: drop-shadow(0 0 5px #9e1b32);
   animation: filament-flicker 2.5s infinite ease-in-out;
 }
 
@@ -1114,15 +1132,15 @@ html.lenis, html.lenis body {
 }
 
 .bulb-link {
-  stroke: rgba(255, 85, 51, 0.35);
+  stroke: rgba(128, 0, 32, 0.4);
   stroke-width: 1;
   stroke-dasharray: 2 2;
   animation: link-dash-flow 3s infinite linear;
 }
 
 .bulb-link-dot {
-  fill: #ff5533;
-  filter: drop-shadow(0 0 3px #ff5533);
+  fill: #800020;
+  filter: drop-shadow(0 0 3px #9e1b32);
 }
 
 .sat-pill {
@@ -1132,7 +1150,7 @@ html.lenis, html.lenis body {
   gap: 0.38rem;
   padding: 0.28rem 0.5rem;
   background: rgba(14, 15, 22, 0.94);
-  border: 1px solid rgba(255, 85, 51, 0.3);
+  border: 1px solid rgba(128, 0, 32, 0.35);
   border-radius: 7px;
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -1144,7 +1162,7 @@ html.lenis, html.lenis body {
 }
 
 .sat-pill:hover {
-  border-color: #ff5533;
+  border-color: #800020;
   transform: scale(1.04);
   color: #fff;
 }
@@ -1173,8 +1191,8 @@ html.lenis, html.lenis body {
 }
 
 .dot-orange {
-  background: #ff5533;
-  box-shadow: 0 0 6px rgba(255, 85, 51, 0.9);
+  background: #800020;
+  box-shadow: 0 0 6px rgba(128, 0, 32, 0.9);
   animation: pill-dot-pulse 2.2s infinite ease-in-out;
 }
 
@@ -1579,7 +1597,7 @@ html.lenis, html.lenis body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, #ff5533, #a855f7, transparent);
+  background: linear-gradient(90deg, transparent, #800020, #a855f7, transparent);
   animation: packet-travel 1.8s infinite linear;
 }
 
@@ -1635,7 +1653,7 @@ html.lenis, html.lenis body {
 .bracket-line::before { left: 0; }
 .bracket-line::after { right: 0; }
 
-.bracket-explore .bracket-line { background: #ff5533; box-shadow: 0 0 6px rgba(255, 85, 51, 0.5); }
+.bracket-explore .bracket-line { background: #800020; box-shadow: 0 0 6px rgba(128, 0, 32, 0.5); }
 .bracket-build .bracket-line { background: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.5); }
 .bracket-validate .bracket-line { background: #22c55e; box-shadow: 0 0 6px rgba(34, 197, 94, 0.5); }
 .bracket-deploy .bracket-line { background: #818cf8; box-shadow: 0 0 6px rgba(129, 140, 248, 0.5); }
@@ -1660,7 +1678,7 @@ html.lenis, html.lenis body {
   transition: all 0.2s ease;
 }
 
-.bracket-explore .bracket-title { color: #ff5533; }
+.bracket-explore .bracket-title { color: #800020; }
 .bracket-build .bracket-title { color: #a855f7; }
 .bracket-validate .bracket-title { color: #22c55e; }
 .bracket-deploy .bracket-title { color: #818cf8; }
@@ -1688,10 +1706,10 @@ html.lenis, html.lenis body {
 }
 
 @keyframes filament-flicker {
-  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px #ff5533); }
-  25% { opacity: 1; filter: drop-shadow(0 0 8px #ff7755); }
-  60% { opacity: 0.75; filter: drop-shadow(0 0 3px #ff4421); }
-  80% { opacity: 0.95; filter: drop-shadow(0 0 6px #ff5533); }
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px #800020); }
+  25% { opacity: 1; filter: drop-shadow(0 0 8px #9e1b32); }
+  60% { opacity: 0.75; filter: drop-shadow(0 0 3px #800020); }
+  80% { opacity: 0.95; filter: drop-shadow(0 0 6px #800020); }
 }
 
 @keyframes link-dash-flow {
@@ -1754,8 +1772,8 @@ html.lenis, html.lenis body {
   font-size: 0.82rem;
   letter-spacing: 0.12em;
   color: var(--brand-orange);
-  background: rgba(255, 68, 33, 0.08);
-  border: 1px solid rgba(255, 68, 33, 0.3);
+  background: rgba(128, 0, 32, 0.12);
+  border: 1px solid rgba(128, 0, 32, 0.35);
   padding: 0.42rem 0.95rem;
   border-radius: 9999px;
   font-weight: 700;
@@ -1784,7 +1802,7 @@ html.lenis, html.lenis body {
 .carousel-btn:hover:not(:disabled) {
   border-color: var(--brand-orange);
   color: #fff;
-  background: rgba(255, 68, 33, 0.18);
+  background: rgba(128, 0, 32, 0.2);
   box-shadow: 0 0 14px var(--brand-orange-glow);
 }
 
@@ -1869,7 +1887,7 @@ html.lenis, html.lenis body {
   opacity: 1;
   transform: scale(1);
   border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 68, 33, 0.09);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(128, 0, 32, 0.15);
 }
 
 .showcase-grid {
@@ -1952,8 +1970,8 @@ html.lenis, html.lenis body {
 }
 
 .p-tag.accent-orange {
-  background: rgba(255, 68, 33, 0.15);
-  border: 1px solid rgba(255, 68, 33, 0.4);
+  background: rgba(128, 0, 32, 0.15);
+  border: 1px solid rgba(128, 0, 32, 0.4);
   color: var(--brand-orange);
 }
 
@@ -2124,8 +2142,8 @@ html.lenis, html.lenis body {
 
 .exp-badge.accent-orange-badge {
   color: var(--brand-orange);
-  background: rgba(255, 68, 33, 0.1);
-  border-color: rgba(255, 68, 33, 0.3);
+  background: rgba(128, 0, 32, 0.12);
+  border-color: rgba(128, 0, 32, 0.35);
 }
 
 .exp-company {
@@ -2199,8 +2217,8 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.65rem 1.25rem;
-  background: rgba(255, 68, 33, 0.08);
-  border: 1px solid rgba(255, 68, 33, 0.3);
+  background: rgba(128, 0, 32, 0.1);
+  border: 1px solid rgba(128, 0, 32, 0.35);
   border-radius: 8px;
   color: #fff;
   font-family: var(--font-mono);
@@ -2210,7 +2228,7 @@ html.lenis, html.lenis body {
 }
 
 .proof-btn:hover {
-  background: rgba(255, 68, 33, 0.2);
+  background: rgba(128, 0, 32, 0.22);
   border-color: var(--brand-orange);
   transform: translateY(-2px);
 }
@@ -2423,7 +2441,7 @@ html.lenis, html.lenis body {
   border: 1.5px solid var(--border-active);
   border-radius: 18px;
   padding: clamp(1.25rem, 2.2vh, 1.75rem) clamp(1.5rem, 2.5vw, 2.25rem);
-  box-shadow: 0 25px 80px -20px rgba(255, 68, 33, 0.25);
+  box-shadow: 0 25px 80px -20px rgba(128, 0, 32, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -2522,7 +2540,7 @@ html.lenis, html.lenis body {
 
 .btn-copy-email:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(255, 68, 33, 0.5);
+  box-shadow: 0 10px 24px rgba(128, 0, 32, 0.5);
 }
 
 .copy-toast {
@@ -2584,8 +2602,8 @@ html.lenis, html.lenis body {
   justify-content: space-between;
   align-items: center;
   padding: 0.65rem 1.25rem;
-  background: rgba(255, 68, 33, 0.08);
-  border: 1px solid rgba(255, 68, 33, 0.3);
+  background: rgba(128, 0, 32, 0.12);
+  border: 1px solid rgba(128, 0, 32, 0.35);
   border-radius: 10px;
   margin-bottom: 1rem;
   flex-wrap: wrap;
