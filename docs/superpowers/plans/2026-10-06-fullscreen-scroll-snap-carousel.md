@@ -29,7 +29,10 @@
 **Interfaces:**
 - Produces: CSS rules for `html, body` scroll snapping, `.chapter-screen` 100vh sizing and scaled vertical padding.
 
-- [ ] **Step 1: Write test script checking scroll-snap CSS rules and chapter bounding heights**
+- [x] **Step 1: Write test script checking scroll-snap CSS rules and chapter bounding heights**
+- [x] **Step 2: Add vertical scroll snap rules to `v3/style.css`**
+- [x] **Step 3: Run Task 1 verification test**
+- [x] **Step 4: Commit Task 1 changes**
 
 ```javascript
 // scratch/test_task1.js
@@ -97,12 +100,12 @@ ws.addEventListener('open', async () => {
 });
 ```
 
-- [ ] **Step 2: Run test script to verify it fails (no scroll-snap currently)**
+- [x] **Step 2: Run test script to verify it fails (no scroll-snap currently)**
 
 Run: `node scratch/test_task1.js`
 Expected: `htmlSnap` and `bodySnap` are `"none"` and `snapAlign` is `"none"`.
 
-- [ ] **Step 3: Modify `v3/style.css` to enable mandatory vertical snap and 100vh chapter sizing**
+- [x] **Step 3: Modify `v3/style.css` to enable mandatory vertical snap and 100vh chapter sizing**
 
 In `v3/style.css`:
 - Add to `html, body`:
@@ -157,12 +160,12 @@ In `v3/style.css`:
   }
   ```
 
-- [ ] **Step 4: Run test script to verify it passes**
+- [x] **Step 4: Run test script to verify it passes**
 
 Run: `node scratch/test_task1.js`
 Expected: `htmlSnap` has `"y mandatory"`, `snapAlign` is `"start"`, screen heights equal viewport height.
 
-- [ ] **Step 5: Commit changes**
+- [x] **Step 5: Commit changes**
 
 ```bash
 git add v3/style.css
@@ -180,7 +183,7 @@ git commit -m "feat(v3): enable full-screen vertical scroll snapping"
 **Interfaces:**
 - Produces: Horizontal `.projects-carousel` container with IDs `#projects-carousel`, `#project-prev-btn`, `#project-next-btn`, `#project-carousel-counter`, and `.carousel-dots`.
 
-- [ ] **Step 1: Write test to verify presence of carousel container and controls**
+- [x] **Step 1: Write test to verify presence of carousel container and controls**
 
 ```javascript
 // scratch/test_task2.js
@@ -230,12 +233,12 @@ ws.addEventListener('open', async () => {
 });
 ```
 
-- [ ] **Step 2: Run test script to verify it fails**
+- [x] **Step 2: Run test script to verify it fails**
 
 Run: `node scratch/test_task2.js`
 Expected: `hasCarousel: false`.
 
-- [ ] **Step 3: Update `v3/index.html` with carousel wrapper and HUD control bar**
+- [x] **Step 3: Update `v3/index.html` with carousel wrapper and HUD control bar**
 
 In `v3/index.html` at Chapter 03:
 - Add carousel header controls beside the section lead:
@@ -269,12 +272,12 @@ In `v3/index.html` at Chapter 03:
   </div>
   ```
 
-- [ ] **Step 4: Run test script to verify it passes**
+- [x] **Step 4: Run test script to verify it passes**
 
 Run: `node scratch/test_task2.js`
 Expected: `hasCarousel: true`, `hasPrev: true`, `hasNext: true`, `hasCounter: true`, `cardCount: 3`.
 
-- [ ] **Step 5: Commit changes**
+- [x] **Step 5: Commit changes**
 
 ```bash
 git add v3/index.html
@@ -292,7 +295,7 @@ git commit -m "feat(v3): add Chapter 03 horizontal carousel markup and controls"
 **Interfaces:**
 - Produces: CSS rules for `.projects-carousel`, `.projects-header-row`, `.carousel-hud-controls`, `.carousel-counter-pill`, `.carousel-btn`, `.carousel-dots`, and project card horizontal snap styling.
 
-- [ ] **Step 1: Write test for carousel horizontal snap styling**
+- [x] **Step 1: Write test for carousel horizontal snap styling**
 
 ```javascript
 // scratch/test_task3.js
@@ -340,12 +343,12 @@ ws.addEventListener('open', async () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `node scratch/test_task3.js`
 Expected: `scrollSnapType` is `"none"` or fails.
 
-- [ ] **Step 3: Add CSS for carousel and project card layout**
+- [x] **Step 3: Add CSS for carousel and project card layout**
 
 In `v3/style.css`:
 ```css
@@ -455,12 +458,12 @@ In `v3/style.css`:
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `node scratch/test_task3.js`
 Expected: `display: "flex"`, `overflowX: "auto"`, `scrollSnapType: "x mandatory"`, `cardSnapAlign: "center"`.
 
-- [ ] **Step 5: Commit changes**
+- [x] **Step 5: Commit changes**
 
 ```bash
 git add v3/style.css
@@ -478,7 +481,7 @@ git commit -m "feat(v3): add carousel styling and horizontal card snapping"
 **Interfaces:**
 - Produces: `initProjectCarousel()` in `v3/main.js` connected to prev/next buttons, scroll events, counter updates, and keyboard arrows.
 
-- [ ] **Step 1: Write test for carousel interaction (button click advancing slide)**
+- [x] **Step 1: Write test for carousel interaction (button click advancing slide)**
 
 ```javascript
 // scratch/test_task4.js
@@ -536,12 +539,12 @@ ws.addEventListener('open', async () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `node scratch/test_task4.js`
 Expected: `scrollLeft: 0` (no logic implemented yet).
 
-- [ ] **Step 3: Implement `initProjectCarousel()` in `v3/main.js`**
+- [x] **Step 3: Implement `initProjectCarousel()` in `v3/main.js`**
 
 ```javascript
 function initProjectCarousel() {
@@ -631,12 +634,12 @@ function initProjectCarousel() {
 ```
 Invoke `initProjectCarousel()` in DOMContentLoaded initialization in `v3/main.js`.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `node scratch/test_task4.js`
 Expected: `scrollLeft > 0`, `counterText: "PROJECT 02 / 03"`.
 
-- [ ] **Step 5: Commit changes**
+- [x] **Step 5: Commit changes**
 
 ```bash
 git add v3/main.js
@@ -650,7 +653,7 @@ git commit -m "feat(v3): implement carousel navigation controller and keyboard s
 **Files:**
 - Test: `scratch/verify_all_screens.js`
 
-- [ ] **Step 1: Write complete end-to-end verification script testing all 6 chapter snap points and carousel navigation**
+- [x] **Step 1: Write complete end-to-end verification script testing all 6 chapter snap points and carousel navigation**
 
 ```javascript
 // scratch/verify_all_screens.js
@@ -722,12 +725,12 @@ ws.addEventListener('open', async () => {
 });
 ```
 
-- [ ] **Step 2: Run verification script**
+- [x] **Step 2: Run verification script**
 
 Run: `node scratch/verify_all_screens.js`
 Expected: All chapters equal viewport height (1000px), active HUD matches each chapter on scroll, and carousel renders cleanly.
 
-- [ ] **Step 3: Commit final plan verification and cleanup**
+- [x] **Step 3: Commit final plan verification and cleanup**
 
 ```bash
 git add docs/superpowers/plans/2026-10-06-fullscreen-scroll-snap-carousel.md
