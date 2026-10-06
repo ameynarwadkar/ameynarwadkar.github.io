@@ -2588,6 +2588,13 @@ html.lenis, html.lenis body {
   letter-spacing: 0.05em;
 }
 
+.exp-duration-tag {
+  color: var(--accent-primary);
+  opacity: 0.88;
+  font-weight: 500;
+  margin-left: 0.15rem;
+}
+
 .exp-location {
   font-family: var(--font-mono);
   font-size: clamp(0.72rem, 0.9vw, 0.78rem);
