@@ -28,11 +28,11 @@
 **Interfaces:**
 - Produces: Cleaned DOM with zero `.section-tag` elements.
 
-- [ ] **Step 1: Write test script checking for zero `.section-tag` elements in DOM**
-- [ ] **Step 2: Run test script to verify it fails (currently 5 instances exist)**
-- [ ] **Step 3: Remove all `<div class="section-tag">...</div>` elements from `v3/index.html`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 1 changes**
+- [x] **Step 1: Write test script checking for zero `.section-tag` elements in DOM**
+- [x] **Step 2: Run test script to verify it fails (currently 5 instances exist)**
+- [x] **Step 3: Remove all `<div class="section-tag">...</div>` elements from `v3/index.html`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 1 changes**
 
 ---
 
@@ -45,11 +45,11 @@
 **Interfaces:**
 - Produces: All `.chapter-screen` elements with `justify-content: center; align-items: center;` and content heights <= 750px.
 
-- [ ] **Step 1: Write test script checking centering styles and content heights across all 6 chapters**
-- [ ] **Step 2: Run test script to verify it fails**
-- [ ] **Step 3: Apply universal chapter centering and metric compaction in `v3/style.css`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 2 changes**
+- [x] **Step 1: Write test script checking centering styles and content heights across all 6 chapters**
+- [x] **Step 2: Run test script to verify it fails**
+- [x] **Step 3: Apply universal chapter centering and metric compaction in `v3/style.css`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 2 changes**
 
 ---
 
@@ -62,11 +62,11 @@
 **Interfaces:**
 - Produces: `initSlideshowDeck()` capturing wheel/swipe/keyboard events, driving Lenis slide transitions, and enforcing a 750ms cooldown lock.
 
-- [ ] **Step 1: Write test script simulating wheel events and verifying slide-by-slide progression with lock**
-- [ ] **Step 2: Run test script to verify it fails**
-- [ ] **Step 3: Implement `initSlideshowDeck()` in `v3/main.js`**
-- [ ] **Step 4: Run test script to verify it passes**
-- [ ] **Step 5: Commit Task 3 changes**
+- [x] **Step 1: Write test script simulating wheel events and verifying slide-by-slide progression with lock**
+- [x] **Step 2: Run test script to verify it fails**
+- [x] **Step 3: Implement `initSlideshowDeck()` in `v3/main.js`**
+- [x] **Step 4: Run test script to verify it passes**
+- [x] **Step 5: Commit Task 3 changes**
 
 ---
 
@@ -78,6 +78,6 @@
 **Interfaces:**
 - Validates: Zero section tags, centered layout on all 6 chapters, smooth slide transitions, HUD synchronization, and captured screenshots.
 
-- [ ] **Step 1: Write and run comprehensive E2E test script**
-- [ ] **Step 2: Review captured visual screenshots for all chapters**
-- [ ] **Step 3: Commit any final refinements and update plan**
+- [x] **Step 1: Write and run comprehensive E2E test script**
+- [x] **Step 2: Review captured visual screenshots for all chapters**
+- [x] **Step 3: Commit any final refinements and update plan**
