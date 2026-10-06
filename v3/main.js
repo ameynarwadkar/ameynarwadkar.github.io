@@ -4,6 +4,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLenisSmoothScroll();
   initAmbientCanvas();
   initHudSync();
   init3DCardTilt();
@@ -14,6 +15,87 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightboxModal();
   initContactActions();
 });
+
+/* ==========================================================================
+   0. LENIS INERTIAL SMOOTH SCROLL ENGINE & MAGNETIC SETTLING
+   ========================================================================== */
+function initLenisSmoothScroll() {
+  if (typeof window.Lenis !== 'function') return;
+
+  const lenis = new Lenis({
+    lerp: 0.085,
+    wheelMultiplier: 0.95,
+    smoothWheel: true,
+    touchMultiplier: 1.2,
+    infinite: false,
+    autoRaf: false
+  });
+
+  window.__lenis = lenis;
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Magnetic Chapter Settling
+  let settleTimeout = null;
+  let isSettling = false;
+
+  function checkMagneticSettling() {
+    if (isSettling) return;
+    // Only settle on desktop viewports where full 100vh chapters apply
+    if (window.innerWidth < 960 || window.innerHeight < 650) return;
+
+    const currentY = lenis.scroll;
+    const vh = window.innerHeight;
+    const targetChapterIdx = Math.round(currentY / vh);
+    const targetY = targetChapterIdx * vh;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const boundedTarget = Math.max(0, Math.min(targetY, maxScroll));
+    const dist = Math.abs(boundedTarget - currentY);
+
+    // If within attraction range (between 3px and 45% of viewport height)
+    if (dist > 3 && dist < vh * 0.45) {
+      isSettling = true;
+      lenis.scrollTo(boundedTarget, {
+        duration: 0.7,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        onComplete: () => {
+          isSettling = false;
+        }
+      });
+    }
+  }
+
+  lenis.on('scroll', (e) => {
+    clearTimeout(settleTimeout);
+    // When scroll velocity drops, trigger gentle magnetic attraction to chapter
+    if (!isSettling && Math.abs(e.velocity) < 0.25) {
+      settleTimeout = setTimeout(checkMagneticSettling, 120);
+    }
+  });
+
+  // Intercept anchor clicks for chapter navigation
+  document.querySelectorAll('a[href^="#ch-"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        isSettling = true;
+        lenis.scrollTo(targetEl, {
+          duration: 0.85,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          onComplete: () => {
+            isSettling = false;
+          }
+        });
+      }
+    });
+  });
+}
 
 /* ==========================================================================
    1. AMBIENT PARTICLE CANVAS
@@ -530,7 +612,14 @@ function initContactActions() {
 
   if (returnBtn) {
     returnBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.__lenis) {
+        window.__lenis.scrollTo(0, {
+          duration: 0.9,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   }
 }
