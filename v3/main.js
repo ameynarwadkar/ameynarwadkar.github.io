@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initHudSync();
   init3DCardTilt();
   initArchitecturePipeline();
-  initTracxoSimulator();
   initProjectCarousel();
   initExperienceCounters();
   initLightboxModal();
@@ -354,155 +353,126 @@ function initArchitecturePipeline() {
 }
 
 /* ==========================================================================
-   5. TRACXO MULTI-AGENT DISPATCHER SIMULATOR (CHAPTER 03)
-   ========================================================================== */
-function initTracxoSimulator() {
-  const pills = document.querySelectorAll('.sim-pill');
-  const terminal = document.getElementById('sim-terminal');
-  if (!pills.length || !terminal) return;
-
-  const scenarios = [
-    {
-      step1: "01. ORCHESTRATOR: Extracted query intent -> [Reconcile seafood invoices vs wastage]",
-      step2: "02. TOOL DISPATCH: Dispatched [InvoiceAuditAgent] & [WastageReconciler] via LangGraph",
-      step3: "03. EXECUTIVE DECISION: Seafood batch #902 variance $142.80 flagged; draft supplier credit request generated."
-    },
-    {
-      step1: "01. ORCHESTRATOR: Extracted query intent -> [Detect beef unit price SLA spike]",
-      step2: "02. TOOL DISPATCH: Querying PostgreSQL price history & supplier SLA contract embeddings",
-      step3: "03. EXECUTIVE DECISION: Alert: Prime Ribeye unit price surged +18.4% above agreed SLA. Negotiation note drafted."
-    },
-    {
-      step1: "01. ORCHESTRATOR: Extracted query intent -> [Forecast weekend bar prep pars]",
-      step2: "02. TOOL DISPATCH: Correlating POS sales stream with historical Friday/Saturday weather & booking data",
-      step3: "03. EXECUTIVE DECISION: Recommended bar inventory prep: 24 bottles Mezcal, 18kg citrus fruit. Pars committed."
-    }
-  ];
-
-  pills.forEach((pill, idx) => {
-    pill.addEventListener('click', () => {
-      pills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-
-      const data = scenarios[idx];
-      terminal.innerHTML = `
-        <div class="term-line step-1" style="opacity: 0; transform: translateY(4px); transition: all 0.25s ease;"><span class="term-dim">${data.step1.split(':')[0]}:</span>${data.step1.split(':')[1]}</div>
-        <div class="term-line step-2" style="opacity: 0; transform: translateY(4px); transition: all 0.25s ease;"><span class="term-dim">${data.step2.split(':')[0]}:</span>${data.step2.split(':')[1]}</div>
-        <div class="term-line step-3 highlight-green" style="opacity: 0; transform: translateY(4px); transition: all 0.25s ease;"><span class="term-dim">${data.step3.split(':')[0]}:</span>${data.step3.split(':')[1]}</div>
-      `;
-
-      const lines = terminal.querySelectorAll('.term-line');
-      lines.forEach((line, lineIdx) => {
-        setTimeout(() => {
-          line.style.opacity = '1';
-          line.style.transform = 'translateY(0)';
-        }, lineIdx * 160);
-      });
-    });
-  });
-}
-
-/* ==========================================================================
-   5b. CHAPTER 03 HORIZONTAL PROJECT CAROUSEL CONTROLLER
+   5. CHAPTER 03 SCROLL-DRIVEN HORIZONTAL SHOWCASE CONTROLLER
    ========================================================================== */
 function initProjectCarousel() {
-  const carousel = document.getElementById('projects-carousel');
+  const section = document.getElementById('ch-done');
+  const track = document.getElementById('horizontal-projects-track');
+  const trackWindow = document.getElementById('horizontal-track-window');
+  const cards = document.querySelectorAll('.horizontal-projects-track .project-card');
+  const counter = document.getElementById('project-carousel-counter');
   const prevBtn = document.getElementById('project-prev-btn');
   const nextBtn = document.getElementById('project-next-btn');
-  const counter = document.getElementById('project-carousel-counter');
-  const dots = document.querySelectorAll('.carousel-dot');
-  if (!carousel) return;
+  const dots = document.querySelectorAll('#project-carousel-dots .carousel-dot');
 
-  const cards = carousel.querySelectorAll('.showcase-card, .project-card');
+  if (!section || !track || !cards.length) return;
+
   const total = cards.length;
-  if (!total) return;
+  let activeIndex = 0;
 
-  function getActiveIndex() {
-    const scrollLeft = carousel.scrollLeft;
-    let closestIndex = 0;
-    let minDistance = Infinity;
+  function updateHorizontalScroll() {
+    if (window.innerWidth <= 960) {
+      track.style.transform = '';
+      return;
+    }
 
-    cards.forEach((card, idx) => {
-      const distance = Math.abs(card.offsetLeft - carousel.offsetLeft - scrollLeft);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIndex = idx;
-      }
-    });
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const scrollDistance = sectionHeight - window.innerHeight;
+    if (scrollDistance <= 0) return;
 
-    return closestIndex;
+    const scrollTop = window.scrollY;
+    const relScroll = scrollTop - sectionTop;
+    const progress = Math.max(0, Math.min(1, relScroll / scrollDistance));
+
+    // Calculate maximum horizontal travel distance
+    const maxTranslate = Math.max(0, track.scrollWidth - trackWindow.clientWidth);
+    const currentTranslate = progress * maxTranslate;
+
+    track.style.transform = `translate3d(-${currentTranslate.toFixed(2)}px, 0, 0)`;
+
+    // Determine active index based on progress
+    let newIdx = 0;
+    if (progress >= 0.65) {
+      newIdx = 2;
+    } else if (progress >= 0.28) {
+      newIdx = 1;
+    } else {
+      newIdx = 0;
+    }
+
+    if (newIdx !== activeIndex || !cards[0].classList.contains('active-card')) {
+      activeIndex = newIdx;
+      cards.forEach((c, i) => {
+        c.classList.toggle('active-card', i === activeIndex);
+      });
+      if (counter) counter.innerText = `PROJECT 0${activeIndex + 1} / 0${total}`;
+      if (prevBtn) prevBtn.disabled = activeIndex === 0;
+      if (nextBtn) nextBtn.disabled = activeIndex === total - 1;
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === activeIndex);
+      });
+    }
   }
 
-  function updateState(idx) {
-    if (counter) counter.innerText = `PROJECT 0${idx + 1} / 0${total}`;
-    if (prevBtn) prevBtn.disabled = idx === 0;
-    if (nextBtn) nextBtn.disabled = idx === total - 1;
-    dots.forEach((d, i) => {
-      d.classList.toggle('active', i === idx);
-    });
-  }
+  // Smooth scroll to project at index i
+  function scrollToProject(idx) {
+    const targetIdx = Math.max(0, Math.min(idx, total - 1));
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const scrollDistance = sectionHeight - window.innerHeight;
+    const targetProgress = targetIdx / (total - 1);
+    const targetY = sectionTop + targetProgress * scrollDistance;
 
-  function scrollToCard(idx) {
-    if (idx >= 0 && idx < total) {
-      const targetLeft = cards[idx].offsetLeft - carousel.offsetLeft;
-      carousel.scrollTo({ left: targetLeft, behavior: 'smooth' });
-      updateState(idx);
+    if (window.__lenis) {
+      window.__lenis.scrollTo(targetY, { duration: 0.95 });
+    } else {
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
     }
   }
 
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
-      const idx = getActiveIndex();
-      if (idx > 0) scrollToCard(idx - 1);
+      if (activeIndex > 0) scrollToProject(activeIndex - 1);
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      const idx = getActiveIndex();
-      if (idx < total - 1) scrollToCard(idx + 1);
+      if (activeIndex < total - 1) scrollToProject(activeIndex + 1);
     });
   }
 
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const idx = parseInt(dot.getAttribute('data-index'), 10);
-      scrollToCard(idx);
+      scrollToProject(idx);
     });
   });
 
-  let scrollTimeout;
-  carousel.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      updateState(getActiveIndex());
-    }, 40);
-  }, { passive: true });
+  window.addEventListener('scroll', updateHorizontalScroll, { passive: true });
+  if (window.__lenis) {
+    window.__lenis.on('scroll', updateHorizontalScroll);
+  }
+  window.addEventListener('resize', updateHorizontalScroll);
 
   // Keyboard navigation when Chapter 03 is in view
   window.addEventListener('keydown', (e) => {
-    const chDone = document.getElementById('ch-done');
-    if (!chDone) return;
-    const r = chDone.getBoundingClientRect();
-    const inView = r.top <= window.innerHeight * 0.6 && r.bottom >= window.innerHeight * 0.4;
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+    const r = section.getBoundingClientRect();
+    const inView = r.top <= window.innerHeight * 0.4 && r.bottom >= window.innerHeight * 0.6;
     if (!inView) return;
 
-    if (e.key === 'ArrowRight') {
-      const idx = getActiveIndex();
-      if (idx < total - 1) {
-        e.preventDefault();
-        scrollToCard(idx + 1);
-      }
-    } else if (e.key === 'ArrowLeft') {
-      const idx = getActiveIndex();
-      if (idx > 0) {
-        e.preventDefault();
-        scrollToCard(idx - 1);
-      }
+    if (e.key === 'ArrowRight' && activeIndex < total - 1) {
+      e.preventDefault();
+      scrollToProject(activeIndex + 1);
+    } else if (e.key === 'ArrowLeft' && activeIndex > 0) {
+      e.preventDefault();
+      scrollToProject(activeIndex - 1);
     }
   });
 
-  updateState(0);
+  updateHorizontalScroll();
 }
 
 /* ==========================================================================

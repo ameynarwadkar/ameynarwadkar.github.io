@@ -1738,7 +1738,7 @@ html.lenis, html.lenis body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem);
+  margin-bottom: clamp(1rem, 2vh, 1.8rem);
 }
 
 .carousel-hud-controls {
@@ -1791,75 +1791,97 @@ html.lenis, html.lenis body {
   cursor: not-allowed;
 }
 
-/* Horizontal Projects Carousel Container */
-.projects-carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 2rem;
-  padding: 0.25rem 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.projects-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.projects-carousel .showcase-card,
-.projects-carousel .project-card {
-  flex: 0 0 100%;
-  max-width: 100%;
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-  margin-bottom: 0;
+/* ==========================================================================
+   CHAPTER 03: WHAT I'VE DONE? (HORIZONTAL PINNED SHOWCASE)
+   ========================================================================== */
+.chapter-horizontal-screen {
+  display: block !important;
+  height: 320vh;
+  min-height: 320vh;
+  padding: 0 !important;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   box-sizing: border-box;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 20px;
-  padding: clamp(1.2rem, 2.2vh, 2rem) clamp(1.5rem, 2.5vw, 2.5rem);
-  backdrop-filter: blur(12px);
-  transition: border-color 0.3s ease;
 }
 
-.showcase-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Carousel Dots */
-.carousel-dots {
+.horizontal-pin-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 0.6rem;
-  margin-top: clamp(0.75rem, 1.5vh, 1.25rem);
+  align-items: center;
+  box-sizing: border-box;
+  padding: clamp(4.5rem, 7vh, 6rem) 0 clamp(2rem, 3.5vh, 3rem) 0;
 }
 
-.carousel-dot {
-  width: 24px;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.15);
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
+.horizontal-content-container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
 }
 
-.carousel-dot.active {
-  width: 48px;
-  background: var(--brand-orange);
-  box-shadow: 0 0 10px var(--brand-orange-glow);
+.minimal-lead {
+  margin-bottom: 0;
+}
+
+.horizontal-track-window {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.horizontal-projects-track {
+  display: flex;
+  gap: clamp(2.5rem, 4vw, 4.5rem);
+  will-change: transform;
+  transition: transform 0.04s linear;
+}
+
+.horizontal-projects-track .project-card {
+  flex: 0 0 clamp(720px, 64vw, 940px);
+  width: clamp(720px, 64vw, 940px);
+  max-width: 90vw;
+  box-sizing: border-box;
+  background: rgba(14, 14, 18, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: clamp(1.8rem, 3vh, 2.6rem) clamp(2rem, 2.8vw, 3rem);
+  backdrop-filter: blur(16px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease,
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  opacity: 0.45;
+  transform: scale(0.96);
+}
+
+.horizontal-projects-track .project-card.active-card {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 68, 33, 0.08);
 }
 
 .showcase-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: clamp(1.5rem, 2.8vw, 3rem);
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1.8rem, 2.8vw, 3.2rem);
   align-items: center;
 }
 
 .showcase-grid.reverse {
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
 }
 
 @media (max-width: 1000px) {
@@ -1876,7 +1898,11 @@ html.lenis, html.lenis body {
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: #000;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-  max-height: clamp(200px, 32vh, 320px);
+  aspect-ratio: 16 / 10;
+  max-height: clamp(210px, 30vh, 290px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .media-frame.frame-zoomable {
@@ -1886,27 +1912,26 @@ html.lenis, html.lenis body {
 .showcase-img {
   width: 100%;
   height: 100%;
-  max-height: clamp(200px, 32vh, 320px);
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
 }
 
 .media-frame:hover .showcase-img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .media-overlay-badge {
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 0.85rem;
+  left: 0.85rem;
   padding: 0.35rem 0.75rem;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: #fff;
   letter-spacing: 0.1em;
 }
@@ -1915,7 +1940,7 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .p-tag {
@@ -1954,138 +1979,102 @@ html.lenis, html.lenis body {
 
 .project-headline {
   font-family: var(--font-sub);
-  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.15;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   letter-spacing: -0.02em;
 }
 
 .project-summary {
-  font-size: clamp(0.82rem, 1.05vw, 0.88rem);
+  font-size: clamp(0.85rem, 1.05vw, 0.92rem);
   color: var(--text-muted);
-  line-height: 1.45;
-  margin-bottom: clamp(0.6rem, 1.2vh, 1rem);
+  line-height: 1.5;
+  margin-bottom: clamp(0.8rem, 1.6vh, 1.2rem);
 }
 
 .metric-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-bottom: clamp(0.6rem, 1.2vh, 1rem);
+  gap: 0.85rem;
+  margin-top: clamp(0.8rem, 1.6vh, 1.4rem);
 }
 
 .m-card {
-  padding: 0.5rem 0.75rem;
+  padding: 0.55rem 0.85rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.2rem;
 }
 
 .m-val {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #fff;
 }
 
 .m-lbl {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   color: var(--text-dim);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-/* Agent Dispatcher Simulator */
-.agent-simulator {
-  background: rgba(10, 10, 14, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-}
-
-.sim-header {
+/* Carousel Dots */
+.carousel-dots {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-dim);
-  margin-bottom: 0.85rem;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: clamp(1rem, 2vh, 1.6rem);
 }
 
-.sim-title {
-  color: var(--brand-orange);
-  font-weight: 700;
-}
-
-.sim-pills {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  margin-bottom: 1rem;
-}
-
-.sim-pill {
-  width: 100%;
-  text-align: left;
-  padding: 0.55rem 0.85rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+.carousel-dot {
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
-.sim-pill:hover, .sim-pill.active {
-  background: rgba(255, 68, 33, 0.1);
-  border-color: var(--brand-orange);
-  color: #fff;
+.carousel-dot.active {
+  width: 48px;
+  background: var(--brand-orange);
+  box-shadow: 0 0 10px var(--brand-orange-glow);
 }
 
-.sim-terminal {
-  background: #050508;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  padding: 0.85rem 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.term-dim {
-  color: var(--brand-cyan);
-  font-weight: 700;
-}
-
-.highlight-green {
-  color: var(--brand-green);
-}
-
-.tech-pill-strip {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.tech-pill-strip span {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 0.35rem 0.7rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  color: var(--text-muted);
+@media (max-width: 960px) {
+  .chapter-horizontal-screen {
+    height: auto;
+    min-height: 100vh;
+  }
+  .horizontal-pin-viewport {
+    position: relative;
+    height: auto;
+    padding: 5rem 0 3rem 0;
+  }
+  .horizontal-track-window {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .horizontal-track-window::-webkit-scrollbar {
+    display: none;
+  }
+  .horizontal-projects-track .project-card {
+    flex: 0 0 88vw;
+    width: 88vw;
+    opacity: 1;
+    transform: none;
+    scroll-snap-align: center;
+  }
 }
 
 /* ==========================================================================
