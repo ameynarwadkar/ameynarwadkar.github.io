@@ -2447,142 +2447,170 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================================
-   CHAPTER 04: WHERE I'VE WORKED? (TIMELINE & EXPANDABLE PROOFS)
+/* ==========================================================================
+   CHAPTER 04: EXPERIENCE (CLEAN MINIMAL LIST WITH ORG LOGOS)
    ========================================================================== */
-.experience-timeline {
+.chapter-experience-screen {
+  justify-content: center;
+  padding: clamp(5rem, 8vh, 7rem) 0;
+}
+
+.exp-lead {
+  margin-bottom: clamp(2rem, 3.5vh, 2.8rem);
+}
+
+.exp-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.exp-lead-divider {
+  width: 52px;
+  height: 2.5px;
+  background: var(--accent-primary);
+  border-radius: 2px;
+  margin-top: 0.85rem;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.experience-minimal-list {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: clamp(2.5rem, 4.5vh, 3.8rem);
+  max-width: 960px;
+  width: 100%;
 }
 
-.exp-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-warm);
-  border-radius: 14px;
-  padding: 1.25rem 1.75rem;
-  backdrop-filter: blur(12px);
-  transition: all 0.25s ease;
+.exp-minimal-item {
+  display: flex;
+  gap: clamp(1.25rem, 2.5vw, 2.2rem);
+  align-items: flex-start;
 }
 
-.exp-card:hover {
-  border-color: var(--border-default);
-  transform: translateY(-2px);
+.exp-org-col {
+  flex-shrink: 0;
+  padding-top: 0.2rem;
 }
 
-.exp-header {
+.exp-logo-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-minimal-item:hover .exp-logo-wrap {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 105, 77, 0.25);
+  border-color: var(--accent-bright);
+}
+
+.exp-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.soul-logo-wrap {
+  background: #12101e;
+}
+
+.exp-content-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.exp-item-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.85rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.exp-badge {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
-  padding: 0.25rem 0.55rem;
-  background: rgba(245, 240, 232, 0.04);
-  border: 1px solid rgba(245, 240, 232, 0.12);
-  border-radius: 4px;
-  margin-bottom: 0.4rem;
-}
-
-.exp-badge.accent-orange-badge {
-  color: var(--accent-primary);
-  background: var(--accent-bg);
-  border-color: var(--border-subtle);
-}
-
-.exp-company {
-  font-family: var(--font-sub);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-}
-
-.exp-title {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-  color: var(--text-primary);
-  margin-top: 0.15rem;
-  font-weight: 500;
-}
-
-.exp-date {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  margin-top: 0.15rem;
-}
-
-.exp-metrics-box {
-  display: flex;
+  align-items: baseline;
   gap: 1.25rem;
-  padding: 0.65rem 1.25rem;
-  background: rgba(10, 9, 8, 0.5);
-  border: 1px solid rgba(245, 240, 232, 0.08);
-  border-radius: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
 }
 
-.m-counter-unit {
+.exp-company-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.28rem, 2vw, 1.55rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.exp-date-range {
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 1vw, 0.86rem);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.exp-role-name {
+  display: block;
+  font-family: var(--font-sub);
+  font-size: clamp(0.94rem, 1.25vw, 1.05rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+  letter-spacing: 0.01em;
+}
+
+.exp-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.15rem 0 0 0;
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.75rem;
 }
 
-.counter-number {
-  font-family: var(--font-mono);
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--accent-primary);
+.exp-bullet-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.1vw, 0.98rem);
+  line-height: 1.62;
+  color: rgba(245, 240, 232, 0.88);
+  font-weight: 400;
 }
 
-.counter-desc {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-muted);
+.exp-bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #a855f7;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
 }
 
-.exp-narrative {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 0.85rem;
-  max-width: 850px;
-}
-
-.exp-proof-strip {
-  display: flex;
-  gap: 1rem;
-}
-
-.proof-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.65rem 1.25rem;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-default);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.proof-btn:hover {
-  background: var(--accent-bg);
-  border-color: var(--accent-bright);
-  box-shadow: 0 0 16px var(--accent-glow);
-  transform: translateY(-2px);
+@media (max-width: 768px) {
+  .exp-minimal-item {
+    gap: 1rem;
+  }
+  .exp-logo-wrap {
+    width: 46px;
+    height: 46px;
+  }
+  .exp-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
 }
 
 /* ==========================================================================

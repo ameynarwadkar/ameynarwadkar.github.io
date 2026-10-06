@@ -76,7 +76,7 @@
         </a>
         <a href="#ch-worked" class="hud-idx" data-chapter="ch-worked">
           <span class="idx-num">04</span>
-          <span class="idx-name">WHERE I'VE WORKED?</span>
+          <span class="idx-name">EXPERIENCE</span>
         </a>
         <a href="#ch-studied" class="hud-idx" data-chapter="ch-studied">
           <span class="idx-num">05</span>
@@ -478,7 +478,7 @@
         <div class="chapter-content horizontal-content-container">
           <div class="projects-header-row">
             <div class="section-lead minimal-lead">
-              <h2 class="section-title">What I've Done?</h2>
+              <h2 class="section-title">Selected Work</h2>
               <p class="section-subtitle">
                 Production platforms &amp; verified research architectures.
               </p>
@@ -502,7 +502,8 @@
               <div class="showcase-card showcase-tracxo project-card active-card" data-project-idx="0">
                 <div class="showcase-grid">
                   <div class="showcase-visual">
-                    <a href="https://tracxo.de" target="_blank" rel="noopener" class="media-frame frame-link" title="Visit tracxo.de">
+                    <a href="https://tracxo.de" target="_blank" rel="noopener" class="media-frame frame-link"
+                      title="Visit tracxo.de">
                       <img src="../images/tracxo.png" alt="Tracxo Operational Intelligence" class="showcase-img">
                       <div class="media-visit-badge">
                         <span class="live-pulse-dot"></span>
@@ -513,14 +514,14 @@
                   <div class="showcase-body">
                     <div class="project-tag-row">
                       <span class="project-idx-num">01 / 03</span>
-                      <a href="https://tracxo.de" target="_blank" rel="noopener" class="project-site-link">
+                      <!-- <a href="https://tracxo.de" target="_blank" rel="noopener" class="project-site-link">
                         <span class="site-dot"></span>
                         <span>tracxo.de</span>
                         <span class="site-arrow">↗</span>
-                      </a>
+                      </a> -->
                     </div>
                     <h3 class="project-headline">
-                      <a href="https://tracxo.de" target="_blank" rel="noopener" class="headline-link">TRACXO <span class="ext-icon">↗</span></a>
+                      TRACXO
                     </h3>
                     <p class="project-summary">
                       Autonomous multi-agent platform for restaurant operations.
@@ -568,7 +569,8 @@
                     </div>
                     <h3 class="project-headline">Self-Corrective Retrieval Engine</h3>
                     <p class="project-summary">
-                      Deterministic 9-node state graph with query decomposition, hybrid BM25 + pgvector retrieval, and automated critique gates.
+                      Deterministic 9-node state graph with query decomposition, hybrid BM25 + pgvector retrieval, and
+                      automated critique gates.
                     </p>
                     <div class="project-divider"></div>
                     <div class="metric-row">
@@ -611,7 +613,8 @@
                     </div>
                     <h3 class="project-headline">Rule-Guided Graph Reasoning</h3>
                     <p class="project-summary">
-                      Leakage-free link prediction marrying RotatE complex embeddings with AnyBURL first-order Horn rules across 14.8M+ triples.
+                      Leakage-free link prediction marrying RotatE complex embeddings with AnyBURL first-order Horn
+                      rules across 14.8M+ triples.
                     </p>
                     <div class="project-divider"></div>
                     <div class="metric-row">
@@ -652,81 +655,61 @@
     </section>
 
     <!-- ===================================================================
-         CHAPTER 04: WHERE I'VE WORKED?
+         CHAPTER 04: EXPERIENCE (MINIMAL SHOWCASE)
          =================================================================== -->
-    <section class="chapter-screen" id="ch-worked">
+    <section class="chapter-screen chapter-experience-screen" id="ch-worked">
       <div class="chapter-content">
-        <div class="section-lead">
-          <h2 class="section-title">My Experience</h2>
-          <p class="section-subtitle">
-            Delivering measurable gains in corporate research labs and fast-paced venture engineering.
-          </p>
+        <div class="section-lead minimal-lead exp-lead">
+          <h2 class="section-title exp-section-title">Experience</h2>
+          <div class="exp-lead-divider"></div>
         </div>
 
-        <div class="experience-timeline">
+        <div class="experience-minimal-list">
 
-          <!-- Role 1: NEC Laboratories Europe -->
-          <article class="exp-card">
-            <div class="exp-header">
-              <div class="exp-role-info">
-                <span class="exp-badge">CORPORATE AI RESEARCH</span>
-                <h3 class="exp-company">NEC Laboratories Europe</h3>
-                <span class="exp-title">Software Developer AI/ML — Working Student</span>
-                <span class="exp-date">May 2025 — Present · Heidelberg, Germany</span>
-              </div>
-              <div class="exp-metrics-box">
-                <div class="m-counter-unit">
-                  <span class="counter-number" data-target="81">+81%</span>
-                  <span class="counter-desc">Quality Loss Reduction</span>
-                </div>
-                <div class="m-counter-unit">
-                  <span class="counter-number" data-target="2.4">2.4×</span>
-                  <span class="counter-desc">Lower Estimation Error</span>
-                </div>
+          <!-- Role 1: NEC Labs Europe -->
+          <article class="exp-minimal-item">
+            <div class="exp-org-col">
+              <div class="exp-logo-wrap nec-logo-wrap">
+                <img src="../images/pic02.jpg" alt="NEC Labs Europe" class="exp-logo-img">
               </div>
             </div>
-
-            <p class="exp-narrative">
-              Architected a 6-stage literature-grounded synthetic data generation pipeline (planning, generation,
-              constraint verification, critique, schema repair, regression testing). Achieved 100% structured JSON parse
-              success across longitudinal benchmark evaluations.
-            </p>
-
-            <!-- Research Proof Widget -->
-            <div class="exp-proof-strip">
-              <button class="proof-btn" id="open-nec-modal">
-                <span class="proof-icon">📊</span>
-                <span class="proof-text">View Benchmark Verification Architecture (fig_reliability.png)</span>
-              </button>
+            <div class="exp-content-col">
+              <div class="exp-item-header">
+                <div class="exp-headline-group">
+                  <h3 class="exp-company-name">NEC Labs Europe</h3>
+                  <span class="exp-role-name">Working Student — Software Development</span>
+                </div>
+                <span class="exp-date-range">May 2025 — Present</span>
+              </div>
+              <ul class="exp-bullet-list">
+                <li>Built literature-grounded synthetic data generation pipelines (375+ published correlations, 11+ evidence packages) using multi-agent planning, generation, critique, and verification to produce realistic longitudinal data.</li>
+                <li>Reduced synthetic data quality loss by 81% (0.106 to 0.020) on a 230+ user data benchmark, expanding validation to 6 quality gates and eliminating constraint violations entirely.</li>
+                <li>Outperformed statistical baselines with 2.4× lower ICC error and 26% lower holdout RMSE across 5,000+ longitudinal gap-filling predictions.</li>
+                <li>Designed schema-constrained LLM pipelines with automated validation/repair, achieving 100% structured-output parse success while tracking token usage and cost.</li>
+              </ul>
             </div>
           </article>
 
-          <!-- Role 2: Tracxo -->
-          <article class="exp-card">
-            <div class="exp-header">
-              <div class="exp-role-info">
-                <span class="exp-badge accent-orange-badge">CO-FOUNDER &amp; TECH LEAD</span>
-                <h3 class="exp-company">Tracxo</h3>
-                <span class="exp-title">AI Systems Architect &amp; Co-Founder</span>
-                <span class="exp-date">2024 — Present · Munich &amp; Heidelberg</span>
-              </div>
-              <div class="exp-metrics-box">
-                <div class="m-counter-unit">
-                  <span class="counter-number" data-target="50">50+</span>
-                  <span class="counter-desc">Enterprise Locations</span>
-                </div>
-                <div class="m-counter-unit">
-                  <span class="counter-number" data-target="16">16</span>
-                  <span class="counter-desc">Autonomous Agent Tools</span>
-                </div>
+          <!-- Role 2: Soul AI -->
+          <article class="exp-minimal-item">
+            <div class="exp-org-col">
+              <div class="exp-logo-wrap soul-logo-wrap">
+                <img src="../images/soul.jpg" alt="Soul AI" class="exp-logo-img">
               </div>
             </div>
-
-            <p class="exp-narrative">
-              Engineered the multi-tenant agent execution engine connecting WhatsApp API webhooks, Supabase PostgreSQL,
-              and automated supplier reconciliation pipelines. Designed latency budgets and schema constraints for
-              continuous production availability.
-            </p>
+            <div class="exp-content-col">
+              <div class="exp-item-header">
+                <div class="exp-headline-group">
+                  <h3 class="exp-company-name">Soul AI</h3>
+                  <span class="exp-role-name">AI Data Specialist — LLM Evaluation</span>
+                </div>
+                <span class="exp-date-range">Oct 2023 — Apr 2024</span>
+              </div>
+              <ul class="exp-bullet-list">
+                <li>Contributed to RLHF data pipelines evaluating LLM outputs for college-level mathematics — multi-turn reasoning, hallucination reduction, and context-retention analysis.</li>
+                <li>Reviewed and annotated model outputs across 500+ evaluation tasks, identifying failure patterns and collaborating with human evaluators to improve model quality.</li>
+              </ul>
+            </div>
           </article>
 
         </div>
