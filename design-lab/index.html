@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Design Lab | Amey Narwadkar</title>
+  <meta name="description" content="Portfolio Design Lab showcasing 4 experimental interactive website concepts inspired by high-end Awwwards portfolio architectures for an AI/ML Engineer.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="lab-hub-body">
+
+  <!-- Ambient Backdrop -->
+  <div class="lab-hub-ambient"></div>
+
+  <!-- Hub Header / Navigation -->
+  <header class="hub-header">
+    <div class="hub-header-inner">
+      <div class="hub-brand">
+        <span class="hub-dot"></span>
+        <div class="hub-brand-text">
+          <span class="hub-title">PORTFOLIO DESIGN LAB</span>
+          <span class="hub-author">AMEY NARWADKAR // AI & ML ENGINEER</span>
+        </div>
+      </div>
+
+      <div class="hub-meta-actions">
+        <a href="../v2/" class="hub-return-link" title="View Current Portfolio V2">Current Portfolio V2 ↗</a>
+        <a href="mailto:ameynarwadkar@gmail.com" class="hub-btn-contact">Contact Amey</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="hub-main-container">
+
+    <!-- Featured Showcase Section -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+      <!-- Card 0: 6-Chapter Interactive Scrollytelling Portfolio -->
+      <div style="grid-column: 1 / -1; padding: 2.2rem; background: linear-gradient(135deg, rgba(81, 242, 241, 0.12), rgba(255, 68, 33, 0.12), rgba(15, 15, 20, 0.98)); border: 2px solid var(--brand-cyan, #51f2f1); border-radius: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; box-shadow: 0 15px 50px rgba(81, 242, 241, 0.15);">
+        <div style="max-width: 750px;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #51f2f1; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(81, 242, 241, 0.12); padding: 0.3rem 0.75rem; border-radius: 4px; margin-bottom: 0.85rem; border: 1px solid rgba(81, 242, 241, 0.35);">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #51f2f1; box-shadow: 0 0 8px #51f2f1;"></span>
+            <span>FEATURED FLAGSHIP · 6-CHAPTER SCROLLYTELLING DOSSIER</span>
+          </div>
+          <h3 style="font-size: 1.85rem; font-weight: 800; margin: 0; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.02em; line-height: 1.15;">
+            Amey Narwadkar // Interactive Scrollytelling Narrative
+          </h3>
+          <p style="font-size: 0.92rem; color: rgba(255,255,255,0.8); margin: 0.75rem 0 0 0; line-height: 1.6;">
+            Strict 6-chapter cinematic story: <strong>01. Who am I?</strong> → <strong>02. What I do?</strong> → <strong>03. What I've done?</strong> → <strong>04. Where I've worked?</strong> → <strong>05. Where I've studied?</strong> → <strong>06. Get in Touch.</strong> Built with minimal text, 3D cursor-tracking photo card, interactive WhatsApp multi-agent simulator, animated flow vectors, and research lightbox.
+          </p>
+          <div style="display: flex; gap: 0.6rem; margin-top: 1.1rem; flex-wrap: wrap;">
+            <span style="font-size: 0.7rem; color: #51f2f1; font-family: 'JetBrains Mono', monospace; background: rgba(81,242,241,0.08); padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(81,242,241,0.2);">Persistent HUD Stream</span>
+            <span style="font-size: 0.7rem; color: #ff4421; font-family: 'JetBrains Mono', monospace; background: rgba(255,68,33,0.08); padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(255,68,33,0.2);">3D Mouse Tilt Card</span>
+            <span style="font-size: 0.7rem; color: #c4b5fd; font-family: 'JetBrains Mono', monospace; background: rgba(196,181,253,0.08); padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(196,181,253,0.2);">Interactive Agent Dispatcher</span>
+            <span style="font-size: 0.7rem; color: #6bcf8a; font-family: 'JetBrains Mono', monospace; background: rgba(107,207,138,0.08); padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(107,207,138,0.2);">Metric Counters</span>
+          </div>
+        </div>
+        <a href="scrolly-portfolio/" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1.1rem 2.2rem; background: #51f2f1; color: #08080a; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 800; text-decoration: none; border-radius: 10px; letter-spacing: 0.05em; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(81,242,241,0.4)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+          LAUNCH SCROLLYTELLING →
+        </a>
+      </div>
+
+      <!-- Card 1: Adapted Portfolio for Amey -->
+      <div style="padding: 2rem; background: linear-gradient(135deg, rgba(255, 68, 33, 0.15), rgba(20, 20, 20, 0.95)); border: 1.5px solid #ff4421; border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; box-shadow: 0 10px 40px rgba(255, 68, 33, 0.15);">
+        <div>
+          <div style="display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #ff4421; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(255, 68, 33, 0.12); padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem; border: 1px solid rgba(255,68,33,0.3);">
+            ★ NEW ADAPTATION · AI/ML ENGINEER
+          </div>
+          <h3 style="font-size: 1.6rem; font-weight: 800; margin: 0; color: #fff; font-family: 'Barlow Condensed', 'Space Grotesk', sans-serif; letter-spacing: 0.02em; line-height: 1.1;">
+            AMEY NARWADKAR // BEHIND THE SCENES
+          </h3>
+          <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); margin: 0.6rem 0 0 0; line-height: 1.55;">
+            Amey's real-world AI engineering experience adapted directly into Alexander Löhn's iconic editorial poster aesthetic. Monumental vermilion typography, sticky asymmetric 60/40 splits, Tracxo multi-agent operational platform, NEC Labs synthetic data verification, and Heidelberg Master's Thesis.
+          </p>
+          <div style="display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span style="font-size: 0.7rem; color: #888; font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">☼ Light / ☾ Dark Engine</span>
+            <span style="font-size: 0.7rem; color: #888; font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">60 FPS Menu Overlay</span>
+            <span style="font-size: 0.7rem; color: #888; font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">Swiss Editorial Serif</span>
+          </div>
+        </div>
+        <a href="behind-the-scenes-portfolio/" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.95rem 1.8rem; background: #ff4421; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; text-decoration: none; border-radius: 8px; letter-spacing: 0.05em; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(255,68,33,0.4)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+          OPEN AMEY'S PORTFOLIO →
+        </a>
+      </div>
+
+      <!-- Card 2: 1:1 Study Reference -->
+      <div style="padding: 2rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem;">
+        <div>
+          <div style="display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.5); letter-spacing: 0.15em; text-transform: uppercase; background: rgba(255,255,255,0.05); padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem;">
+            BENCHMARK · 1:1 RECREATION
+          </div>
+          <h3 style="font-size: 1.4rem; font-weight: 700; margin: 0; color: #fff; font-family: 'Space Grotesk', sans-serif;">
+            loehx.com / Behind The Scenes
+          </h3>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin: 0.6rem 0 0 0; line-height: 1.55;">
+            Pixel-accurate local reproduction of Alexander Löhn's original portfolio page. Used as the architectural blueprint for typography scales, dark/light theme switching, and layout geometry.
+          </p>
+        </div>
+        <a href="behind-the-scenes/" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.4rem; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; text-decoration: none; border-radius: 8px; letter-spacing: 0.05em; transition: all 0.2s;" onmouseover="this.style.borderColor='#fff'; this.style.background='rgba(255,255,255,0.08)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.background='transparent';">
+          VIEW 1:1 REFERENCE STUDY ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Introduction -->
+    <section class="hub-hero">
+      <div class="hub-badge">
+        <span class="badge-ring"></span>
+        <span>EXPERIMENTAL INTERACTION LAB // AWWWARDS BENCHMARK</span>
+      </div>
+
+      <h1 class="hub-headline">
+        Four Architectural Visions for an AI/ML Portfolio
+      </h1>
+
+      <p class="hub-subhead">
+        A structured design exploration testing four completely distinct interaction models, typography systems, and narrative paradigms tailored to an elite AI/ML Engineer.
+      </p>
+
+      <div class="hub-legend-strip">
+        <div class="legend-item">
+          <span class="legend-val">4</span>
+          <span class="legend-lbl">Functional Concepts</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-val">0</span>
+          <span class="legend-lbl">Generic Templates</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-val">60 FPS</span>
+          <span class="legend-lbl">Hardware Accelerated</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-val">100%</span>
+          <span class="legend-lbl">Production Grounded</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 4 Concepts Showcase Cards -->
+    <section class="hub-concepts-grid">
+
+      <!-- ===================================================================
+           CONCEPT 01: CINEMATIC SCROLLYTELLING
+           =================================================================== -->
+      <article class="concept-card concept-01" id="concept-01">
+        <div class="concept-preview-frame">
+          <div class="concept-sim-screen screen-scrolly">
+            <div class="sim-cinema-monument">
+              <span class="sim-badge">01 // PRODUCTION SPECIFICATION</span>
+              <div class="sim-title">AMEY NARWADKAR</div>
+              <div class="sim-sub">AI / MACHINE LEARNING ENGINEER</div>
+              <div class="sim-flow-strip">
+                <span>WhatsApp</span> → <span>Agent</span> → <span>Postgres</span> → <span>Decision</span>
+              </div>
+            </div>
+          </div>
+          <div class="preview-overlay">
+            <a href="concept-01/" class="btn-launch-concept">
+              <span>EXPLORE CONCEPT 01</span>
+              <span class="launch-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="concept-info-pane">
+          <div class="concept-header-row">
+            <span class="c-number">CONCEPT 01</span>
+            <span class="c-tag">SCROLLYTELLING // NARRATIVE ARCHITECTURE</span>
+          </div>
+
+          <h2 class="c-title">Cinematic Scrollytelling</h2>
+          <p class="c-pitch">
+            Treats the portfolio as an unfolding documentary. As the user scrolls, monumental typography transforms into pinned architectural scenes, progressive domain breakdowns, and step-by-step pipeline flows.
+          </p>
+
+          <div class="c-specs-grid">
+            <div class="c-spec-block">
+              <span class="spec-k">DESIGN PHILOSOPHY</span>
+              <p class="spec-v">Narrative pacing over vertical card stacking. Replaces static text with scroll-coupled temporal progression.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">CORE INTERACTIONS</span>
+              <p class="spec-v">Sticky viewport pinning, scroll-driven node transformations, live Tracxo execution flow, reading HUD meter.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">TECHNICAL APPROACH</span>
+              <p class="spec-v">Passive scroll listener, 350vh sticky staging, canvas constellation particle mesh, CSS transform lerping.</p>
+            </div>
+          </div>
+
+          <div class="c-action-bar">
+            <a href="concept-01/" class="c-direct-btn">Launch Concept 01 Demo →</a>
+            <span class="c-tech-pills">Space Grotesk · Canvas · CSS Sticky · Pinned Parallax</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================================================================
+           CONCEPT 02: AI OPERATING SYSTEM
+           =================================================================== -->
+      <article class="concept-card concept-02" id="concept-02">
+        <div class="concept-preview-frame">
+          <div class="concept-sim-screen screen-aios">
+            <div class="sim-os-hud">
+              <span>AMEY // SYSTEM ONLINE</span>
+              <span class="sim-led"></span>
+            </div>
+            <div class="sim-os-waveform">
+              <div class="sim-wave-line"></div>
+            </div>
+            <div class="sim-os-modules">
+              <div class="sim-mod active">MOD_01 // TRACXO [LIVE]</div>
+              <div class="sim-mod">MOD_02 // NEC LABS</div>
+              <div class="sim-mod">MOD_03 // THESIS KG</div>
+            </div>
+          </div>
+          <div class="preview-overlay">
+            <a href="concept-02/" class="btn-launch-concept">
+              <span>EXPLORE CONCEPT 02</span>
+              <span class="launch-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="concept-info-pane">
+          <div class="concept-header-row">
+            <span class="c-number">CONCEPT 02</span>
+            <span class="c-tag">OPERATING SYSTEM // RESEARCH INTERFACE</span>
+          </div>
+
+          <h2 class="c-title">AI Operating System</h2>
+          <p class="c-pitch">
+            Positions Amey as the architect of an active AI research cluster. Projects behave like executable modules with telemetry status readouts, expandable architecture modal inspectors, and a command palette.
+          </p>
+
+          <div class="c-specs-grid">
+            <div class="c-spec-block">
+              <span class="spec-k">DESIGN PHILOSOPHY</span>
+              <p class="spec-v">High technical density and surgical control. Looks like a mission-critical AI research station without hacker clichés.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">CORE INTERACTIONS</span>
+              <p class="spec-v">Expandable architecture modal drawer, Cmd+K command palette, real-time waveform canvas, collapsible logs terminal.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">TECHNICAL APPROACH</span>
+              <p class="spec-v">Oscilloscope canvas engine, dynamic modal node inspector with Pydantic/FastAPI schemas, simulated daemon logs.</p>
+            </div>
+          </div>
+
+          <div class="c-action-bar">
+            <a href="concept-02/" class="c-direct-btn">Launch Concept 02 Demo →</a>
+            <span class="c-tech-pills">JetBrains Mono · Cmd+K Palette · Waveform · Interactive Schema</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================================================================
+           CONCEPT 03: SPATIAL / EXPERIMENTAL PORTFOLIO
+           =================================================================== -->
+      <article class="concept-card concept-03" id="concept-03">
+        <div class="concept-preview-frame">
+          <div class="concept-sim-screen screen-spatial">
+            <div class="sim-spatial-constellation">
+              <div class="sim-node center">TRACXO</div>
+              <div class="sim-node left">NEC</div>
+              <div class="sim-node right">THESIS</div>
+              <div class="sim-node bottom">RL</div>
+              <svg class="sim-lines"><line x1="160" y1="90" x2="80" y2="70"></line><line x1="160" y1="90" x2="240" y2="70"></line><line x1="160" y1="90" x2="160" y2="140"></line></svg>
+            </div>
+            <div class="sim-radar-box"></div>
+          </div>
+          <div class="preview-overlay">
+            <a href="concept-03/" class="btn-launch-concept">
+              <span>EXPLORE CONCEPT 03</span>
+              <span class="launch-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="concept-info-pane">
+          <div class="concept-header-row">
+            <span class="c-number">CONCEPT 03</span>
+            <span class="c-tag">SPATIAL CANVAS // 2.5D CONSTELLATION</span>
+          </div>
+
+          <h2 class="c-title">Spatial / Experimental Portfolio</h2>
+          <p class="c-pitch">
+            Replaces vertical web pages with an infinite 2.5D visual canvas. Projects occupy real spatial coordinates that users can navigate via click-drag, mousewheel, minimap radar, or bottom navigation dock.
+          </p>
+
+          <div class="c-specs-grid">
+            <div class="c-spec-block">
+              <span class="spec-k">DESIGN PHILOSOPHY</span>
+              <p class="spec-v">Exploration and visual discovery. Positions projects as interconnected intellectual satellites in a digital cosmos.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">CORE INTERACTIONS</span>
+              <p class="spec-v">Free-pan camera with lerp physics, interactive minimap radar, node focus deep-dive slideout, recruiter list view fallback.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">TECHNICAL APPROACH</span>
+              <p class="spec-v">Smooth 60fps transform lerping, real-time SVG constellation rendering, coordinate boundary bounding, zero heavy 3D bloat.</p>
+            </div>
+          </div>
+
+          <div class="c-action-bar">
+            <a href="concept-03/" class="c-direct-btn">Launch Concept 03 Demo →</a>
+            <span class="c-tech-pills">Spatial Physics · Minimap Radar · Lerp Camera · Deep-Dive Drawer</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================================================================
+           CONCEPT 04: EDITORIAL / SWISS TECH
+           =================================================================== -->
+      <article class="concept-card concept-04" id="concept-04">
+        <div class="concept-preview-frame">
+          <div class="concept-sim-screen screen-swiss">
+            <div class="sim-swiss-header">
+              <span>[01] AMEY NARWADKAR</span>
+              <span>[02] HEIDELBERG</span>
+            </div>
+            <div class="sim-swiss-hero">
+              <div>AMEY</div>
+              <div>NARWADKAR</div>
+              <div class="sim-outline">AI ENGINEER</div>
+            </div>
+            <div class="sim-hover-box">
+              <span>01 / TRACXO ↗</span>
+            </div>
+          </div>
+          <div class="preview-overlay">
+            <a href="concept-04/" class="btn-launch-concept">
+              <span>EXPLORE CONCEPT 04</span>
+              <span class="launch-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="concept-info-pane">
+          <div class="concept-header-row">
+            <span class="c-number">CONCEPT 04</span>
+            <span class="c-tag">SWISS EDITORIAL // INTERNATIONAL STYLE</span>
+          </div>
+
+          <h2 class="c-title">Editorial / Swiss Tech</h2>
+          <p class="c-pitch">
+            A radical departure: minimal, high-contrast, off-white bone paper aesthetic with monumental Syne typography, strict 1px hairline Swiss grid lines, and interactive floating cursor hover previews.
+          </p>
+
+          <div class="c-specs-grid">
+            <div class="c-spec-block">
+              <span class="spec-k">DESIGN PHILOSOPHY</span>
+              <p class="spec-v">Restraint as high-craft. Eliminates all decorative blobs; creativity stems entirely from layout, scale, rhythm, and typography.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">CORE INTERACTIONS</span>
+              <p class="spec-v">Magnetic cursor hover preview card, typographic row scale shifts, Swiss 4-column masthead, clean academic tables.</p>
+            </div>
+            <div class="c-spec-block">
+              <span class="spec-k">TECHNICAL APPROACH</span>
+              <p class="spec-v">Spring-interpolated cursor physics, CSS grid alignment, high-contrast light theme, rapid sub-second page loads.</p>
+            </div>
+          </div>
+
+          <div class="c-action-bar">
+            <a href="concept-04/" class="c-direct-btn">Launch Concept 04 Demo →</a>
+            <span class="c-tech-pills">Syne · Swiss Grid · Floating Preview Cursor · Monochromatic</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Side-by-Side Comparative Matrix Table -->
+    <section class="hub-comparison-section">
+      <div class="comparison-header">
+        <span class="comp-badge">ARCHITECTURAL EVALUATION</span>
+        <h2 class="comp-title">Comparative Analysis Matrix</h2>
+      </div>
+
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Evaluation Vector</th>
+              <th>Concept 01: Scrollytelling</th>
+              <th>Concept 02: AI OS</th>
+              <th>Concept 03: Spatial Canvas</th>
+              <th>Concept 04: Swiss Editorial</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">Visual Atmosphere</td>
+              <td>Deep Obsidian & Cinematic Cyan</td>
+              <td>Technical Dark Slate & Neon Telemetry</td>
+              <td>Cosmic Abyss & Luminous Halos</td>
+              <td>Bone Off-White & Stark Black Ink</td>
+            </tr>
+            <tr>
+              <td class="row-label">Interaction Paradigm</td>
+              <td>Scroll-Coupled Narrative Pinning</td>
+              <td>Modular HUD & Interactive Drawers</td>
+              <td>2.5D Coordinate World Navigation</td>
+              <td>Cursor Proximity & Index Hovering</td>
+            </tr>
+            <tr>
+              <td class="row-label">Target Audience Fit</td>
+              <td>Founders & Story-focused VCs</td>
+              <td>Engineering Leaders & ML Directors</td>
+              <td>Creative Technologists & Innovators</td>
+              <td>Design-Conscious Tech Studios</td>
+            </tr>
+            <tr>
+              <td class="row-label">Motion Intensity</td>
+              <td>Balanced (Scroll-synchronized)</td>
+              <td>Focused (Real-time charts & dialogs)</td>
+              <td>High (Pan, inertia & radar tracking)</td>
+              <td>Ultra-Low (Micro-interactions only)</td>
+            </tr>
+            <tr>
+              <td class="row-label">Information Density</td>
+              <td>Moderate (Unfolds progressively)</td>
+              <td>High (Immediate technical data)</td>
+              <td>Spatial (Explorable at will)</td>
+              <td>High (Clear structured typographic lists)</td>
+            </tr>
+            <tr>
+              <td class="row-label">Recruiter Read Speed</td>
+              <td>Medium (Requires narrative scrolling)</td>
+              <td>Fast (Direct modules & Cmd+K search)</td>
+              <td>Fast (Radar + Bottom Dock + List View)</td>
+              <td>Ultra-Fast (Instant scannable index)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <span>AMEY NARWADKAR // PORTFOLIO DESIGN LAB // 2025–2026</span>
+      <span>READY FOR COMPARISON & SELECTION</span>
+    </div>
+  </footer>
+
+</body>
+</html>
