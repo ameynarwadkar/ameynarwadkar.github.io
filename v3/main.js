@@ -403,7 +403,7 @@ function init3DCardTilt() {
    4. SYSTEM ARCHITECTURE PIPELINE INTERACTIONS (CHAPTER 02)
    ========================================================================== */
 function initArchitecturePipeline() {
-  const nodes = document.querySelectorAll('.pipe-node, .pipe-col');
+  const nodes = document.querySelectorAll('.pipe-card, .pipe-node, .pipe-col');
   const brackets = document.querySelectorAll('.phase-bracket');
   const arrows = document.querySelectorAll('.arrow-pulse');
 
