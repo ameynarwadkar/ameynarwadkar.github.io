@@ -178,103 +178,273 @@
          =================================================================== -->
     <section class="chapter-screen" id="ch-what">
       <div class="chapter-content">
-        <div class="section-lead">
-          <h2 class="section-title">What I Do?</h2>
-          <p class="section-subtitle">
-            Four production disciplines engineered for high throughput, verified retrieval, and zero-hallucination
-            execution.
+        <div class="section-lead sys-lead">
+          <div class="sys-badge">
+            <span class="sys-badge-num">3</span>
+            <span class="sys-badge-label">Integrated Architecture (System View)</span>
+          </div>
+          <h2 class="sys-headline">I take <span class="accent-orange">ideas</span> to <span class="accent-purple">production</span>.</h2>
+          <p class="sys-subtitle">
+            End-to-end AI systems: agents, knowledge, infrastructure, and reliability.
           </p>
         </div>
 
-        <!-- 4 Interactive Pillar Cards with Interactive Flow Trigger -->
-        <div class="pillars-grid" id="pillars-grid">
+        <!-- Integrated System Architecture Canvas -->
+        <div class="sys-architecture-card">
+          <div class="pipeline-track">
 
-          <!-- Pillar 1 -->
-          <div class="pillar-card" data-node="0">
-            <div class="pillar-header">
-              <div class="pillar-icon-box accent-orange">01</div>
-              <span class="pillar-metric">&lt; 850ms P95</span>
+            <!-- 1. Users Input -->
+            <div class="pipe-col stage-users" id="stage-users">
+              <span class="pipe-col-label">Users</span>
+              <div class="pipe-items">
+                <div class="user-pill">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                  <span>Chat</span>
+                </div>
+                <div class="user-pill">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                  </svg>
+                  <span>API</span>
+                </div>
+                <div class="user-pill">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                  <span>Batch</span>
+                </div>
+              </div>
             </div>
-            <h3 class="pillar-name">Multi-Agent Orchestration</h3>
-            <p class="pillar-desc">
-              Cyclical state machines, human-in-the-loop audit gates, dynamic tool routing, and parallel subagent
-              workers.
-            </p>
-            <div class="pillar-tags">
-              <span>LangGraph</span>
-              <span>Python AsyncIO</span>
-              <span>Supervisor Trees</span>
+
+            <!-- Connector 1 -->
+            <div class="pipe-arrow">
+              <div class="arrow-track"><span class="arrow-pulse"></span></div>
+              <span class="arrow-tip">›</span>
             </div>
+
+            <!-- 2. Agent Orchestration (Stage 1 - Orange) -->
+            <div class="pipe-node stage-agent" id="stage-agent" data-phase="bracket-design">
+              <div class="node-header">
+                <span class="node-title">Agent<br>Orchestration</span>
+              </div>
+              <div class="node-visual node-visual-agent">
+                <svg class="node-svg svg-agent" viewBox="0 0 100 80" fill="none">
+                  <!-- Isometric Server Stack -->
+                  <polygon points="50,8 88,26 50,44 12,26" class="iso-slab slab-top" />
+                  <polygon points="12,26 50,44 50,52 12,34" class="iso-edge edge-left" />
+                  <polygon points="50,44 88,26 88,34 50,52" class="iso-edge edge-right" />
+
+                  <polygon points="50,26 88,44 50,62 12,44" class="iso-slab slab-mid" />
+                  <polygon points="12,44 50,62 50,70 12,52" class="iso-edge edge-left" />
+                  <polygon points="50,62 88,44 88,52 50,70" class="iso-edge edge-right" />
+
+                  <polygon points="50,44 88,62 50,80 12,62" class="iso-slab slab-bot" />
+                  <!-- Glowing Neural Core -->
+                  <circle cx="50" cy="26" r="4.5" class="core-dot core-pulse" />
+                  <circle cx="34" cy="22" r="2" class="sub-dot" />
+                  <circle cx="66" cy="22" r="2" class="sub-dot" />
+                  <line x1="34" y1="22" x2="50" y2="26" class="core-link" />
+                  <line x1="66" y1="22" x2="50" y2="26" class="core-link" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Connector 2 -->
+            <div class="pipe-arrow">
+              <div class="arrow-track"><span class="arrow-pulse"></span></div>
+              <span class="arrow-tip">›</span>
+            </div>
+
+            <!-- 3. Tools & Integrations (Stage 2 - Indigo) -->
+            <div class="pipe-node stage-tools" id="stage-tools" data-phase="bracket-build">
+              <div class="node-header">
+                <span class="node-title">Tools &amp;<br>Integrations</span>
+              </div>
+              <div class="node-visual node-visual-tools">
+                <div class="tools-grid-2x2">
+                  <div class="tool-cell">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                  </div>
+                  <div class="tool-cell">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M10 21h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7M7 3v4M3 11v4M3 17h4"/>
+                    </svg>
+                  </div>
+                  <div class="tool-cell">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                  </div>
+                  <div class="tool-cell">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Connector 3 -->
+            <div class="pipe-arrow">
+              <div class="arrow-track"><span class="arrow-pulse"></span></div>
+              <span class="arrow-tip">›</span>
+            </div>
+
+            <!-- 4. Knowledge Graphs & RAG (Stage 3 - Purple) -->
+            <div class="pipe-node stage-kg" id="stage-kg" data-phase="bracket-build">
+              <div class="node-header">
+                <span class="node-title">Knowledge<br>Graphs &amp; RAG</span>
+              </div>
+              <div class="node-visual node-visual-kg">
+                <svg class="node-svg svg-kg" viewBox="0 0 100 80" fill="none">
+                  <!-- Connecting Graph Edges -->
+                  <line x1="50" y1="16" x2="26" y2="38" class="kg-edge" />
+                  <line x1="50" y1="16" x2="74" y2="34" class="kg-edge" />
+                  <line x1="26" y1="38" x2="38" y2="64" class="kg-edge" />
+                  <line x1="26" y1="38" x2="68" y2="60" class="kg-edge" />
+                  <line x1="74" y1="34" x2="68" y2="60" class="kg-edge" />
+                  <line x1="50" y1="16" x2="52" y2="44" class="kg-edge" />
+                  <line x1="52" y1="44" x2="38" y2="64" class="kg-edge" />
+                  <line x1="52" y1="44" x2="68" y2="60" class="kg-edge" />
+                  <!-- Graph Nodes -->
+                  <circle cx="50" cy="16" r="5" class="kg-node node-pulse-1" />
+                  <circle cx="26" cy="38" r="4.5" class="kg-node node-pulse-2" />
+                  <circle cx="74" cy="34" r="5.5" class="kg-node node-pulse-3" />
+                  <circle cx="52" cy="44" r="4" class="kg-node node-pulse-4" />
+                  <circle cx="38" cy="64" r="6" class="kg-node node-pulse-5" />
+                  <circle cx="68" cy="60" r="5" class="kg-node node-pulse-6" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Connector 4 -->
+            <div class="pipe-arrow">
+              <div class="arrow-track"><span class="arrow-pulse"></span></div>
+              <span class="arrow-tip">›</span>
+            </div>
+
+            <!-- 5. LLM Infrastructure (Stage 4 - Cyan) -->
+            <div class="pipe-node stage-infra" id="stage-infra" data-phase="bracket-build">
+              <div class="node-header">
+                <span class="node-title">LLM<br>Infrastructure</span>
+              </div>
+              <div class="node-visual node-visual-infra">
+                <svg class="node-svg svg-infra" viewBox="0 0 100 80" fill="none">
+                  <!-- High Throughput Inference Server Stack -->
+                  <polygon points="50,10 88,27 50,44 12,27" class="infra-slab slab-c1" />
+                  <polygon points="12,27 50,44 50,51 12,34" class="infra-edge edge-c-left" />
+                  <polygon points="50,44 88,27 88,34 50,51" class="infra-edge edge-c-right" />
+
+                  <polygon points="50,28 88,45 50,62 12,45" class="infra-slab slab-c2" />
+                  <polygon points="12,45 50,62 50,69 12,52" class="infra-edge edge-c-left" />
+                  <polygon points="50,62 88,45 88,52 50,69" class="infra-edge edge-c-right" />
+
+                  <polygon points="50,46 88,63 50,80 12,63" class="infra-slab slab-c3" />
+                  <!-- Cyan GPU Core Star -->
+                  <circle cx="50" cy="27" r="4" class="infra-core" />
+                  <line x1="50" y1="19" x2="50" y2="35" class="infra-beam" />
+                  <line x1="42" y1="27" x2="58" y2="27" class="infra-beam" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Connector 5 -->
+            <div class="pipe-arrow">
+              <div class="arrow-track"><span class="arrow-pulse"></span></div>
+              <span class="arrow-tip">›</span>
+            </div>
+
+            <!-- 6. Evaluation & Guardrails (Stage 5 - Green) -->
+            <div class="pipe-node stage-eval" id="stage-eval" data-phase="bracket-verify">
+              <div class="node-header">
+                <span class="node-title">Evaluation<br>&amp; Guardrails</span>
+              </div>
+              <div class="node-visual node-visual-eval">
+                <div class="eval-checklist">
+                  <div class="eval-item">
+                    <span class="eval-check">✓</span>
+                    <span class="eval-bar"></span>
+                  </div>
+                  <div class="eval-item">
+                    <span class="eval-check">✓</span>
+                    <span class="eval-bar"></span>
+                  </div>
+                  <div class="eval-item">
+                    <span class="eval-check">✓</span>
+                    <span class="eval-bar"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Connector 6 -->
+            <div class="pipe-arrow">
+              <div class="arrow-track"><span class="arrow-pulse"></span></div>
+              <span class="arrow-tip">›</span>
+            </div>
+
+            <!-- 7. Production Target Output -->
+            <div class="pipe-col stage-prod" id="stage-prod" data-phase="bracket-deploy">
+              <span class="pipe-col-label">Production</span>
+              <div class="pipe-items">
+                <div class="prod-pill">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                    <rect x="9" y="9" width="6" height="6"/>
+                    <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                  </svg>
+                  <span>API</span>
+                </div>
+                <div class="prod-pill">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                  </svg>
+                  <span>Database</span>
+                </div>
+                <div class="prod-pill">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                  <span>Monitoring</span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Pillar 2 -->
-          <div class="pillar-card" data-node="1">
-            <div class="pillar-header">
-              <div class="pillar-icon-box accent-cyan">02</div>
-              <span class="pillar-metric">100% Valid JSON</span>
+          <!-- Bottom Phase Brackets Rail -->
+          <div class="phase-brackets-rail">
+            <div class="phase-bracket bracket-design" id="bracket-design">
+              <div class="bracket-line"></div>
+              <span class="bracket-title">I DESIGN</span>
+              <span class="bracket-sub">problem and solution</span>
             </div>
-            <h3 class="pillar-name">High-Throughput LLM Infra</h3>
-            <p class="pillar-desc">
-              Low-latency streaming pipelines, PagedAttention inference, token budget governance, and schema-constrained
-              decoding.
-            </p>
-            <div class="pillar-tags">
-              <span>vLLM</span>
-              <span>Azure OpenAI</span>
-              <span>Pydantic</span>
-            </div>
-          </div>
 
-          <!-- Pillar 3 -->
-          <div class="pillar-card" data-node="2">
-            <div class="pillar-header">
-              <div class="pillar-icon-box accent-purple">03</div>
-              <span class="pillar-metric">14.8M Triples</span>
+            <div class="phase-bracket bracket-build" id="bracket-build">
+              <div class="bracket-line"></div>
+              <span class="bracket-title">I BUILD</span>
+              <span class="bracket-sub">intelligence and systems</span>
             </div>
-            <h3 class="pillar-name">Knowledge Graphs &amp; Hybrid RAG</h3>
-            <p class="pillar-desc">
-              Neuro-symbolic link prediction combining RotatE vector embeddings with inductive Horn rules for zero
-              train-test leakage.
-            </p>
-            <div class="pillar-tags">
-              <span>pgvector</span>
-              <span>PyKEEN</span>
-              <span>AnyBURL</span>
-            </div>
-          </div>
 
-          <!-- Pillar 4 -->
-          <div class="pillar-card" data-node="3">
-            <div class="pillar-header">
-              <div class="pillar-icon-box accent-green">04</div>
-              <span class="pillar-metric">+81% Precision</span>
+            <div class="phase-bracket bracket-verify" id="bracket-verify">
+              <div class="bracket-line"></div>
+              <span class="bracket-title">I VERIFY</span>
+              <span class="bracket-sub">reliability and quality</span>
             </div>
-            <h3 class="pillar-name">Production Reliability &amp; Eval</h3>
-            <p class="pillar-desc">
-              Multi-stage synthetic data validation, automated regression test harnesses, and cost-latency
-              observability.
-            </p>
-            <div class="pillar-tags">
-              <span>FastAPI</span>
-              <span>PostgreSQL</span>
-              <span>Docker</span>
+
+            <div class="phase-bracket bracket-deploy" id="bracket-deploy">
+              <div class="bracket-line"></div>
+              <span class="bracket-title">I DEPLOY</span>
+              <span class="bracket-sub">to real users</span>
             </div>
-          </div>
-
-        </div>
-
-        <!-- Interactive SVG System Graph Connector -->
-        <div class="system-flow-wrap">
-          <svg class="system-flow-svg" id="system-flow-svg" viewBox="0 0 1000 80" preserveAspectRatio="none">
-            <path class="flow-track" d="M 120 40 L 370 40 L 620 40 L 870 40" />
-            <path class="flow-active-pulse" id="flow-pulse-path" d="M 120 40 L 370 40 L 620 40 L 870 40" />
-            <circle class="flow-node-dot" cx="120" cy="40" r="6" />
-            <circle class="flow-node-dot" cx="370" cy="40" r="6" />
-            <circle class="flow-node-dot" cx="620" cy="40" r="6" />
-            <circle class="flow-node-dot" cx="870" cy="40" r="6" />
-          </svg>
-          <div class="flow-caption">
-            <span>HOVER A PILLAR TO ENERGIZE SYSTEM DISPATCH PIPELINE</span>
           </div>
         </div>
       </div>
