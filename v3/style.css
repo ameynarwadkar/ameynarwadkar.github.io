@@ -237,7 +237,14 @@ html.lenis, html.lenis body {
   border-color: var(--text-primary);
 }
 
+/* ==========================================================================
+   GET IN TOUCH: CLAUDE "ULTRA EFFORT" VIOLET INTERACTION
+   ========================================================================== */
 .btn-nav-contact {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -249,15 +256,132 @@ html.lenis, html.lenis body {
   border-radius: 6px;
   letter-spacing: 0.06em;
   box-shadow: 0 0 14px rgba(217, 119, 87, 0.08);
-  transition: all 0.2s ease;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  transition: border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s ease;
 }
 
-.btn-nav-contact:hover {
-  transform: translateY(-1px);
-  background: var(--accent-bg);
-  border-color: var(--accent-bright);
+.btn-nav-contact .btn-nav-label {
+  position: relative;
+  z-index: 2;
+  transition: color 0.4s ease, text-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Layer 1: Ambient undulating violet/purple luminous glow pool */
+.btn-nav-contact::before {
+  content: "";
+  position: absolute;
+  inset: -80% -40%;
+  background: radial-gradient(
+    ellipse 65% 65% at 50% 50%,
+    rgba(168, 85, 247, 0.36) 0%,
+    rgba(139, 92, 246, 0.22) 36%,
+    rgba(99, 102, 241, 0.14) 65%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Layer 2: Moving violet light that fluidly sweeps across the button surface */
+.btn-nav-contact::after {
+  content: "";
+  position: absolute;
+  inset: -40% -120%;
+  background: linear-gradient(
+    108deg,
+    transparent 20%,
+    rgba(147, 51, 234, 0.12) 36%,
+    rgba(192, 132, 252, 0.32) 50%,
+    rgba(168, 85, 247, 0.18) 64%,
+    transparent 80%
+  );
+  filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate3d(-50%, 0, 0);
+}
+
+/* Hover & Focus States - 400-600ms ease, subtle border illumination & bloom */
+.btn-nav-contact:hover,
+.btn-nav-contact:focus-visible {
+  border-color: rgba(192, 132, 252, 0.48);
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.22),
+              0 0 36px rgba(126, 34, 206, 0.12),
+              inset 0 0 14px rgba(168, 85, 247, 0.16);
   color: #fff;
-  box-shadow: 0 0 20px var(--accent-glow);
+  outline: none;
+}
+
+.btn-nav-contact:hover .btn-nav-label,
+.btn-nav-contact:focus-visible .btn-nav-label {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(216, 180, 254, 0.45);
+}
+
+.btn-nav-contact:hover::before,
+.btn-nav-contact:focus-visible::before {
+  opacity: 1;
+  animation: ultraEffortAura 3.6s ease-in-out infinite alternate;
+}
+
+.btn-nav-contact:hover::after,
+.btn-nav-contact:focus-visible::after {
+  opacity: 1;
+  animation: ultraEffortSweep 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+@keyframes ultraEffortAura {
+  0% {
+    transform: translate3d(-12%, -8%, 0) scale(0.96);
+    filter: blur(8px) hue-rotate(0deg);
+  }
+  50% {
+    transform: translate3d(12%, 8%, 0) scale(1.06);
+    filter: blur(11px) hue-rotate(18deg);
+  }
+  100% {
+    transform: translate3d(-8%, 6%, 0) scale(1.0);
+    filter: blur(9px) hue-rotate(-8deg);
+  }
+}
+
+@keyframes ultraEffortSweep {
+  0% {
+    transform: translate3d(-60%, 0, 0);
+  }
+  100% {
+    transform: translate3d(60%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-nav-contact,
+  .btn-nav-contact .btn-nav-label,
+  .btn-nav-contact::before,
+  .btn-nav-contact::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .btn-nav-contact:hover::before,
+  .btn-nav-contact:focus-visible::before {
+    opacity: 0.65;
+    transform: none !important;
+  }
+  .btn-nav-contact:hover::after,
+  .btn-nav-contact:focus-visible::after {
+    opacity: 0;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 1024px) {
